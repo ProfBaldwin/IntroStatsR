@@ -1,0 +1,1001 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. 3.4 Discrete Probability Distributions &#8212; Introductory Statistics with R</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. 3.5 The Binomial Distribution" href="3.5%20The%20Binomial%20Distribution.html" />
+    <link rel="prev" title="7. 3.3 Addition Rules and Mutually Exclusive Events" href="3.3%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introductory Statistics with R</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Did it work?
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.0%20Sampling%20and%20Data.html">
+   1. Sampling and Data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.1%20Key%20Terms%20in%20Statistics.html">
+     1.1. Key Terms in Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.2%20Scales%20of%20Measurement.html">
+     1.2. Qualitative Data and Quantitative Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.3%20Sampling%20Techniques.html">
+     1.3. Sampling Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.4%20Tables%20and%20Charts.html">
+     1.4. Tables and Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.1%20Measures%20of%20Position.html">
+   2. 2.1 Measures of Position
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.2%20Measures%20of%20Central%20Tendency.html">
+   3. 2.2 Measures of Central Tendency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.3%20Measures%20of%20Dispersion.html">
+   4. 2.3 Measures of Dispersion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.1%20Introduction%20to%20Probability.html">
+   5. 3.1 Introduction to Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.2%20Multiplication%20Rules%20and%20Independent%20Events.html">
+   6. 3.2 Multiplication Rules and Independent Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.3%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html">
+   7. 3.3 Addition Rules and Mutually Exclusive Events
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   8. 3.4 Discrete Probability Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.5%20The%20Binomial%20Distribution.html">
+   9. 3.5 The Binomial Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.1%20The%20Standard%20Normal%20Distribution.html">
+   10. 4.1 The Standard Normal Distribution#
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.2%20The%20Normal%20Distribution%20and%20z-scores.html">
+   11. 4.2 The Normal Distribution and
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+   -Scores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html">
+   12. 4.3 The Central Limit Theorem for Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.4%20The%20Central%20Limit%20Theorem%20for%20Proportions.html">
+   13. 4.4 The Central Limit Theorem for Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.1%20Estimating%20Population%20Means%20%28Sigma%20Known%29.html">
+   14. 5.1 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Known)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.2%20Estimating%20Population%20Proportions.html">
+   15. 5.2 Estimating Population Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.3%20Student%27s%20t-Distribution.html">
+   16. 5.3 Student’s
+   <span class="math notranslate nohighlight">
+    \(t\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.4%20Estimating%20Population%20Means%20%28Sigma%20Unknown%29.html">
+   17. 5.4 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Unknown)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html">
+   18. 6.1 An Introduction to Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.2%20Hypotheses%20and%20Errors.html">
+   19. 6.2 Hypotheses and Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.3%20Rare%20Events%2C%20the%20Sample%2C%20Decision%20and%20Conclusion.html">
+   20. 6.3 Rare Events, the Sample, Decision, and Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html">
+   21. 6.4 Hypothesis Tests of One Population
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.1%20The%20Chi-Square%20Distribution.html">
+   22. 7.1 The
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html">
+   23. 7.2 Hypothesis Testing for the Population Variance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.3%20Goodness-of-Fit%20Test.html">
+   24. 7.3 Goodness of Fit Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.1%20Scatter%20Plots.html">
+   25. 8.1 Scatter Plots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.2%20Linear%20Equations.html">
+   26. 8.2 Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.3%20The%20Regression%20Equation.html">
+   27. 8.3 The Regression Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.4%20The%20Correlation%20Coefficient.html">
+   28. 8.4 The Correlation Coefficient
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.1%20Hypothesis%20Testing%20Two%20Population%20Means.html">
+   29. 9.1 Hypothesis Testing: Two Population Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.2%20Hypothesis%20Testing%20Two%20Population%20Variances.html">
+   30. 9.2 Hypothesis Testing Two Population Variances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.3%20ANOVA.html">
+   31. 9.3 ANOVA
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Ch3 Probability/3.4 Discrete Probability Distributions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Ch3 Probability/3.4 Discrete Probability Distributions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Ch3 Probability/3.4 Discrete Probability Distributions.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   8.1. Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-discrete-probability-distribution-function">
+   8.2. A Discrete Probability Distribution Function
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-4-1">
+     Example 3.4.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-4-2">
+     Example 3.4.2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-1">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-2">
+         Part 2
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-3">
+         Part 3
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expected-value">
+   8.3. Expected Value
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-4-3">
+     Example 3.4.3
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-4-4">
+     Example 3.4.4
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Solution
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standard-deviation">
+   8.4. Standard Deviation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-4-5">
+     Example 3.4.5
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id4">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id5">
+         Part 2
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-4-6">
+     Example 3.4.6
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id7">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id8">
+         Part 2
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-4-7">
+     Example 3.4.7
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="discrete-probability-distributions">
+<h1><span class="section-number">8. </span>3.4 Discrete Probability Distributions<a class="headerlink" href="#discrete-probability-distributions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objectives">
+<h2><span class="section-number">8.1. </span>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Apply probability and counting rules (including addition and multiplication rules) as pertaining to both continuous random variables and discrete random variables.</p></li>
+<li><p>Analyze an application in the disciplines business, social sciences, psychology, life sciences, health science, and education, and utilize the correct statistical processes to arrive at a solution.</p></li>
+</ul>
+</div>
+<div class="section" id="a-discrete-probability-distribution-function">
+<h2><span class="section-number">8.2. </span>A Discrete Probability Distribution Function<a class="headerlink" href="#a-discrete-probability-distribution-function" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>discrete probability distribution function</strong> has two characteristics:</p>
+<ol class="simple">
+<li><p>Each probability is between zero and one, inclusive.</p></li>
+<li><p>The sum of the probabilities is one.</p></li>
+</ol>
+<hr class="docutils" />
+<div class="section" id="example-3-4-1">
+<h3>Example 3.4.1<a class="headerlink" href="#example-3-4-1" title="Permalink to this headline">¶</a></h3>
+<p>A child psychologist is interested in the number of times a newborn baby’s crying wakes its mother after midnight. For a random sample of 50 mothers, the following information was obtained. Let <span class="math notranslate nohighlight">\(X\)</span> = the number of times per week a newborn baby’s crying wakes its mother after midnight. For this example, <span class="math notranslate nohighlight">\(x = 0, 1, 2, 3, 4, 5\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(P(x)\)</span> = probability that <span class="math notranslate nohighlight">\(X\)</span> takes on a value <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>x</p></th>
+<th class="head"><p>P(x)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>P(x = 0) =  <span class="math notranslate nohighlight">\(\dfrac{2}{50}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>P(x = 1) =  <span class="math notranslate nohighlight">\(\dfrac{11}{50}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>P(x = 2) =  <span class="math notranslate nohighlight">\(\dfrac{23}{50}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>P(x = 3) =  <span class="math notranslate nohighlight">\(\dfrac{9}{50}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>P(x = 4) =  <span class="math notranslate nohighlight">\(\dfrac{4}{50}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>P(x = 5) =  <span class="math notranslate nohighlight">\(\dfrac{1}{50}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math notranslate nohighlight">\(X\)</span> takes on the values 0, 1, 2, 3, 4, 5. This is a discrete PDF because:</p>
+<ol class="simple">
+<li><p>Each <span class="math notranslate nohighlight">\(P(x)\)</span> is between zero and one, inclusive.</p></li>
+<li><p>The sum of the probabilities is one, that is,
+$<span class="math notranslate nohighlight">\( \frac{2}{50} + \frac{11}{50} + \frac{23}{50} + \frac{9}{50} + \frac{4}{50} + \frac{1}{50} = 1 \)</span>$</p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-3-4-2">
+<h3>Example 3.4.2<a class="headerlink" href="#example-3-4-2" title="Permalink to this headline">¶</a></h3>
+<p>Suppose Nancy has classes <strong>three days</strong> a week. She attends classes <strong>three days a week 80%</strong> of the time, <strong>two days 15%</strong> of the time, <strong>one day 4%</strong> of the time, and <strong>no days 1%</strong> of the time. Suppose one week is randomly selected.</p>
+<ol class="simple">
+<li><p>What is <span class="math notranslate nohighlight">\(X\)</span>?</p></li>
+<li><p><span class="math notranslate nohighlight">\(X\)</span> takes on what values?</p></li>
+<li><p>Construct a probability distirbution table like the one in example 4.1. The table should have two columns labeled <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(P(x)\)</span>. What does the <span class="math notranslate nohighlight">\(P(x)\)</span> column sum up to?</p></li>
+</ol>
+<div class="section" id="solution">
+<h4>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="part-1">
+<h5>Part 1<a class="headerlink" href="#part-1" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(X\)</span> = the number of days Nancy attends class.</p>
+</div>
+<div class="section" id="part-2">
+<h5>Part 2<a class="headerlink" href="#part-2" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(X\)</span> takes on the values <span class="math notranslate nohighlight">\(x = 0, 1, 2, 3\)</span>.</p>
+</div>
+<div class="section" id="part-3">
+<h5>Part 3<a class="headerlink" href="#part-3" title="Permalink to this headline">¶</a></h5>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>x</p></th>
+<th class="head"><p>P(x)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.04</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0.15</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>0.80</p></td>
+</tr>
+</tbody>
+</table>
+<p>If we add up the values in the <span class="math notranslate nohighlight">\(P(x)\)</span> column, we get
+$<span class="math notranslate nohighlight">\(0.01 + 0.04 + 0.15 + 0.80 = 1.00\)</span>$</p>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="expected-value">
+<h2><span class="section-number">8.3. </span>Expected Value<a class="headerlink" href="#expected-value" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>expected value</strong> is often referred to as the <strong>“long-term” average or mean</strong>. This means that over the long term of doing an experiment over and over, you would <strong>expect</strong> this average.</p>
+<p>You toss a coin and record the result. What is the probability that the result is heads? If you flip a coin two times, does probability tell you that these flips will result in one heads and one tail? You might toss a fair coin ten times and record nine heads. Recall that probability does not describe the short-term results of an experiment. It gives information about what can be expected in the long term. To demonstrate this, Karl Pearson once tossed a fair coin 24,000 times! He recorded the results of each toss, obtaining heads 12,012 times. <strong>In his experiment, Pearson illustrated the Law of Large Numbers</strong>.</p>
+<p><strong>The Law of Large Numbers</strong> states that, as the number of trials in a probability experiment increases, the difference between the theoretical probability of an event and the relative frequency approaches zero <strong>(the theoretical probability and the relative frequency get closer and closer together)</strong>. When evaluating the long-term results of statistical experiments, we often want to know the “average” outcome. This “long-term average” is known as the <strong>mean</strong> or <strong>expected value</strong> of the experiment and is denoted by the Greek letter <span class="math notranslate nohighlight">\(\mu\)</span>. In other words, after conducting many trials of an experiment, you would expect this average value.</p>
+<p>The expected value of a discrete probability distribution function can be found using the formula
+$<span class="math notranslate nohighlight">\( \mu = \sum xP(x) \)</span><span class="math notranslate nohighlight">\(
+In words, we multiply each value \)</span>x<span class="math notranslate nohighlight">\( by the probability \)</span>P(x)<span class="math notranslate nohighlight">\( that the value will occur. Then we add up the products \)</span>xP(x)$.</p>
+<hr class="docutils" />
+<div class="section" id="example-3-4-3">
+<h3>Example 3.4.3<a class="headerlink" href="#example-3-4-3" title="Permalink to this headline">¶</a></h3>
+<p>A men’s soccer team plays soccer zero, one, or two days a week. The probability that they play zero days is 0.2, the probability that they play one day is 0.5, and the probability that they play two days is 0.3. Find the long-term average or expected value, <span class="math notranslate nohighlight">\(\mu\)</span>, of the number of days per week the men’s soccer team plays soccer.</p>
+<div class="section" id="id1">
+<h4>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(X\)</span> = the number of days the men’s soccer team plays soccer per week. <span class="math notranslate nohighlight">\(X\)</span> takes on the values 0, 1, 2 and has the probability distribution table below.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>x</p></th>
+<th class="head"><p>P(x)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>0.5</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>0.3</p></td>
+</tr>
+</tbody>
+</table>
+<p>We will use R to find the expected value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span>
+<span class="n">Px</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.2</span><span class="p">,</span> <span class="m">0.5</span><span class="p">,</span> <span class="m">0.3</span><span class="p">)</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">Px</span><span class="p">)</span>
+<span class="n">mu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1.1</div></div>
+</div>
+<p>The mean or expected value of the distribution is <span class="math notranslate nohighlight">\(\mu = 1.1\)</span> games per week.</p>
+<p>Note that the line</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">xPx</span> <span class="o">&lt;-</span> <span class="n">x</span> <span class="o">*</span> <span class="n">Px</span>
+</pre></div>
+</div>
+<p>multiplies the values in the list <code>x</code> by the corresponding probabilities in the list <code>Px</code>. The list of products is stored in <code>xPx</code>. For example, the first number in the list <code>xPx</code> is <span class="math notranslate nohighlight">\(0(0.2) = 0\)</span>, the second number is <span class="math notranslate nohighlight">\(1(0.5) = 0.5\)</span>, and the last number is <span class="math notranslate nohighlight">\(2(0.3) = 0.6\)</span>.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-3-4-4">
+<h3>Example 3.4.4<a class="headerlink" href="#example-3-4-4" title="Permalink to this headline">¶</a></h3>
+<p>Suppose you play a game of chance in which five numbers are chosen from 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. A computer randomly selects five numbers from zero to nine with replacement. You pay \$2 to play and could profit $100,000 if you match all five numbers in order (you get your $2 back plus $100,000). Over the long term, what is your <strong>expected</strong> profit of playing the game?</p>
+<div class="section" id="id2">
+<h4>Solution<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p>Let’s first construct a probability distribution table. <span class="math notranslate nohighlight">\(X\)</span> = the amount of money you profit from playing the game. The values that <span class="math notranslate nohighlight">\(X\)</span> can take on are <span class="math notranslate nohighlight">\(x = -2\)</span> and <span class="math notranslate nohighlight">\(x = 100,000\)</span>. (Note, since we are ultimately interested in the profit, the values are not 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.)</p>
+<p>Now let’s look at the probability of winning the game. Let</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N_1\)</span> = the event you pick the right 1st number</p></li>
+<li><p><span class="math notranslate nohighlight">\(N_2\)</span> = the event you pick the right 2nd number</p></li>
+<li><p><span class="math notranslate nohighlight">\(N_3\)</span> = the event you pick the right 3rd number</p></li>
+<li><p><span class="math notranslate nohighlight">\(N_4\)</span> = the event you pick the right 4th number</p></li>
+<li><p><span class="math notranslate nohighlight">\(N_5\)</span> = the event you pick the right 5th number</p></li>
+</ul>
+<p>The probability that you win is</p>
+<div class="math notranslate nohighlight">
+\[ P(x = 100,000) = P(N_1\text{ AND }N_2\text{ AND }N_3\text{ AND }N_4\text{ AND }N_5) \]</div>
+<p>Note that since the numbers are chosen <em>with replacement</em>, <span class="math notranslate nohighlight">\(N_1\)</span>, <span class="math notranslate nohighlight">\(N_2\)</span>, <span class="math notranslate nohighlight">\(N_3\)</span>, <span class="math notranslate nohighlight">\(N_4\)</span>, and <span class="math notranslate nohighlight">\(N_5\)</span> are all independent events. Thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+P(N_1\text{ AND }N_2\text{ AND }N_3\text{ AND }N_4\text{ AND }N_5) 
+&amp;= P(N_1)P(N_2)P(N_3)P(N_4)P(N_5) \\
+&amp;= \left(\frac{1}{10}\right)\left(\frac{1}{10}\right)\left(\frac{1}{10}\right)\left(\frac{1}{10}\right)\left(\frac{1}{10}\right)\\
+&amp;= \frac{1}{10^5} \\
+&amp;= 0.00001
+\end{align}\end{split}\]</div>
+<p>So the probability that you win is <span class="math notranslate nohighlight">\(P(x = 100,000) = 0.00001\)</span>. Since there is a 100% chance that you either win or lose, the probability that you lose is</p>
+<div class="math notranslate nohighlight">
+\[ P(x = -2) = 1.00 - 0.00001 = 0.99999. \]</div>
+<p>The probability distribution table for this problem is</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>x</p></th>
+<th class="head"><p>P(x)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Lose</p></td>
+<td><p>–2</p></td>
+<td><p>0.99999</p></td>
+</tr>
+<tr class="row-odd"><td><p>Win</p></td>
+<td><p>100,000</p></td>
+<td><p>0.00001</p></td>
+</tr>
+</tbody>
+</table>
+<p>Now use R to calculate the expected value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span> <span class="m">100000</span><span class="p">)</span>
+<span class="n">Px</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.99999</span><span class="p">,</span> <span class="m">0.00001</span><span class="p">)</span>
+
+<span class="n">mu</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">Px</span><span class="p">)</span>
+<span class="n">mu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">-0.99998</div></div>
+</div>
+<p>The expected value is <span class="math notranslate nohighlight">\(\mu = -\$0.99998\)</span>. This means if you played this game many times, you would lose an average of about $1 per game.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="standard-deviation">
+<h2><span class="section-number">8.4. </span>Standard Deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this headline">¶</a></h2>
+<p>The standard deviation, <span class="math notranslate nohighlight">\(\sigma\)</span> of a discrete probability distribution function is</p>
+<div class="math notranslate nohighlight">
+\[ \sigma = \sqrt{\sum\left[(x - \mu)^2 P(x)\right]}, \]</div>
+<p>where <span class="math notranslate nohighlight">\(\mu\)</span> is the expected value of the distribution.</p>
+<p>When all outcomes in the probability distribution are equally likely, the expected value formula and the standard deviation formula above are equivalent to the mean and standard deviation formulas we learned earlier.</p>
+<hr class="docutils" />
+<div class="section" id="example-3-4-5">
+<h3>Example 3.4.5<a class="headerlink" href="#example-3-4-5" title="Permalink to this headline">¶</a></h3>
+<p>Patients who have had an appendectomy must stay in the hospital for 1, 2, or 3 days. Patients stay in the hospital for 1 day 40% of the time, for 2 days 55% of the time, and for 3 days 5% of the time.</p>
+<ol class="simple">
+<li><p>How long should a patient <strong>expect</strong> to stay in the hospital?</p></li>
+<li><p>What is the standard deviation?</p></li>
+</ol>
+<div class="section" id="id3">
+<h4>Solution<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(X\)</span> = the number of days the patient stays in the hosplital. The possible values of <span class="math notranslate nohighlight">\(X\)</span> are <span class="math notranslate nohighlight">\(x = 1, 2, 3\)</span>. First, construct a probability distribution table.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>x</p></th>
+<th class="head"><p>P(x)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0.40</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>0.55</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>0.05</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id4">
+<h5>Part 1<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">Px</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.40</span><span class="p">,</span> <span class="m">0.55</span><span class="p">,</span> <span class="m">0.05</span><span class="p">)</span>
+
+<span class="c1"># Calculate the Mean</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">Px</span><span class="p">)</span>
+<span class="n">mu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1.65</div></div>
+</div>
+<p>The expected value is <span class="math notranslate nohighlight">\(\mu = 1.65\)</span>. A patient should expect to spend, on average, 1.65 days in the hospital after surgery.</p>
+</div>
+<div class="section" id="id5">
+<h5>Part 2<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the Standard Deviation</span>
+<span class="n">variance</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="n">^2</span> <span class="o">*</span> <span class="n">Px</span> <span class="p">)</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">variance</span><span class="p">)</span>
+<span class="n">sigma</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.57227615711298</div></div>
+</div>
+<p>So the standard deviation is <span class="math notranslate nohighlight">\(\sigma = 0.572\)</span>.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-3-4-6">
+<h3>Example 3.4.6<a class="headerlink" href="#example-3-4-6" title="Permalink to this headline">¶</a></h3>
+<p>A hospital researcher is interested in the number of times the average post-op patient will ring the nurse during a 12-hour shift. For a random sample of 50 patients, the following information was obtained.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>x</p></th>
+<th class="head"><p>P(x)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>P(x = 0) =  <span class="math notranslate nohighlight">\(\dfrac{4}{50}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>P(x = 1) =  <span class="math notranslate nohighlight">\(\dfrac{8}{50}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>P(x = 2) =  <span class="math notranslate nohighlight">\(\dfrac{16}{50}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>P(x = 3) =  <span class="math notranslate nohighlight">\(\dfrac{14}{50}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>P(x = 4) =  <span class="math notranslate nohighlight">\(\dfrac{6}{50}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>P(x = 5) =  <span class="math notranslate nohighlight">\(\dfrac{2}{50}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<ol class="simple">
+<li><p>Find the mean.</p></li>
+<li><p>Find the standard deviation.</p></li>
+</ol>
+<div class="section" id="id6">
+<h4>Solution<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id7">
+<h5>Part 1<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h5>
+<p>Remember, for a probability distribution function, the mean and the expected value are the same thing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+<span class="n">Px</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="o">/</span><span class="m">50</span><span class="p">,</span> <span class="m">8</span><span class="o">/</span><span class="m">50</span><span class="p">,</span> <span class="m">16</span><span class="o">/</span><span class="m">50</span><span class="p">,</span> <span class="m">14</span><span class="o">/</span><span class="m">50</span><span class="p">,</span> <span class="m">6</span><span class="o">/</span><span class="m">50</span><span class="p">,</span> <span class="m">2</span><span class="o">/</span><span class="m">50</span><span class="p">)</span>
+
+<span class="c1"># Calculate the Mean</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">Px</span><span class="p">)</span>
+<span class="n">mu</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">2.32</div></div>
+</div>
+<p>The mean or expected value is <span class="math notranslate nohighlight">\(\mu = 2.32\)</span> times a patient will ring the nurse on average.</p>
+</div>
+<div class="section" id="id8">
+<h5>Part 2<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the Standard Deviation</span>
+<span class="n">variance</span> <span class="o">&lt;-</span> <span class="nf">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span><span class="n">^2</span> <span class="o">*</span> <span class="n">Px</span> <span class="p">)</span>
+<span class="n">sigma</span> <span class="o">&lt;-</span> <span class="nf">sqrt</span><span class="p">(</span><span class="n">variance</span><span class="p">)</span>
+<span class="n">sigma</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1.22376468326227</div></div>
+</div>
+<p>The standard deviation is <span class="math notranslate nohighlight">\(\sigma = 1.224\)</span>.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-3-4-7">
+<h3>Example 3.4.7<a class="headerlink" href="#example-3-4-7" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**VID=CgjMkdYCCBg**#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><small style="color:gray"><b>License:</b> This work is licensed under a <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license.</small></p>
+<p><small style="color:gray"><b>Author:</b> Taylor Baldwin, Mt. San Jacinto College</small></p>
+<p><small style="color:gray"><b>Adapted From:</b> <i>Introductory Statistics</i>, by Barbara Illowsky and Susan Dean. Access for free at <a class="reference external" href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./Ch3 Probability"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="3.3%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">7. </span>3.3 Addition Rules and Mutually Exclusive Events</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="3.5%20The%20Binomial%20Distribution.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">9. </span>3.5 The Binomial Distribution</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Taylor Baldwin <br/><br/><small>This work is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. It is adapted from <i>Introductory Statistics</i> by Barbara Illowsky and Susan Dean, which is published by <a href="https://openstax.org/">OpenStax</a> and licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Access for free at <a href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small><br/><br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

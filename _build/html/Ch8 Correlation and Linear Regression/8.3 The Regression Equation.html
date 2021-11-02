@@ -1,0 +1,745 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>27. 8.3 The Regression Equation &#8212; Introductory Statistics with R</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="28. 8.4 The Correlation Coefficient" href="8.4%20The%20Correlation%20Coefficient.html" />
+    <link rel="prev" title="26. 8.2 Linear Equations" href="8.2%20Linear%20Equations.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introductory Statistics with R</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Did it work?
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.0%20Sampling%20and%20Data.html">
+   1. Sampling and Data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.1%20Key%20Terms%20in%20Statistics.html">
+     1.1. Key Terms in Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.2%20Scales%20of%20Measurement.html">
+     1.2. Qualitative Data and Quantitative Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.3%20Sampling%20Techniques.html">
+     1.3. Sampling Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.4%20Tables%20and%20Charts.html">
+     1.4. Tables and Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.1%20Measures%20of%20Position.html">
+   2. 2.1 Measures of Position
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.2%20Measures%20of%20Central%20Tendency.html">
+   3. 2.2 Measures of Central Tendency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.3%20Measures%20of%20Dispersion.html">
+   4. 2.3 Measures of Dispersion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.1%20Introduction%20to%20Probability.html">
+   5. 3.1 Introduction to Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.2%20Multiplication%20Rules%20and%20Independent%20Events.html">
+   6. 3.2 Multiplication Rules and Independent Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.3%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html">
+   7. 3.3 Addition Rules and Mutually Exclusive Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.4%20Discrete%20Probability%20Distributions.html">
+   8. 3.4 Discrete Probability Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.5%20The%20Binomial%20Distribution.html">
+   9. 3.5 The Binomial Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.1%20The%20Standard%20Normal%20Distribution.html">
+   10. 4.1 The Standard Normal Distribution#
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.2%20The%20Normal%20Distribution%20and%20z-scores.html">
+   11. 4.2 The Normal Distribution and
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+   -Scores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html">
+   12. 4.3 The Central Limit Theorem for Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.4%20The%20Central%20Limit%20Theorem%20for%20Proportions.html">
+   13. 4.4 The Central Limit Theorem for Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.1%20Estimating%20Population%20Means%20%28Sigma%20Known%29.html">
+   14. 5.1 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Known)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.2%20Estimating%20Population%20Proportions.html">
+   15. 5.2 Estimating Population Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.3%20Student%27s%20t-Distribution.html">
+   16. 5.3 Student’s
+   <span class="math notranslate nohighlight">
+    \(t\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.4%20Estimating%20Population%20Means%20%28Sigma%20Unknown%29.html">
+   17. 5.4 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Unknown)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html">
+   18. 6.1 An Introduction to Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.2%20Hypotheses%20and%20Errors.html">
+   19. 6.2 Hypotheses and Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.3%20Rare%20Events%2C%20the%20Sample%2C%20Decision%20and%20Conclusion.html">
+   20. 6.3 Rare Events, the Sample, Decision, and Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html">
+   21. 6.4 Hypothesis Tests of One Population
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.1%20The%20Chi-Square%20Distribution.html">
+   22. 7.1 The
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html">
+   23. 7.2 Hypothesis Testing for the Population Variance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.3%20Goodness-of-Fit%20Test.html">
+   24. 7.3 Goodness of Fit Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8.1%20Scatter%20Plots.html">
+   25. 8.1 Scatter Plots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8.2%20Linear%20Equations.html">
+   26. 8.2 Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   27. 8.3 The Regression Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8.4%20The%20Correlation%20Coefficient.html">
+   28. 8.4 The Correlation Coefficient
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.1%20Hypothesis%20Testing%20Two%20Population%20Means.html">
+   29. 9.1 Hypothesis Testing: Two Population Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.2%20Hypothesis%20Testing%20Two%20Population%20Variances.html">
+   30. 9.2 Hypothesis Testing Two Population Variances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.3%20ANOVA.html">
+   31. 9.3 ANOVA
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Ch8 Correlation and Linear Regression/8.3 The Regression Equation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Ch8 Correlation and Linear Regression/8.3 The Regression Equation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Ch8 Correlation and Linear Regression/8.3 The Regression Equation.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   27.1. Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   27.2. The Regression Equation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-1">
+     Example 3.1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-1">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-2">
+         Part 2
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-3">
+         Step 3
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-2">
+     Example 3.2
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-regression-equation">
+<h1><span class="section-number">27. </span>8.3 The Regression Equation<a class="headerlink" href="#the-regression-equation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objectives">
+<h2><span class="section-number">27.1. </span>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Create, analyze, and interpret statistical graphs including histograms, dot plots, stem-and-leaf plots, box plots, and scatter plots.</p></li>
+<li><p>Analyze and interpret bivariate data using scatter plots, correlation, and linear regression analysis to determine what would be the prediction for a certain value.</p></li>
+<li><p>Analyze an application in the disciplines business, social sciences, psychology, life sciences, health science, and education, and utilize the correct statistical processes to arrive at a solution.</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2><span class="section-number">27.2. </span>The Regression Equation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Data rarely fit a straight line exactly. Usually, you must be satisfied with rough predictions. Typically, you have a set of data whose scatter plot appears to <strong>“fit”</strong> a straight line. This is called a <strong>Line of Best Fit</strong> or <strong>Least-Squares Line</strong>.</p>
+<p>We can use R to find the coefficients of the line of best fit using the function:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, <code>y~x</code> means the list of values in <code>y</code> depends on the list of values in <code>x</code>. The function <code>lm(y~x)</code> returns the coefficients of the <strong>l</strong>inear <strong>m</strong>odel that best fits the data.</p>
+<p>For example, imagine we have the following data:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>x</p></th>
+<th class="head"><p>y</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>13</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>-2</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>12</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+<p>We can use R to find the coefficients of the line of best fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">11</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">6</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">13</span><span class="p">,</span> <span class="m">-2</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">8</span><span class="p">)</span>
+
+<span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y ~ x)
+
+Coefficients:
+(Intercept)            x  
+     -0.625        1.375  
+</pre></div>
+</div>
+</div>
+</div>
+<p>These give us the <span class="math notranslate nohighlight">\(y\)</span>-value of the <span class="math notranslate nohighlight">\(y\)</span>-intercept, <span class="math notranslate nohighlight">\(a = -0.625\)</span>, and the slope, <span class="math notranslate nohighlight">\(b = 1.375\)</span>. So the line of best fit for the data is</p>
+<div class="math notranslate nohighlight">
+\[ y = -0.625 + 1.375x \]</div>
+<p>We can graph this line <em>after</em> graphing the scatterplot using the function <code>abline</code>:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">abline</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here <code>a</code> is the <span class="math notranslate nohighlight">\(a\)</span> coefficient and <code>b</code> is the <span class="math notranslate nohighlight">\(b\)</span> coefficient in the linear equation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**ALT=Scatter plot of above data with the best fit line going through it.**#</span>
+<span class="c1"># Graph the scatter plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Plot the line</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="m">-0.625</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="m">1.375</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8.3 The Regression Equation_5_0.png" src="../_images/8.3 The Regression Equation_5_0.png" />
+</div>
+</div>
+<p>The line graphed is the best fit for the data points. We can use the equation of the best fit line to predict the <span class="math notranslate nohighlight">\(y\)</span>-value that would correlate to an <span class="math notranslate nohighlight">\(x\)</span>-value.</p>
+<p>For example, we might want to predict what <span class="math notranslate nohighlight">\(y\)</span> would be if <span class="math notranslate nohighlight">\(x = 6.5\)</span>. We can best predict the <span class="math notranslate nohighlight">\(y\)</span>-value by plugging <span class="math notranslate nohighlight">\(x = 6.5\)</span> into the equation of the best fit line:</p>
+<div class="math notranslate nohighlight">
+\[ y = -0.625 + 1.375x = -0.625 + 1.375(6.5) = 8.3125. \]</div>
+<p>So if <span class="math notranslate nohighlight">\(x = 6.5\)</span>, we predict that <span class="math notranslate nohighlight">\(y = 8.3125\)</span>.</p>
+<hr class="docutils" />
+<div class="section" id="example-3-1">
+<h3>Example 3.1<a class="headerlink" href="#example-3-1" title="Permalink to this headline">¶</a></h3>
+<p>A random sample of 11 statistics students produced the following data, where <span class="math notranslate nohighlight">\(x\)</span> is the third exam score out of 80, and <span class="math notranslate nohighlight">\(y\)</span> is the final exam score out of 200.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>x (third exam score)</p></th>
+<th class="head"><p>y (final exam score)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>65</p></td>
+<td><p>175</p></td>
+</tr>
+<tr class="row-odd"><td><p>67</p></td>
+<td><p>133</p></td>
+</tr>
+<tr class="row-even"><td><p>71</p></td>
+<td><p>185</p></td>
+</tr>
+<tr class="row-odd"><td><p>71</p></td>
+<td><p>163</p></td>
+</tr>
+<tr class="row-even"><td><p>66</p></td>
+<td><p>126</p></td>
+</tr>
+<tr class="row-odd"><td><p>75</p></td>
+<td><p>198</p></td>
+</tr>
+<tr class="row-even"><td><p>67</p></td>
+<td><p>153</p></td>
+</tr>
+<tr class="row-odd"><td><p>70</p></td>
+<td><p>163</p></td>
+</tr>
+<tr class="row-even"><td><p>71</p></td>
+<td><p>159</p></td>
+</tr>
+<tr class="row-odd"><td><p>69</p></td>
+<td><p>151</p></td>
+</tr>
+<tr class="row-even"><td><p>69</p></td>
+<td><p>159</p></td>
+</tr>
+</tbody>
+</table>
+<ol class="simple">
+<li><p>Find the best fit line for the data.</p></li>
+<li><p>Graph the scatter plot of the data together with the best fit line.</p></li>
+<li><p>Predict a student’s final exam score if their third exam score is 73.</p></li>
+</ol>
+<div class="section" id="solution">
+<h4>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="part-1">
+<h5>Part 1<a class="headerlink" href="#part-1" title="Permalink to this headline">¶</a></h5>
+<p>We will use R to find the coefficients of the line of best fit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">65</span><span class="p">,</span> <span class="m">67</span><span class="p">,</span> <span class="m">71</span><span class="p">,</span> <span class="m">71</span><span class="p">,</span> <span class="m">66</span><span class="p">,</span> <span class="m">75</span><span class="p">,</span> <span class="m">67</span><span class="p">,</span> <span class="m">70</span><span class="p">,</span> <span class="m">71</span><span class="p">,</span> <span class="m">69</span><span class="p">,</span> <span class="m">69</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">175</span><span class="p">,</span> <span class="m">133</span><span class="p">,</span> <span class="m">185</span><span class="p">,</span> <span class="m">163</span><span class="p">,</span> <span class="m">125</span><span class="p">,</span> <span class="m">198</span><span class="p">,</span> <span class="m">153</span><span class="p">,</span> <span class="m">163</span><span class="p">,</span> <span class="m">159</span><span class="p">,</span> <span class="m">151</span><span class="p">,</span> <span class="m">159</span><span class="p">)</span>
+
+<span class="nf">lm</span><span class="p">(</span><span class="n">y</span><span class="o">~</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Call:
+lm(formula = y ~ x)
+
+Coefficients:
+(Intercept)            x  
+   -176.301        4.866  
+</pre></div>
+</div>
+</div>
+</div>
+<p>The coefficients of the best fit line are <span class="math notranslate nohighlight">\(a = -176.301\)</span> and <span class="math notranslate nohighlight">\(b = 4.866\)</span>. So the best fit line is</p>
+<div class="math notranslate nohighlight">
+\[ y= -176.301 + 4.866x. \]</div>
+</div>
+<div class="section" id="part-2">
+<h5>Part 2<a class="headerlink" href="#part-2" title="Permalink to this headline">¶</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**ALT=Graph of a scatter plot of the data in example 3.1 together with the best fit line.**#</span>
+<span class="c1"># Graph of the scatter plot</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="c1"># Plot of the best fit line</span>
+<span class="nf">abline</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="m">-176.301</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="m">4.866</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8.3 The Regression Equation_11_0.png" src="../_images/8.3 The Regression Equation_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="step-3">
+<h5>Step 3<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h5>
+<p>If the third exam score is 73, we can predict the final exam score by plugging in <span class="math notranslate nohighlight">\(x = 73\)</span> into the equation for the best fit line:</p>
+<div class="math notranslate nohighlight">
+\[ y = -176.301 + 4.866x = -176.301 + 4.866(73) = 178.917. \]</div>
+<p>So if a student scores 73 points on the third exam, we predict that their final exam score would be about 178.917 points.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-3-2">
+<h3>Example 3.2<a class="headerlink" href="#example-3-2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**VID=CVG6NpBaJpQ**#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><small style="color:gray"><b>License:</b> This work is licensed under a <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license.</small></p>
+<p><small style="color:gray"><b>Author:</b> Taylor Baldwin, Mt. San Jacinto College</small></p>
+<p><small style="color:gray"><b>Adapted From:</b> <i>Introductory Statistics</i>, by Barbara Illowsky and Susan Dean. Access for free at <a class="reference external" href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./Ch8 Correlation and Linear Regression"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="8.2%20Linear%20Equations.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">26. </span>8.2 Linear Equations</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="8.4%20The%20Correlation%20Coefficient.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">28. </span>8.4 The Correlation Coefficient</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Taylor Baldwin <br/><br/><small>This work is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. It is adapted from <i>Introductory Statistics</i> by Barbara Illowsky and Susan Dean, which is published by <a href="https://openstax.org/">OpenStax</a> and licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Access for free at <a href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small><br/><br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

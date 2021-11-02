@@ -1,0 +1,782 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>17. 5.4 Estimating Population Means (\(\sigma\) Unknown) &#8212; Introductory Statistics with R</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="18. 6.1 An Introduction to Hypothesis Testing" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html" />
+    <link rel="prev" title="16. 5.3 Student’s \(t\)-Distribution" href="5.3%20Student%27s%20t-Distribution.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introductory Statistics with R</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Did it work?
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.0%20Sampling%20and%20Data.html">
+   1. Sampling and Data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.1%20Key%20Terms%20in%20Statistics.html">
+     1.1. Key Terms in Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.2%20Scales%20of%20Measurement.html">
+     1.2. Qualitative Data and Quantitative Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.3%20Sampling%20Techniques.html">
+     1.3. Sampling Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.4%20Tables%20and%20Charts.html">
+     1.4. Tables and Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.1%20Measures%20of%20Position.html">
+   2. 2.1 Measures of Position
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.2%20Measures%20of%20Central%20Tendency.html">
+   3. 2.2 Measures of Central Tendency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.3%20Measures%20of%20Dispersion.html">
+   4. 2.3 Measures of Dispersion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.1%20Introduction%20to%20Probability.html">
+   5. 3.1 Introduction to Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.2%20Multiplication%20Rules%20and%20Independent%20Events.html">
+   6. 3.2 Multiplication Rules and Independent Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.3%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html">
+   7. 3.3 Addition Rules and Mutually Exclusive Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.4%20Discrete%20Probability%20Distributions.html">
+   8. 3.4 Discrete Probability Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.5%20The%20Binomial%20Distribution.html">
+   9. 3.5 The Binomial Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.1%20The%20Standard%20Normal%20Distribution.html">
+   10. 4.1 The Standard Normal Distribution#
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.2%20The%20Normal%20Distribution%20and%20z-scores.html">
+   11. 4.2 The Normal Distribution and
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+   -Scores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html">
+   12. 4.3 The Central Limit Theorem for Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.4%20The%20Central%20Limit%20Theorem%20for%20Proportions.html">
+   13. 4.4 The Central Limit Theorem for Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5.1%20Estimating%20Population%20Means%20%28Sigma%20Known%29.html">
+   14. 5.1 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Known)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5.2%20Estimating%20Population%20Proportions.html">
+   15. 5.2 Estimating Population Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5.3%20Student%27s%20t-Distribution.html">
+   16. 5.3 Student’s
+   <span class="math notranslate nohighlight">
+    \(t\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   17. 5.4 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Unknown)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html">
+   18. 6.1 An Introduction to Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.2%20Hypotheses%20and%20Errors.html">
+   19. 6.2 Hypotheses and Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.3%20Rare%20Events%2C%20the%20Sample%2C%20Decision%20and%20Conclusion.html">
+   20. 6.3 Rare Events, the Sample, Decision, and Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html">
+   21. 6.4 Hypothesis Tests of One Population
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.1%20The%20Chi-Square%20Distribution.html">
+   22. 7.1 The
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html">
+   23. 7.2 Hypothesis Testing for the Population Variance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.3%20Goodness-of-Fit%20Test.html">
+   24. 7.3 Goodness of Fit Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.1%20Scatter%20Plots.html">
+   25. 8.1 Scatter Plots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.2%20Linear%20Equations.html">
+   26. 8.2 Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.3%20The%20Regression%20Equation.html">
+   27. 8.3 The Regression Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.4%20The%20Correlation%20Coefficient.html">
+   28. 8.4 The Correlation Coefficient
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.1%20Hypothesis%20Testing%20Two%20Population%20Means.html">
+   29. 9.1 Hypothesis Testing: Two Population Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.2%20Hypothesis%20Testing%20Two%20Population%20Variances.html">
+   30. 9.2 Hypothesis Testing Two Population Variances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.3%20ANOVA.html">
+   31. 9.3 ANOVA
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Ch5 Confidence Intervals/5.4 Estimating Population Means (Sigma Unknown).ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Ch5 Confidence Intervals/5.4 Estimating Population Means (Sigma Unknown).ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Ch5 Confidence Intervals/5.4 Estimating Population Means (Sigma Unknown).ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   17.1. Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#confidence-intervals-using-student-s-t-distribution">
+   17.2. Confidence Intervals using Student’s
+   <span class="math notranslate nohighlight">
+    \(t\)
+   </span>
+   -Distribution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-1">
+     Example 4.1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-1-find-the-sample-mean-bar-x-and-the-sample-standard-deviation-s">
+         Step 1: Find the sample mean
+         <span class="math notranslate nohighlight">
+          \(\bar{x}\)
+         </span>
+         and the sample standard deviation
+         <span class="math notranslate nohighlight">
+          \(s\)
+         </span>
+         .
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-2-find-t-alpha-2">
+         Step 2: Find
+         <span class="math notranslate nohighlight">
+          \(t_{\alpha/2}\)
+         </span>
+         .
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-3-calculate-the-margin-of-error">
+         Step 3: Calculate the Margin of Error.
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#step-4-construct-the-confidence-interval">
+         Step 4: Construct the Confidence Interval.
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-2">
+     Example 4.2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id2">
+         Step 1: Find the Sample Mean
+         <span class="math notranslate nohighlight">
+          \(\bar{x}\)
+         </span>
+         and the Sample Standard Deviation
+         <span class="math notranslate nohighlight">
+          \(s\)
+         </span>
+         .
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id3">
+         Step 2: Find
+         <span class="math notranslate nohighlight">
+          \(t_{\alpha/2}\)
+         </span>
+         .
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id4">
+         Step 3: Calculate the Margin of Error.
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id5">
+         Step 4: Construct the Confidence Interval.
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-3">
+     Example 4.3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="estimating-population-means-sigma-unknown">
+<h1><span class="section-number">17. </span>5.4 Estimating Population Means (<span class="math notranslate nohighlight">\(\sigma\)</span> Unknown)<a class="headerlink" href="#estimating-population-means-sigma-unknown" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objectives">
+<h2><span class="section-number">17.1. </span>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Compute probabilities using the Central Limit Theorem and demonstrate the ability to interpret sampling distributions of both population proportions and means.</p></li>
+<li><p>Estimate population parameters using both point estimates and confidence interval estimates using both the normal and Student t-distribution.</p></li>
+<li><p>Analyze an application in the disciplines business, social sciences, psychology, life sciences, health sciences, and education, and utilize the correct statistical processes to arrive at a solution.</p></li>
+</ul>
+</div>
+<div class="section" id="confidence-intervals-using-student-s-t-distribution">
+<h2><span class="section-number">17.2. </span>Confidence Intervals using Student’s <span class="math notranslate nohighlight">\(t\)</span>-Distribution<a class="headerlink" href="#confidence-intervals-using-student-s-t-distribution" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned in the previous section, we rarely actually know the population standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span> when constructing a confidence interval for the population mean <span class="math notranslate nohighlight">\(\mu\)</span>. To substitute the sample standard deviation <span class="math notranslate nohighlight">\(s\)</span> in place of the population standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span>, we must use a <span class="math notranslate nohighlight">\(t\)</span>-distribution with <span class="math notranslate nohighlight">\(n - 1\)</span> degrees of freedom (where <span class="math notranslate nohighlight">\(n\)</span> is the sample size) instead of a normal distribution.</p>
+<p>With the exception of this change, the process of constructing a confidence interval for the population mean is largely the same:</p>
+<ol class="simple">
+<li><p>Find the sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span> and the sample standard deviation <span class="math notranslate nohighlight">\(s\)</span>.</p></li>
+<li><p>Find <span class="math notranslate nohighlight">\(t_{\alpha/2}\)</span>, the <span class="math notranslate nohighlight">\(t\)</span>-score with area <span class="math notranslate nohighlight">\(\alpha/2\)</span> to its right and <span class="math notranslate nohighlight">\(n-1\)</span> degrees of freedom.</p></li>
+<li><p>Calculate the margin of error using the formula <span class="math notranslate nohighlight">\(E = t_{\alpha/2} \dfrac{s}{\sqrt{n}}\)</span>.</p></li>
+<li><p>Construct the confidence interval <span class="math notranslate nohighlight">\((\bar{x} - E, \bar{x} + E)\)</span>.</p></li>
+</ol>
+<hr class="docutils" />
+<div class="section" id="example-4-1">
+<h3>Example 4.1<a class="headerlink" href="#example-4-1" title="Permalink to this headline">¶</a></h3>
+<p>Twenty-five newborn elephants are sampled and found to have the following weights, in pounds:</p>
+<p>333, 248, 303, 248, 153, 168, 280, 256, 195, 234, 366, 250, 325, 266, 164, 253, 262, 343, 244, 425, 345, 343, 277, 215, 226</p>
+<p>Construct a 95% confidence interval for the mean weight of a newborn elephant.</p>
+<div class="section" id="solution">
+<h4>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h4>
+<p>Note that we are <em>not</em> told what the population standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span> is. That means we will need to use the sample standard deviation <span class="math notranslate nohighlight">\(s\)</span> instead together with a <span class="math notranslate nohighlight">\(t\)</span>-distribution.</p>
+<p>We are given that
+$<span class="math notranslate nohighlight">\(\begin{align}
+n &amp;= 25 \\
+CL &amp;= 0.95
+\end{align}\)</span>$</p>
+<div class="section" id="step-1-find-the-sample-mean-bar-x-and-the-sample-standard-deviation-s">
+<h5>Step 1: Find the sample mean <span class="math notranslate nohighlight">\(\bar{x}\)</span> and the sample standard deviation <span class="math notranslate nohighlight">\(s\)</span>.<a class="headerlink" href="#step-1-find-the-sample-mean-bar-x-and-the-sample-standard-deviation-s" title="Permalink to this headline">¶</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">333</span><span class="p">,</span> <span class="m">248</span><span class="p">,</span> <span class="m">303</span><span class="p">,</span> <span class="m">248</span><span class="p">,</span> <span class="m">153</span><span class="p">,</span> <span class="m">168</span><span class="p">,</span> <span class="m">280</span><span class="p">,</span> <span class="m">256</span><span class="p">,</span> <span class="m">195</span><span class="p">,</span> <span class="m">234</span><span class="p">,</span> <span class="m">366</span><span class="p">,</span> <span class="m">250</span><span class="p">,</span> <span class="m">325</span><span class="p">,</span> <span class="m">266</span><span class="p">,</span> <span class="m">164</span><span class="p">,</span> <span class="m">253</span><span class="p">,</span> <span class="m">262</span><span class="p">,</span> <span class="m">343</span><span class="p">,</span> <span class="m">244</span><span class="p">,</span> <span class="m">425</span><span class="p">,</span> <span class="m">345</span><span class="p">,</span> <span class="m">343</span><span class="p">,</span> <span class="m">277</span><span class="p">,</span> <span class="m">215</span><span class="p">,</span> <span class="m">226</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">xbar</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+<span class="n">xbar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">268.88</div></div>
+</div>
+<p>Then the sample mean is <span class="math notranslate nohighlight">\(\bar{x} = 268.88\)</span>.</p>
+<p>To find the sample standard deviation, recall that we use the formula</p>
+<div class="math notranslate nohighlight">
+\[ s = \sqrt{\frac{\sum (x - \bar{x})^2}{n - 1}}. \]</div>
+<p>The last time we calculated the sample standard deviation, we calculated each step in the formula separately. But we’re more experienced now, so we’ll move faster. Look at the code carefully; make sure you see how the code below matches the sample deviation formula.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">xbar</span><span class="p">)</span><span class="n">^2</span> <span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="m">-1</span><span class="p">))</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">66.9404710669612</div></div>
+</div>
+<p>The sample standard deviation is <span class="math notranslate nohighlight">\(s = 66.9405\)</span>.</p>
+</div>
+<div class="section" id="step-2-find-t-alpha-2">
+<h5>Step 2: Find <span class="math notranslate nohighlight">\(t_{\alpha/2}\)</span>.<a class="headerlink" href="#step-2-find-t-alpha-2" title="Permalink to this headline">¶</a></h5>
+<p>First, note the degrees of freedom for the <span class="math notranslate nohighlight">\(t\)</span>-distribution is</p>
+<div class="math notranslate nohighlight">
+\[ df = n-1 = 25 - 1 = 24. \]</div>
+<p>Next, since <span class="math notranslate nohighlight">\(CL = 0.95\)</span>, the area outside of the confidence interval is</p>
+<div class="math notranslate nohighlight">
+\[ \alpha = 1 - CL = 1 - 0.95 = 0.05. \]</div>
+<p>So <span class="math notranslate nohighlight">\(\alpha/2 = 0.05/2 = 0.025\)</span>. We want to find <span class="math notranslate nohighlight">\(t_{\alpha/2} = t_{0.025}\)</span>, the <span class="math notranslate nohighlight">\(t\)</span>-score with an area of 0.025 to its right.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qt</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="m">0.025</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="m">24</span><span class="p">,</span> <span class="n">lower.tail</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">2.06389856162803</div></div>
+</div>
+<p>So <span class="math notranslate nohighlight">\(t_{0.025} = 2.0639\)</span>.</p>
+</div>
+<div class="section" id="step-3-calculate-the-margin-of-error">
+<h5>Step 3: Calculate the Margin of Error.<a class="headerlink" href="#step-3-calculate-the-margin-of-error" title="Permalink to this headline">¶</a></h5>
+<p>The margin of error is</p>
+<div class="math notranslate nohighlight">
+\[ E = t_{0.025}\frac{s}{\sqrt{n}} = 2.0639\left(\frac{66.9405}{\sqrt{25}}\right) = 27.6317. \]</div>
+</div>
+<div class="section" id="step-4-construct-the-confidence-interval">
+<h5>Step 4: Construct the Confidence Interval.<a class="headerlink" href="#step-4-construct-the-confidence-interval" title="Permalink to this headline">¶</a></h5>
+<p>The confidence interval is</p>
+<div class="math notranslate nohighlight">
+\[(\bar{x} - E, \bar{x} + E) = (268.88 - 27.6317, 268.88 + 27.6317) = (241.2483, 296.5117).\]</div>
+<p>We are 95% confident that the average weight of a newborn elephant is between 241.2483 pounds and 296.5117 pounds.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-4-2">
+<h3>Example 4.2<a class="headerlink" href="#example-4-2" title="Permalink to this headline">¶</a></h3>
+<p>A Menifee High School math teacher, Mr. DeLeon, wants to know the average GPA of students at the high school. He randomly asks 30 students what their GPA is, and obtains the following data:</p>
+<p>3.55, 3.51, 3.27, 4.30, 3.17, 3.61, 3.24, 3.74, 3.40, 3.91, 3.00, 1.88, 2.54, 3.15, 4.35, 2.62, 4.01, 3.69, 3.82, 3.18, 2.60, 3.49, 3.05, 2.91, 3.28, 2.97, 3.09, 3.49, 3.49, 3.05</p>
+<p>Construct a 98% confidence interval for the mean GPA.</p>
+<div class="section" id="id1">
+<h4>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p>We are not told the population standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span>, so we will need to find the sample standard deviation <span class="math notranslate nohighlight">\(s\)</span> and use a <span class="math notranslate nohighlight">\(t\)</span>-distribution.</p>
+<p>We are told that
+$<span class="math notranslate nohighlight">\(\begin{align}
+n &amp;= 30 \\
+CL &amp;= 0.98
+\end{align}\)</span>$</p>
+<div class="section" id="id2">
+<h5>Step 1: Find the Sample Mean <span class="math notranslate nohighlight">\(\bar{x}\)</span> and the Sample Standard Deviation <span class="math notranslate nohighlight">\(s\)</span>.<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">3.55</span><span class="p">,</span> <span class="m">3.51</span><span class="p">,</span> <span class="m">3.27</span><span class="p">,</span> <span class="m">4.30</span><span class="p">,</span> <span class="m">3.17</span><span class="p">,</span> <span class="m">3.61</span><span class="p">,</span> <span class="m">3.24</span><span class="p">,</span> <span class="m">3.74</span><span class="p">,</span> <span class="m">3.40</span><span class="p">,</span> <span class="m">3.91</span><span class="p">,</span> <span class="m">3.00</span><span class="p">,</span> <span class="m">1.88</span><span class="p">,</span> <span class="m">2.54</span><span class="p">,</span> <span class="m">3.15</span><span class="p">,</span> <span class="m">4.35</span><span class="p">,</span> <span class="m">2.62</span><span class="p">,</span> <span class="m">4.01</span><span class="p">,</span> <span class="m">3.69</span><span class="p">,</span> <span class="m">3.82</span><span class="p">,</span> <span class="m">3.18</span><span class="p">,</span> <span class="m">2.60</span><span class="p">,</span> <span class="m">3.49</span><span class="p">,</span> <span class="m">3.05</span><span class="p">,</span> <span class="m">2.91</span><span class="p">,</span> <span class="m">3.28</span><span class="p">,</span> <span class="m">2.97</span><span class="p">,</span> <span class="m">3.09</span><span class="p">,</span> <span class="m">3.49</span><span class="p">,</span> <span class="m">3.49</span><span class="p">,</span> <span class="m">3.05</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nf">length</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">xbar</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">n</span>
+<span class="n">xbar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">3.312</div></div>
+</div>
+<p>So the sample mean is <span class="math notranslate nohighlight">\(\bar{x} = 3.312\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nf">sqrt</span><span class="p">(</span><span class="nf">sum</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">xbar</span><span class="p">)</span><span class="n">^2</span> <span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="m">-1</span><span class="p">))</span>
+<span class="n">s</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.526428434406543</div></div>
+</div>
+<p>Then the sample standard deviation is <span class="math notranslate nohighlight">\(s = 0.5264\)</span>.</p>
+</div>
+<div class="section" id="id3">
+<h5>Step 2: Find <span class="math notranslate nohighlight">\(t_{\alpha/2}\)</span>.<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h5>
+<p>First, note that the degrees of freedom for our <span class="math notranslate nohighlight">\(t\)</span>-distribution is</p>
+<div class="math notranslate nohighlight">
+\[ df = n-1 = 30-1 = 29. \]</div>
+<p>Next, since the area inside the confidence interval is <span class="math notranslate nohighlight">\(CL = 0.98\)</span>, the area outside the confidence interval is</p>
+<div class="math notranslate nohighlight">
+\[ \alpha = 1 - CL = 1 - 0.98 = 0.02. \]</div>
+<p>So the area left in each tail of the <span class="math notranslate nohighlight">\(t\)</span>-distribution is <span class="math notranslate nohighlight">\(\alpha/2 = 0.02/2 = 0.01\)</span>. We want to find <span class="math notranslate nohighlight">\(t_{\alpha/2} = t_{0.01}\)</span>, the <span class="math notranslate nohighlight">\(t\)</span>-value with a area of 0.01 to its right.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qt</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="m">0.01</span><span class="p">,</span> <span class="n">df</span> <span class="o">=</span> <span class="m">29</span><span class="p">,</span> <span class="n">lower.tail</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">2.46202136015041</div></div>
+</div>
+<p>Then <span class="math notranslate nohighlight">\(t_{0.01} = 2.4620\)</span>.</p>
+</div>
+<div class="section" id="id4">
+<h5>Step 3: Calculate the Margin of Error.<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
+<p>The margin of error is</p>
+<div class="math notranslate nohighlight">
+\[ E = t_{0.01}\frac{s}{\sqrt{n}} = 2.4620\left(\frac{0.5264}{\sqrt{30}}\right) = 0.2366. \]</div>
+</div>
+<div class="section" id="id5">
+<h5>Step 4: Construct the Confidence Interval.<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
+<p>The confidence interval is</p>
+<div class="math notranslate nohighlight">
+\[(\bar{x} - E, \bar{x} + E) = (3.312 - 0.2366, 3.312 + 0.2366) = (3.0754, 3.5486).\]</div>
+<p>We are 98% confident that the average GPA of students at Menifee High School is between 3.0754 and 3.5486.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-4-3">
+<h3>Example 4.3<a class="headerlink" href="#example-4-3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**VID=Y4ZbE3-ir6M**#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><small style="color:gray"><b>License:</b> This work is licensed under a <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license.</small></p>
+<p><small style="color:gray"><b>Author:</b> Taylor Baldwin, Mt. San Jacinto College</small></p>
+<p><small style="color:gray"><b>Adapted From:</b> <i>Introductory Statistics</i>, by Barbara Illowsky and Susan Dean. Access for free at <a class="reference external" href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./Ch5 Confidence Intervals"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="5.3%20Student%27s%20t-Distribution.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">16. </span>5.3 Student’s <span class="math notranslate nohighlight">\(t\)</span>-Distribution</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">18. </span>6.1 An Introduction to Hypothesis Testing</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Taylor Baldwin <br/><br/><small>This work is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. It is adapted from <i>Introductory Statistics</i> by Barbara Illowsky and Susan Dean, which is published by <a href="https://openstax.org/">OpenStax</a> and licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Access for free at <a href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small><br/><br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

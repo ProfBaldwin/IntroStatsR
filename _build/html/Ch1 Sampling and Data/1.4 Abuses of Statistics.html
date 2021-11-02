@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.4. 1.4 Abuses of Statistics &#8212; Introductory Statistics with R</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1.5. 1.5 Tables and Charts" href="1.5%20Tables%20and%20Charts.html" />
+    <link rel="prev" title="1.3. 1.3 Sampling Techniques" href="1.3%20Sampling%20Techniques.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introductory Statistics with R</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Did it work?
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="1.0%20Sampling%20and%20Data.html">
+   1. Sampling and Data
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1.1%20Key%20Terms%20in%20Statistics.html">
+     1.1. Key Terms in Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1.2%20Scales%20of%20Measurement.html">
+     1.2. 1.2 Scales of Measurement
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1.3%20Sampling%20Techniques.html">
+     1.3. 1.3 Sampling Techniques
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.4. 1.4 Abuses of Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1.5%20Tables%20and%20Charts.html">
+     1.5. 1.5 Tables and Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.1%20Measures%20of%20Position.html">
+   2. 2.1 Measures of Position
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.2%20Measures%20of%20Central%20Tendency.html">
+   3. 2.2 Measures of Central Tendency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.3%20Measures%20of%20Dispersion.html">
+   4. 2.3 Measures of Dispersion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.1%20Introduction%20to%20Probability.html">
+   5. 3.1 Introduction to Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.2%20Multiplication%20Rules%20and%20Independent%20Events.html">
+   6. 3.2 Multiplication Rules and Independent Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.3%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html">
+   7. 3.3 Addition Rules and Mutually Exclusive Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.4%20Discrete%20Probability%20Distributions.html">
+   8. 3.4 Discrete Probability Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.5%20The%20Binomial%20Distribution.html">
+   9. 3.5 The Binomial Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.1%20The%20Standard%20Normal%20Distribution.html">
+   10. 4.1 The Standard Normal Distribution#
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.2%20The%20Normal%20Distribution%20and%20z-scores.html">
+   11. 4.2 The Normal Distribution and
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+   -Scores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html">
+   12. 4.3 The Central Limit Theorem for Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.4%20The%20Central%20Limit%20Theorem%20for%20Proportions.html">
+   13. 4.4 The Central Limit Theorem for Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.1%20Estimating%20Population%20Means%20%28Sigma%20Known%29.html">
+   14. 5.1 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Known)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.2%20Estimating%20Population%20Proportions.html">
+   15. 5.2 Estimating Population Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.3%20Student%27s%20t-Distribution.html">
+   16. 5.3 Student’s
+   <span class="math notranslate nohighlight">
+    \(t\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.4%20Estimating%20Population%20Means%20%28Sigma%20Unknown%29.html">
+   17. 5.4 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Unknown)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html">
+   18. 6.1 An Introduction to Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.2%20Hypotheses%20and%20Errors.html">
+   19. 6.2 Hypotheses and Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.3%20Rare%20Events%2C%20the%20Sample%2C%20Decision%20and%20Conclusion.html">
+   20. 6.3 Rare Events, the Sample, Decision, and Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html">
+   21. 6.4 Hypothesis Tests of One Population
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.1%20The%20Chi-Square%20Distribution.html">
+   22. 7.1 The
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html">
+   23. 7.2 Hypothesis Testing for the Population Variance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.3%20Goodness-of-Fit%20Test.html">
+   24. 7.3 Goodness of Fit Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.1%20Scatter%20Plots.html">
+   25. 8.1 Scatter Plots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.2%20Linear%20Equations.html">
+   26. 8.2 Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.3%20The%20Regression%20Equation.html">
+   27. 8.3 The Regression Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.4%20The%20Correlation%20Coefficient.html">
+   28. 8.4 The Correlation Coefficient
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.1%20Hypothesis%20Testing%20Two%20Population%20Means.html">
+   29. 9.1 Hypothesis Testing: Two Population Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.2%20Hypothesis%20Testing%20Two%20Population%20Variances.html">
+   30. 9.2 Hypothesis Testing Two Population Variances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.3%20ANOVA.html">
+   31. 9.3 ANOVA
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Ch1 Sampling and Data/1.4 Abuses of Statistics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Ch1 Sampling and Data/1.4 Abuses of Statistics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Ch1 Sampling and Data/1.4 Abuses of Statistics.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ethics">
+   Ethics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sampling-issues-and-abuses-of-statistics">
+   Sampling Issues and Abuses of Statistics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1-4-1">
+     Example 1.4.1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution">
+       Solution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1-4-2">
+     Example 1.4.2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1-4-3">
+     Example 1.4.3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="abuses-of-statistics">
+<h1><span class="section-number">1.4. </span>1.4 Abuses of Statistics<a class="headerlink" href="#abuses-of-statistics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Understand the ethics and possible abuses of statistics.</p></li>
+</ul>
+</div>
+<div class="section" id="ethics">
+<h2>Ethics<a class="headerlink" href="#ethics" title="Permalink to this headline">¶</a></h2>
+<p>The widespread misuse and misrepresentation of statistical information often gives the field a bad name. Some say that “numbers don’t lie,” but the people who use numbers to support their claims often do.</p>
+<p>A recent investigation of famous social psychologist, Diederik Stapel, has led to the retraction of his articles from some of the world’s top journals including <em>Journal of Experimental Social Psychology</em>, <em>Social Psychology</em>, <em>Basic and Applied Social Psychology</em>, <em>British Journal of Social Psychology</em>, and the magazine <em>Science</em>. Diederik Stapel is a former professor at Tilburg University in the Netherlands. Over the past two years, an extensive investigation involving three universities where Stapel has worked concluded that the psychologist is guilty of fraud on a colossal scale. Falsified data taints over 55 papers he authored and 10 Ph.D. dissertations that he supervised.</p>
+<p><em>Stapel did not deny that his deceit was driven by ambition. But it was more complicated than that, he told me. He insisted that he loved social psychology but had been frustrated by the messiness of experimental data, which rarely led to clear conclusions. His lifelong obsession with elegance and order, he said, led him to concoct sexy results that journals found attractive. “It was a quest for aesthetics, for beauty—instead of the truth,” he said. He described his behavior as an addiction that drove him to carry out acts of increasingly daring fraud, like a junkie seeking a bigger and better high.</em><sup>1</sup></p>
+<p>The committee investigating Stapel concluded that he is guilty of several practices including:</p>
+<ul class="simple">
+<li><p>creating datasets, which largely confirmed the prior expectations,</p></li>
+<li><p>altering data in existing datasets,</p></li>
+<li><p>changing measuring instruments without reporting the change, and</p></li>
+<li><p>misrepresenting the number of experimental subjects.</p></li>
+</ul>
+<p>Clearly, it is never acceptable to falsify data the way this researcher did. Sometimes, however, violations of ethics are not as easy to spot.</p>
+<p>Researchers have a responsibility to verify that proper methods are being followed. The report describing the investigation of Stapel’s fraud states that, “statistical flaws frequently revealed a lack of familiarity with elementary statistics.”<sup>2</sup> Many of Stapel’s co-authors should have spotted irregularities in his data. Unfortunately, they did not know very much about statistical analysis, and they simply trusted that he was collecting and reporting data properly.</p>
+<p>Many types of statistical fraud are difficult to spot. Some researchers simply stop collecting data once they have just enough to prove what they had hoped to prove. They don’t want to take the chance that a more extensive study would complicate their lives by producing data contradicting their hypothesis.</p>
+<p>Professional organizations, like the American Statistical Association, clearly define expectations for researchers. There are even laws in the federal code about the use of research data.</p>
+<p>When a statistical study uses human participants, as in medical studies, both ethics and the law dictate that researchers should be mindful of the safety of their research subjects. The U.S. Department of Health and Human Services oversees federal regulations of research studies with the aim of protecting participants. When a university or other research institution engages in research, it must ensure the safety of all human subjects. For this reason, research institutions establish oversight committees known as <strong>Institutional Review Boards (IRB)</strong>. All planned studies must be approved in advance by the IRB. Key protections that are mandated by law include the following:</p>
+<ul class="simple">
+<li><p>Risks to participants must be minimized and reasonable with respect to projected benefits.</p></li>
+<li><p>Participants must give <strong>informed consent</strong>. This means that the risks of participation must be clearly explained to the subjects of the study. Subjects must consent in writing, and researchers are required to keep documentation of their consent.</p></li>
+<li><p>Data collected from individuals must be guarded carefully to protect their privacy.</p></li>
+</ul>
+<p>These ideas may seem fundamental, but they can be very difficult to verify in practice. Is removing a participant’s name from the data record sufficient to protect privacy? Perhaps the person’s identity could be discovered from the data that remains. What happens if the study does not proceed as planned and risks arise that were not anticipated? When is informed consent really necessary? Suppose your doctor wants a blood sample to check your cholesterol level. Once the sample has been tested, you expect the lab to dispose of the remaining blood. At that point the blood becomes biological waste. Does a researcher have the right to take it for use in a study?</p>
+<p>It is important that students of statistics take time to consider the ethical questions that arise in statistical studies. How prevalent is fraud in statistical studies? You might be surprised—and disappointed. There is a <a class="reference external" href="https://retractionwatch.com/">website</a> dedicated to cataloging retractions of study articles that have been proven fraudulent. A quick glance will show that the misuse of statistics is a bigger problem than most people realize.</p>
+<p>Vigilance against fraud requires knowledge. Learning the basic theory of statistics will empower you to analyze statistical studies critically.</p>
+</div>
+<div class="section" id="sampling-issues-and-abuses-of-statistics">
+<h2>Sampling Issues and Abuses of Statistics<a class="headerlink" href="#sampling-issues-and-abuses-of-statistics" title="Permalink to this headline">¶</a></h2>
+<p>We need to evaluate the statistical studies we read about critically and analyze their sampling methodologies before accepting the results of the studies. Common problems to be aware of include</p>
+<ul class="simple">
+<li><p><strong>Problems with samples:</strong> A sample must be representative of the population. A sample that is not representative of the population is biased. Biased samples that are not representative of the population give results that are inaccurate and not valid.</p></li>
+<li><p><strong>Self-selected samples:</strong> Responses only by people who choose to respond, such as call-in surveys, are often unreliable.</p></li>
+<li><p><strong>Sample size issues:</strong> Samples that are too small may be unreliable. Larger samples are better, if possible. In some situations, having small samples is unavoidable and can still be used to draw conclusions. Examples: crash testing cars or medical testing for rare conditions</p></li>
+<li><p><strong>Undue influence:</strong> collecting data or asking questions in a way that influences the response</p></li>
+<li><p><strong>Non-response or refusal of subject to participate:</strong>  The collected responses may no longer be representative of the population.  Often, people with strong positive or negative opinions may answer surveys, which can affect the results.</p></li>
+<li><p><strong>Causality:</strong> A relationship between two variables does not mean that one causes the other to occur. They may be related (correlated) because of their relationship through a different variable.</p></li>
+<li><p><strong>Self-funded or self-interest studies:</strong> A study performed by a person or organization in order to support their claim. Is the study impartial? Read the study carefully to evaluate the work. Do not automatically assume that the study is good, but do not automatically assume the study is bad either. Evaluate it on its merits and the work done.</p></li>
+<li><p><strong>Misleading use of data:</strong> improperly displayed graphs, incomplete data, or lack of context</p></li>
+<li><p><strong>Confounding:</strong>  When the effects of multiple factors on a response cannot be separated.  Confounding makes it difficult or impossible to draw valid conclusions about the effect of each factor.</p></li>
+</ul>
+<p>Some of these problems are very common, even in serious scientific studies. For example, clinical trials participants are self-selected to some degree: it is unethical to force people to participate in a clinical trial against their will. While such a problem may not invalidate the trial, it does mean we should be cautious when analyzing the results.</p>
+<hr class="docutils" />
+<div class="section" id="example-1-4-1">
+<h3>Example 1.4.1<a class="headerlink" href="#example-1-4-1" title="Permalink to this headline">¶</a></h3>
+<p>Describe the abuse of statistics or sampling issue, if any, in each example and describe how it could impact the reliability of the resulting data. Explain how the problem should be corrected.</p>
+<p>A researcher is collecting data in a community.</p>
+<ol class="simple">
+<li><p>She selects a block where she is comfortable walking because she knows many of the people living on the street.</p></li>
+<li><p>No one seems to be home at four houses on her route. She does not record the addresses and does not return at a later time to try to find residents at home.</p></li>
+<li><p>She skips four houses on her route because she is running late for an appointment. When she gets home, she fills in the forms by selecting random answers from other residents in the neighborhood.</p></li>
+</ol>
+<div class="section" id="solution">
+<h4>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>By selecting a convenient sample, the researcher is intentionally selecting a sample that could be biased. Claiming that this sample represents the community is misleading. The researcher needs to select areas in the community at random.</p></li>
+<li><p>Intentionally omitting relevant data will create bias in the sample. Suppose the researcher is gathering information about jobs and child care. By ignoring people who are not home, she may be missing data from working families that are relevant to her study. She needs to make every effort to interview all members of the target sample.</p></li>
+<li><p>It is never acceptable to fake data. Even though the responses she uses are “real” responses provided by other participants, the duplication is fraudulent and can create bias in the data. She needs to work diligently to interview everyone on her route.</p></li>
+</ol>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-1-4-2">
+<h3>Example 1.4.2<a class="headerlink" href="#example-1-4-2" title="Permalink to this headline">¶</a></h3>
+<p>Describe the abuse of statistics or sampling issue, if any, in each example and describe how it could impact the reliability of the resulting data. Explain how the problem should be corrected.</p>
+<p>A study is commissioned to determine the favorite brand of fruit juice among teens in California.</p>
+<ol class="simple">
+<li><p>The survey is commissioned by the seller of a popular brand of apple juice.</p></li>
+<li><p>There are only two types of juice included in the study: apple juice and cranberry juice.</p></li>
+<li><p>Researchers allow participants to see the brand of juice as samples are poured for a taste test.</p></li>
+<li><p>Twenty-five percent of participants prefer Brand X, 33% prefer Brand Y and 42% have no preference between the two brands. Brand X references the study in a commercial saying “Most teens like Brand X as much as or more than Brand Y.”</p></li>
+</ol>
+<div class="section" id="id1">
+<h4>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>The seller of the apple juice brand may have a financial interest in the outcome of the study. They may design the survey to be biased in favor of their desired outcome. The survey should be financed and conducted by an independent party.</p></li>
+<li><p>By omitting other juices, the study may preclude participants from choosing their true favorite brand of juice. Since people are forced to choose between only apple juice or cranberry juice, it might appear that one or both of these juice flavors are more popular than they actually are. The survey should include more juice flavors to better reflect the true preferences of the population.</p></li>
+<li><p>Allowing the participants to see the brand of juice may bias them. For example, if the participants have a positive impression of the brand, they may have a more favorable impression of that brand’s juice. The juice should be given to the participants in a blind taste test, without knowledge of the juice brands.</p></li>
+<li><p>This statement is very misleading. People who hear this statement may conclude that Brand X is more popular than Brand Y, a fact the data does not support. Rather than using misleading generalities, the commercial should cite the particular percentages found in the study.</p></li>
+</ol>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-1-4-3">
+<h3>Example 1.4.3<a class="headerlink" href="#example-1-4-3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**VID=_FpdvIPZDs8**#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<small style="color:gray">
+    <ol>
+<li> Yudhijit Bhattacharjee, “The Mind of a Con Man,” Magazine, New York Times, April 26, 2013. Available online at: <a href="http://www.nytimes.com/2013/04/28/magazine/diederik-stapels-audacious-academic-fraud.html?src=dayp&_r=2&" target="_blank">http://www.nytimes.com/2013/04/28/magazine/diederik-stapels-audacious-academic-fraud.html?src=dayp&_r=2&</a> (accessed May 1, 2013).</li>
+<li> “Flawed Science: The Fraudulent Research Practices of Social Psychologist Diederik Stapel,” Tillburg University, November 28, 2012, <a href="http://www.tilburguniversity.edu/upload/064a10cd-bce5-4385-b9ff-05b840caeae6_120695_Rapp_nov_2012_UK_web.pdf" target="_blank">http://www.tilburguniversity.edu/upload/064a10cd-bce5-4385-b9ff-05b840caeae6_120695_Rapp_nov_2012_UK_web.pdf</a> (accessed May 1, 2013).</li>
+    </ol>
+</small>
+<p><small style="color:gray"><b>License:</b> This work is licensed under a <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license.</small></p>
+<p><small style="color:gray"><b>Author:</b> Taylor Baldwin, Mt. San Jacinto College</small></p>
+<p><small style="color:gray"><b>Adapted From:</b> <i>Introductory Statistics</i>, by Barbara Illowsky and Susan Dean. Access for free at <a class="reference external" href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./Ch1 Sampling and Data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="1.3%20Sampling%20Techniques.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">1.3. </span>1.3 Sampling Techniques</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="1.5%20Tables%20and%20Charts.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">1.5. </span>1.5 Tables and Charts</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Taylor Baldwin <br/><br/><small>This work is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. It is adapted from <i>Introductory Statistics</i> by Barbara Illowsky and Susan Dean, which is published by <a href="https://openstax.org/">OpenStax</a> and licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Access for free at <a href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small><br/><br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11. 4.2 The Normal Distribution and \(z\)-Scores &#8212; Introductory Statistics with R</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="12. 4.3 The Central Limit Theorem for Means" href="4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html" />
+    <link rel="prev" title="10. 4.1 The Standard Normal Distribution#" href="4.1%20The%20Standard%20Normal%20Distribution.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introductory Statistics with R</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Did it work?
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.0%20Sampling%20and%20Data.html">
+   1. Sampling and Data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.1%20Key%20Terms%20in%20Statistics.html">
+     1.1. Key Terms in Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.2%20Scales%20of%20Measurement.html">
+     1.2. Qualitative Data and Quantitative Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.3%20Sampling%20Techniques.html">
+     1.3. Sampling Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.4%20Tables%20and%20Charts.html">
+     1.4. Tables and Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.1%20Measures%20of%20Position.html">
+   2. 2.1 Measures of Position
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.2%20Measures%20of%20Central%20Tendency.html">
+   3. 2.2 Measures of Central Tendency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.3%20Measures%20of%20Dispersion.html">
+   4. 2.3 Measures of Dispersion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.1%20Introduction%20to%20Probability.html">
+   5. 3.1 Introduction to Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.2%20Multiplication%20Rules%20and%20Independent%20Events.html">
+   6. 3.2 Multiplication Rules and Independent Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.3%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html">
+   7. 3.3 Addition Rules and Mutually Exclusive Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.4%20Discrete%20Probability%20Distributions.html">
+   8. 3.4 Discrete Probability Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.5%20The%20Binomial%20Distribution.html">
+   9. 3.5 The Binomial Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.1%20The%20Standard%20Normal%20Distribution.html">
+   10. 4.1 The Standard Normal Distribution#
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   11. 4.2 The Normal Distribution and
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+   -Scores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html">
+   12. 4.3 The Central Limit Theorem for Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4.4%20The%20Central%20Limit%20Theorem%20for%20Proportions.html">
+   13. 4.4 The Central Limit Theorem for Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.1%20Estimating%20Population%20Means%20%28Sigma%20Known%29.html">
+   14. 5.1 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Known)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.2%20Estimating%20Population%20Proportions.html">
+   15. 5.2 Estimating Population Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.3%20Student%27s%20t-Distribution.html">
+   16. 5.3 Student’s
+   <span class="math notranslate nohighlight">
+    \(t\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.4%20Estimating%20Population%20Means%20%28Sigma%20Unknown%29.html">
+   17. 5.4 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Unknown)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html">
+   18. 6.1 An Introduction to Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.2%20Hypotheses%20and%20Errors.html">
+   19. 6.2 Hypotheses and Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.3%20Rare%20Events%2C%20the%20Sample%2C%20Decision%20and%20Conclusion.html">
+   20. 6.3 Rare Events, the Sample, Decision, and Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html">
+   21. 6.4 Hypothesis Tests of One Population
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.1%20The%20Chi-Square%20Distribution.html">
+   22. 7.1 The
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html">
+   23. 7.2 Hypothesis Testing for the Population Variance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.3%20Goodness-of-Fit%20Test.html">
+   24. 7.3 Goodness of Fit Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.1%20Scatter%20Plots.html">
+   25. 8.1 Scatter Plots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.2%20Linear%20Equations.html">
+   26. 8.2 Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.3%20The%20Regression%20Equation.html">
+   27. 8.3 The Regression Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.4%20The%20Correlation%20Coefficient.html">
+   28. 8.4 The Correlation Coefficient
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.1%20Hypothesis%20Testing%20Two%20Population%20Means.html">
+   29. 9.1 Hypothesis Testing: Two Population Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.2%20Hypothesis%20Testing%20Two%20Population%20Variances.html">
+   30. 9.2 Hypothesis Testing Two Population Variances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.3%20ANOVA.html">
+   31. 9.3 ANOVA
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Ch4 The Normal Distribution and the Central Limit Theorem/4.2 The Normal Distribution and z-scores.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Ch4 The Normal Distribution and the Central Limit Theorem/4.2 The Normal Distribution and z-scores.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Ch4 The Normal Distribution and the Central Limit Theorem/4.2 The Normal Distribution and z-scores.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   11.1. Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-z-scores">
+   11.2. Finding
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+   -Scores
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-2-1">
+     Example 4.2.1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-2-2">
+     Example 4.2.2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-1">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-2">
+         Part 2
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-3">
+         Part 3
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-2-3">
+     Example 4.2.3
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-z-scores-to-find-values">
+   11.3. Using
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+   -Scores to Find Values
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-2-4">
+     Example 4.2.4
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id2">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id3">
+         Part 2
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-2-5">
+     Example 4.2.5
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-empirical-rule">
+   11.4. The Empirical Rule
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-2-6">
+     Example 4.2.6
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id5">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id6">
+         Part 2
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id7">
+         Part 3
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-2-7">
+     Example 4.2.7
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-normal-distribution-and-z-scores">
+<h1><span class="section-number">11. </span>4.2 The Normal Distribution and <span class="math notranslate nohighlight">\(z\)</span>-Scores<a class="headerlink" href="#the-normal-distribution-and-z-scores" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objectives">
+<h2><span class="section-number">11.1. </span>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Perform descriptive data analysis of collected data including calculation and interpretation of measures of central tendency, measures of variation, measures of position, detection of outliers, and applying the Empirical Rule to bell-shaped data.</p></li>
+<li><p>Apply probability and counting rules (including addition and multiplication rules) as pertaining to both continuous random variables and discrete random variables.</p></li>
+<li><p>Compute probabilities using the Normal and Binomial Distributions, compute the mean, variance, and standard deviation of Normal and Binomial distributions.</p></li>
+<li><p>Analyze an application in the disciplines business, social sciences, psychology, life sciences, health sciences, and education, and utilize the correct statistical process to arrive at a solution.</p></li>
+</ul>
+</div>
+<div class="section" id="finding-z-scores">
+<h2><span class="section-number">11.2. </span>Finding <span class="math notranslate nohighlight">\(z\)</span>-Scores<a class="headerlink" href="#finding-z-scores" title="Permalink to this headline">¶</a></h2>
+<p>In the last section, we learned how to find probabilities for the standard normal distribution, <span class="math notranslate nohighlight">\(Z \sim N(0, 1)\)</span>. To find probabilities generally for a non-standard normal distribution, <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma)\)</span>, we first convert the <span class="math notranslate nohighlight">\(x\)</span> value of interest into a <strong><span class="math notranslate nohighlight">\(z\)</span>-score</strong>.</p>
+<p><strong>A <span class="math notranslate nohighlight">\(z\)</span>-score is measured in units of the standard deviation.</strong> For example, if the mean of a normal distribution is <span class="math notranslate nohighlight">\(\mu = 5\)</span> and the standard deviation is <span class="math notranslate nohighlight">\(\sigma = 2\)</span>, the value 11 is three standard deviations above (or to the right of) the mean. The calculation is as follows:</p>
+<div class="math notranslate nohighlight">
+\[x = \mu + z\sigma = 5 + (3)(2) = 11\]</div>
+<p>So the <span class="math notranslate nohighlight">\(z\)</span>-score  of <span class="math notranslate nohighlight">\(x = 11\)</span> is <span class="math notranslate nohighlight">\(z = 3\)</span>.</p>
+<p>The mean for the standard normal distribution is zero, and the standard deviation is one. The transformation <span class="math notranslate nohighlight">\(z =  x−μσ\)</span>  produces the distribution <span class="math notranslate nohighlight">\(Z \sim N(0, 1)\)</span>. The value <span class="math notranslate nohighlight">\(x\)</span> in the given equation comes from a normal distribution with mean <span class="math notranslate nohighlight">\(\mu\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span>. The probability (that is, area) to the left of <span class="math notranslate nohighlight">\(x\)</span> in a normal distribution <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma)\)</span> is equal to the probability to the left of the corresponding <span class="math notranslate nohighlight">\(z\)</span> in the standard normal distribution <span class="math notranslate nohighlight">\(Z \sim N(0, 1)\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma)\)</span>, then the <span class="math notranslate nohighlight">\(z\)</span>-score is:</p>
+<div class="math notranslate nohighlight">
+\[ z = \frac{x - \mu}{\sigma} \]</div>
+<p><strong>The <span class="math notranslate nohighlight">\(z\)</span>-score tells you how many standard deviations the value <span class="math notranslate nohighlight">\(x\)</span> is above (to the right of) or below (to the left of) the mean, <span class="math notranslate nohighlight">\(\mu\)</span>.</strong> Values of <span class="math notranslate nohighlight">\(x\)</span> that are larger than the mean have positive <span class="math notranslate nohighlight">\(z\)</span>-scores, and values of <span class="math notranslate nohighlight">\(x\)</span> that are smaller than the mean have negative <span class="math notranslate nohighlight">\(z\)</span>-scores. If <span class="math notranslate nohighlight">\(x\)</span> equals the mean, then <span class="math notranslate nohighlight">\(x\)</span> has a <span class="math notranslate nohighlight">\(z\)</span>-score of zero.</p>
+<hr class="docutils" />
+<div class="section" id="example-4-2-1">
+<h3>Example 4.2.1<a class="headerlink" href="#example-4-2-1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**VID=9u3Ja0rD70Y**#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-4-2-2">
+<h3>Example 4.2.2<a class="headerlink" href="#example-4-2-2" title="Permalink to this headline">¶</a></h3>
+<p>The heights of adult men in the United States are normally distributed with a mean of 70 inches (5 ft, 10 in) and a standard deviation of 4 inches. If you choose an adult male from the U.S. population at random, what is the probability that:</p>
+<ol class="simple">
+<li><p>he will be taller than 72 inches (6 ft)?</p></li>
+<li><p>he will be shorter than 60 inches (5 ft)?</p></li>
+<li><p>he will be between 60 inches and 72 inches tall?</p></li>
+</ol>
+<div class="section" id="solution">
+<h4>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h4>
+<p>The distribution of the heights of adult males is <span class="math notranslate nohighlight">\(X \sim N(70, 4)\)</span>. This is a non-standard normal distribution. To find the probabilities, we will convert to the standard normal distribution by finding the appropriate <span class="math notranslate nohighlight">\(z\)</span>-scores.</p>
+<div class="section" id="part-1">
+<h5>Part 1<a class="headerlink" href="#part-1" title="Permalink to this headline">¶</a></h5>
+<p>We want <span class="math notranslate nohighlight">\(P(x &gt; 72)\)</span>. To find the <span class="math notranslate nohighlight">\(z\)</span>-score associated with <span class="math notranslate nohighlight">\(x = 72\)</span>, we calculate</p>
+<div class="math notranslate nohighlight">
+\[ z = \frac{x - \mu}{\sigma} = \frac{72 - 70}{4} = 0.5. \]</div>
+<p>So <span class="math notranslate nohighlight">\(P(x &gt; 72) = P(z &gt; 0.5)\)</span>. We can now use R to find the probability:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="n">q</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">lower.tail</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.308537538725987</div></div>
+</div>
+<p>So <span class="math notranslate nohighlight">\(P(x &gt; 72) = P(z &gt; 0.5) = 0.3085\)</span>. In other words, there is a 30.85% chance that the adult male you randomly choose from the population is more than 6 feet tall.</p>
+</div>
+<div class="section" id="part-2">
+<h5>Part 2<a class="headerlink" href="#part-2" title="Permalink to this headline">¶</a></h5>
+<p>We want <span class="math notranslate nohighlight">\(P(x &lt; 60)\)</span>. To find the <span class="math notranslate nohighlight">\(z\)</span>-score associated with <span class="math notranslate nohighlight">\(x = 60\)</span>, we calculate</p>
+<div class="math notranslate nohighlight">
+\[ z = \frac{x - \mu}{\sigma} = \frac{60 - 70}{4} = -2.5. \]</div>
+<p>So <span class="math notranslate nohighlight">\(P(x &lt; 60) = P(z &lt; -2.5)\)</span>. Now use R to find the probability:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="n">q</span> <span class="o">=</span> <span class="m">-2.5</span><span class="p">,</span> <span class="n">lower.tail</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.00620966532577613</div></div>
+</div>
+<p>Then <span class="math notranslate nohighlight">\(P(x &lt; 60) = P(z &lt; -2.5) = 0.0062\)</span>. In other words, there is only a 0.62% chance that the adult male you randomly choose from the population is less than 5 feet tall.</p>
+</div>
+<div class="section" id="part-3">
+<h5>Part 3<a class="headerlink" href="#part-3" title="Permalink to this headline">¶</a></h5>
+<p>We want <span class="math notranslate nohighlight">\(P(60 &lt; x &lt; 72)\)</span>. From parts 1 and 2, we already know that the <span class="math notranslate nohighlight">\(z\)</span>-score associated with <span class="math notranslate nohighlight">\(x = 60\)</span> is <span class="math notranslate nohighlight">\(z = -2.5\)</span>, and the <span class="math notranslate nohighlight">\(z\)</span>-score associated with <span class="math notranslate nohighlight">\(x = 72\)</span> is <span class="math notranslate nohighlight">\(z = 0.5\)</span>. Then</p>
+<div class="math notranslate nohighlight">
+\[ P(60 &lt; x &lt; 72) = P(-2.5 &lt; z &lt; 0.5) \]</div>
+<p>We can use R to find this probability: we will find all the area to the left of <span class="math notranslate nohighlight">\(z = 0.5\)</span>, then subtract off the excess area to the left of <span class="math notranslate nohighlight">\(z = -2.5\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="n">q</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">lower.tail</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span> <span class="o">-</span> <span class="nf">pnorm</span><span class="p">(</span><span class="n">q</span> <span class="o">=</span> <span class="m">-2.5</span><span class="p">,</span> <span class="n">lower.tail</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.685252795948237</div></div>
+</div>
+<p>So <span class="math notranslate nohighlight">\(P(60 &lt; x &lt; 72) = P(-2.5 &lt; z &lt; 0.5) = 0.6853\)</span>. That is, there is a 68.53% chance that the adult male you choose is between 5 feet and 6 feet tall.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-4-2-3">
+<h3>Example 4.2.3<a class="headerlink" href="#example-4-2-3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**VID=zCDeQAE8PSY**#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="using-z-scores-to-find-values">
+<h2><span class="section-number">11.3. </span>Using <span class="math notranslate nohighlight">\(z\)</span>-Scores to Find Values<a class="headerlink" href="#using-z-scores-to-find-values" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes we have a <span class="math notranslate nohighlight">\(z\)</span>-score and we want to find the <span class="math notranslate nohighlight">\(x\)</span>-value of a normal distribution <span class="math notranslate nohighlight">\(X \sim N(\mu, \sigma)\)</span>. By solving for <span class="math notranslate nohighlight">\(x\)</span> in the formula above, we see that we can do this using the formula</p>
+<div class="math notranslate nohighlight">
+\[ x = \mu + z\sigma \]</div>
+<hr class="docutils" />
+<div class="section" id="example-4-2-4">
+<h3>Example 4.2.4<a class="headerlink" href="#example-4-2-4" title="Permalink to this headline">¶</a></h3>
+<p>Scores on a calculus test are normally distributed with a mean score of 73 and a standard deviation of 12.</p>
+<ol class="simple">
+<li><p>Find the 80th percentile.</p></li>
+<li><p>10% of the scores are higher than which score?</p></li>
+</ol>
+<div class="section" id="id1">
+<h4>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id2">
+<h5>Part 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
+<p>To find the 80th percentile, start by finding the <span class="math notranslate nohighlight">\(z\)</span>-score.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qnorm</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="m">0.80</span><span class="p">,</span> <span class="n">lower.tail</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">0.841621233572914</div></div>
+</div>
+<p>So the <span class="math notranslate nohighlight">\(z\)</span>-score associated with the 80th percentile is <span class="math notranslate nohighlight">\(z = 0.8416\)</span>. To find the <span class="math notranslate nohighlight">\(x\)</span>-value, use the formula:</p>
+<div class="math notranslate nohighlight">
+\[x = \mu + z\sigma = 73 + 0.8416(12) = 83.0992 \]</div>
+<p>So a score of 83.0992 is higher than 80% of the scores.</p>
+</div>
+<div class="section" id="id3">
+<h5>Part 2<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h5>
+<p>We want to find the <span class="math notranslate nohighlight">\(x\)</span>-value so that 10% of test scores are higher than that value. Start by finding the <span class="math notranslate nohighlight">\(z\)</span>-score.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">qnorm</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="m">0.10</span><span class="p">,</span> <span class="n">lower.tail</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">1.2815515655446</div></div>
+</div>
+<p>So 10% of the area of the standard normal distribution is to the right of <span class="math notranslate nohighlight">\(z = 1.2816\)</span>. Let’s find the associated <span class="math notranslate nohighlight">\(x\)</span>-value:</p>
+<div class="math notranslate nohighlight">
+\[ x = \mu + z\sigma = 73 + 1.2816(12) = 88.3792 \]</div>
+<p>So only 10% of students scored higher than <span class="math notranslate nohighlight">\(x = 88.3792\)</span>.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-4-2-5">
+<h3>Example 4.2.5<a class="headerlink" href="#example-4-2-5" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**VID=GFLbgN6df0Q**#</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="the-empirical-rule">
+<h2><span class="section-number">11.4. </span>The Empirical Rule<a class="headerlink" href="#the-empirical-rule" title="Permalink to this headline">¶</a></h2>
+<p>Notice that the probability of a normally distributed random variable is determined by its <span class="math notranslate nohighlight">\(z\)</span>-scores. That is, we need only know how many standard deviations away from the mean a value is to calculate the probability.</p>
+<p>This observation leads us to the <strong>Empirical Rule</strong>: If X is a random variable and has a normal distribution with mean µ and standard deviation σ, then the Empirical Rule states the following:</p>
+<ul class="simple">
+<li><p>About 68% of the data values lie within one standard deviation of the mean (between <span class="math notranslate nohighlight">\(\mu - 1\sigma\)</span> and <span class="math notranslate nohighlight">\(\mu + 1\sigma\)</span>).</p></li>
+<li><p>About 95% of the data values lie within two standard deviations of the mean (between <span class="math notranslate nohighlight">\(\mu - 2\sigma\)</span> and <span class="math notranslate nohighlight">\(\mu + 2\sigma\)</span>).</p></li>
+<li><p>About 99.7% of the data values lie within three standard deviations of the mean (between <span class="math notranslate nohighlight">\(\mu - 3\sigma\)</span> and <span class="math notranslate nohighlight">\(\mu + 3\sigma\)</span>).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**ALT=A graphical representation of the empirical rule.**#</span>
+<span class="c1">#**HIDE_INPUT**#</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">repr</span><span class="p">)</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span> <span class="o">=</span> <span class="m">7</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">5.5</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;#F5793A&quot;</span><span class="p">,</span> <span class="s">&quot;#A95AA1&quot;</span><span class="p">,</span> <span class="s">&quot;#85C079&quot;</span><span class="p">,</span> <span class="s">&quot;white&quot;</span><span class="p">)</span>
+
+<span class="c1"># Sequence between -4 and 4 with 0.1 steps</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="m">-4</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">0.1</span><span class="p">)</span>
+
+<span class="c1"># Plot an empty chart with tight axis boundaries, and axis lines on bottom and left</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;n&quot;</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-4</span><span class="p">,</span> <span class="m">4</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-0.25</span><span class="p">,</span> <span class="m">0.39</span><span class="p">),</span>
+     <span class="n">bty</span><span class="o">=</span><span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="n">xaxt</span><span class="o">=</span><span class="s">&quot;n&quot;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">)</span>
+
+<span class="c1"># Function to plot each coloured portion of the curve, between &quot;a&quot; and &quot;b&quot; as a</span>
+<span class="c1"># polygon; the function &quot;dnorm&quot; is the normal probability density function</span>
+<span class="n">polysection</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="m">11</span><span class="p">){</span>
+    <span class="n">dx</span> <span class="o">&lt;-</span> <span class="nf">seq</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">length.out</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+    <span class="nf">polygon</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="nf">dnorm</span><span class="p">(</span><span class="n">dx</span><span class="p">),</span> <span class="m">0</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="n">col</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="kc">NA</span><span class="p">)</span>
+    <span class="c1"># draw a white vertical line on &quot;inside&quot; side to separate each section</span>
+    <span class="nf">segments</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="nf">dnorm</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1"># Build the four left and right portions of this bell curve</span>
+<span class="nf">for</span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">0</span><span class="o">:</span><span class="m">3</span><span class="p">){</span>
+    <span class="nf">polysection</span><span class="p">(</span>     <span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="m">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">cols[i</span> <span class="o">+</span> <span class="m">1</span><span class="n">]</span><span class="p">)</span>  <span class="c1"># Right side of 0</span>
+    <span class="nf">polysection</span><span class="p">(</span><span class="o">-</span><span class="n">i</span> <span class="o">-</span> <span class="m">1</span><span class="p">,</span>    <span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">cols[i</span> <span class="o">+</span> <span class="m">1</span><span class="n">]</span><span class="p">)</span>  <span class="c1"># Left right of 0</span>
+<span class="p">}</span>
+
+<span class="c1"># Black outline of bell curve</span>
+<span class="nf">lines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nf">dnorm</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># Bottom axis values, where sigma represents standard deviation and mu is the mean</span>
+<span class="nf">axis</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">at</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">-4</span><span class="p">,</span> <span class="m">4</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">),</span> <span class="n">lwd.ticks</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>
+<span class="nf">axis</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">at</span><span class="o">=</span><span class="m">-3</span><span class="o">:</span><span class="m">3</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="nf">expression</span><span class="p">(</span><span class="n">mu</span> <span class="o">-</span> <span class="m">3</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">-</span> <span class="m">2</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">-</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span>
+                                   <span class="n">mu</span> <span class="o">+</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">+</span> <span class="m">2</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">mu</span> <span class="o">+</span> <span class="m">3</span> <span class="o">*</span> <span class="n">sigma</span><span class="p">),</span> <span class="n">pos</span> <span class="o">=</span> <span class="m">0</span><span class="p">)</span>
+
+<span class="c1"># Percent Densities for regions 1, 2, and 3 standard deviations from the mean</span>
+<span class="nf">lines</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span> <span class="m">-1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">-0.1</span><span class="p">,</span> <span class="m">-0.12</span><span class="p">,</span> <span class="m">-0.12</span><span class="p">,</span> <span class="m">-0.1</span><span class="p">))</span>
+<span class="nf">text</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">-0.135</span><span class="p">,</span> <span class="s">&quot;68%&quot;</span><span class="p">)</span>
+
+<span class="nf">lines</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span> <span class="m">-2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">-0.1</span><span class="p">,</span> <span class="m">-0.17</span><span class="p">,</span> <span class="m">-0.17</span><span class="p">,</span> <span class="m">-0.1</span><span class="p">))</span>
+<span class="nf">text</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">-0.185</span><span class="p">,</span> <span class="s">&quot;95%&quot;</span><span class="p">)</span>
+
+<span class="nf">lines</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-3</span><span class="p">,</span> <span class="m">-3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">-0.1</span><span class="p">,</span> <span class="m">-0.22</span><span class="p">,</span> <span class="m">-0.22</span><span class="p">,</span> <span class="m">-0.1</span><span class="p">))</span>
+<span class="nf">text</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">-0.235</span><span class="p">,</span> <span class="s">&quot;99.7%&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add percent densities to each division (rounded to 1 decimal place), between x and x+1</span>
+<span class="nf">text</span><span class="p">(</span><span class="nf">c</span><span class="p">((</span><span class="m">0</span><span class="o">:</span><span class="m">3</span><span class="p">)</span> <span class="o">+</span> <span class="m">0.5</span><span class="p">,</span> <span class="p">(</span><span class="m">0</span><span class="o">:</span><span class="m">-3</span><span class="p">)</span> <span class="o">-</span> <span class="m">0.5</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0.06</span><span class="p">,</span><span class="m">0.06</span><span class="p">,</span> <span class="m">0.06</span><span class="p">,</span><span class="m">0.02</span><span class="p">),</span>
+     <span class="nf">c</span><span class="p">(</span><span class="s">&quot;35%&quot;</span><span class="p">,</span> <span class="s">&quot;16.5%&quot;</span><span class="p">,</span> <span class="s">&quot;2.35%&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">),</span>
+     <span class="n">col</span><span class="o">=</span><span class="s">&quot;black&quot;</span><span class="p">)</span><span class="c1">#c(&quot;white&quot;, &quot;white&quot;, &quot;black&quot;, &quot;black&quot;))</span>
+<span class="nf">segments</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">-2.5</span><span class="p">,</span> <span class="m">2.5</span><span class="p">),</span> <span class="nf">dnorm</span><span class="p">(</span><span class="m">2.5</span><span class="p">),</span>
+         <span class="nf">c</span><span class="p">(</span><span class="m">-2.5</span><span class="p">,</span> <span class="m">2.5</span><span class="p">),</span> <span class="m">0.04</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4.2 The Normal Distribution and z-scores_30_0.png" src="../_images/4.2 The Normal Distribution and z-scores_30_0.png" />
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-4-2-6">
+<h3>Example 4.2.6<a class="headerlink" href="#example-4-2-6" title="Permalink to this headline">¶</a></h3>
+<p>IQ scores are normally distributed with a mean of 100 and a standard deviation of 15.</p>
+<ol class="simple">
+<li><p>68% of IQ scores lie between which two values?</p></li>
+<li><p>95% of IQ scores lie between which two values?</p></li>
+<li><p>99.7% of IQ scores lie between which two values?</p></li>
+</ol>
+<div class="section" id="id4">
+<h4>Solution<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id5">
+<h5>Part 1<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
+<p>Since IQ scores are normally distributed, we know that 68% of IQ scores lie within one standard deviation of the mean. Let’s find the values that are one standard deviation away from the mean:</p>
+<div class="math notranslate nohighlight">
+\[ x = \mu + 1\sigma = 100 + 1(15) = 115 \]</div>
+<div class="math notranslate nohighlight">
+\[ x = \mu - 1\sigma = 100 - 1(15) = 85 \]</div>
+<p>So 68% of IQ scores are between 85 and 115.</p>
+</div>
+<div class="section" id="id6">
+<h5>Part 2<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h5>
+<p>We know that 95% of IQ scores lie within two standard deviations of the mean. Let’s find the values that are two standard deviations away from the  mean:</p>
+<div class="math notranslate nohighlight">
+\[ x = \mu + 2\sigma = 100 + 2(15) = 130 \]</div>
+<div class="math notranslate nohighlight">
+\[ x = \mu - 2\sigma = 100 - 2(15) =  70 \]</div>
+<p>So 95% of IQ scores are between 70 and 130.</p>
+</div>
+<div class="section" id="id7">
+<h5>Part 3<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h5>
+<p>We know that 99.7% of IQ scores lie within three standard deviations of the mean. Let’s find the values that are three standard deviations away from the  mean:</p>
+<div class="math notranslate nohighlight">
+\[ x = \mu + 3\sigma = 100 + 3(15) = 145 \]</div>
+<div class="math notranslate nohighlight">
+\[ x = \mu - 3\sigma = 100 - 3(15) =  55 \]</div>
+<p>So 99.7% of IQ scores are between 55 and 145.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-4-2-7">
+<h3>Example 4.2.7<a class="headerlink" href="#example-4-2-7" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**VID=1tTwrjPqIsk**#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><small style="color:gray"><b>License:</b> This work is licensed under a <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license.</small></p>
+<p><small style="color:gray"><b>Author:</b> Taylor Baldwin, Mt. San Jacinto College</small></p>
+<p><small style="color:gray"><b>Adapted From:</b> <i>Introductory Statistics</i>, by Barbara Illowsky and Susan Dean. Access for free at <a class="reference external" href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./Ch4 The Normal Distribution and the Central Limit Theorem"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="4.1%20The%20Standard%20Normal%20Distribution.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">10. </span>4.1 The Standard Normal Distribution#</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">12. </span>4.3 The Central Limit Theorem for Means</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Taylor Baldwin <br/><br/><small>This work is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. It is adapted from <i>Introductory Statistics</i> by Barbara Illowsky and Susan Dean, which is published by <a href="https://openstax.org/">OpenStax</a> and licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Access for free at <a href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small><br/><br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

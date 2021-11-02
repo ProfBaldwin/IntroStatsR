@@ -1,0 +1,17 @@
+table {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: fit-content !important;
+}
+
+
+.admonition-correct {
+    border-left-color: rgba(var(--pst-color-success), 1) !important;
+}
+.admonition-correct .admonition-title {
+    background-color: rgba(var(--pst-color-success), .1) !important;
+}
+.admonition-correct .admonition-title:before {
+    color: rgba(var(--pst-color-success), 1) !important;
+    content: '\f00c' !important;
+}

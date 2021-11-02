@@ -1,0 +1,704 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instructor Guide &#8212; Introductory Statistics with R</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introductory Statistics with R</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Did it work?
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.0%20Sampling%20and%20Data.html">
+   1. Sampling and Data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.1%20Key%20Terms%20in%20Statistics.html">
+     1.1. Key Terms in Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.2%20Scales%20of%20Measurement.html">
+     1.2. Qualitative Data and Quantitative Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.3%20Sampling%20Techniques.html">
+     1.3. Sampling Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.4%20Tables%20and%20Charts.html">
+     1.4. Tables and Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.1%20Measures%20of%20Position.html">
+   2. 2.1 Measures of Position
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.2%20Measures%20of%20Central%20Tendency.html">
+   3. 2.2 Measures of Central Tendency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.3%20Measures%20of%20Dispersion.html">
+   4. 2.3 Measures of Dispersion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.1%20Introduction%20to%20Probability.html">
+   5. 3.1 Introduction to Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.2%20Multiplication%20Rules%20and%20Independent%20Events.html">
+   6. 3.2 Multiplication Rules and Independent Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.3%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html">
+   7. 3.3 Addition Rules and Mutually Exclusive Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.4%20Discrete%20Probability%20Distributions.html">
+   8. 3.4 Discrete Probability Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch3%20Probability/3.5%20The%20Binomial%20Distribution.html">
+   9. 3.5 The Binomial Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.1%20The%20Standard%20Normal%20Distribution.html">
+   10. 4.1 The Standard Normal Distribution#
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.2%20The%20Normal%20Distribution%20and%20z-scores.html">
+   11. 4.2 The Normal Distribution and
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+   -Scores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html">
+   12. 4.3 The Central Limit Theorem for Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.4%20The%20Central%20Limit%20Theorem%20for%20Proportions.html">
+   13. 4.4 The Central Limit Theorem for Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.1%20Estimating%20Population%20Means%20%28Sigma%20Known%29.html">
+   14. 5.1 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Known)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.2%20Estimating%20Population%20Proportions.html">
+   15. 5.2 Estimating Population Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.3%20Student%27s%20t-Distribution.html">
+   16. 5.3 Student’s
+   <span class="math notranslate nohighlight">
+    \(t\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.4%20Estimating%20Population%20Means%20%28Sigma%20Unknown%29.html">
+   17. 5.4 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Unknown)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html">
+   18. 6.1 An Introduction to Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.2%20Hypotheses%20and%20Errors.html">
+   19. 6.2 Hypotheses and Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.3%20Rare%20Events%2C%20the%20Sample%2C%20Decision%20and%20Conclusion.html">
+   20. 6.3 Rare Events, the Sample, Decision, and Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html">
+   21. 6.4 Hypothesis Tests of One Population
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.1%20The%20Chi-Square%20Distribution.html">
+   22. 7.1 The
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html">
+   23. 7.2 Hypothesis Testing for the Population Variance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.3%20Goodness-of-Fit%20Test.html">
+   24. 7.3 Goodness of Fit Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.1%20Scatter%20Plots.html">
+   25. 8.1 Scatter Plots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.2%20Linear%20Equations.html">
+   26. 8.2 Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.3%20The%20Regression%20Equation.html">
+   27. 8.3 The Regression Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.4%20The%20Correlation%20Coefficient.html">
+   28. 8.4 The Correlation Coefficient
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.1%20Hypothesis%20Testing%20Two%20Population%20Means.html">
+   29. 9.1 Hypothesis Testing: Two Population Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.2%20Hypothesis%20Testing%20Two%20Population%20Variances.html">
+   30. 9.2 Hypothesis Testing Two Population Variances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.3%20ANOVA.html">
+   31. 9.3 ANOVA
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Instructor Guide/Instructor Guide.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Instructor Guide/Instructor Guide.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Instructor Guide/Instructor Guide.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-the-course">
+   About the Course
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#materials-used-in-the-course">
+   Materials Used in the Course
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#student-and-instructor-impressions">
+   Student and Instructor Impressions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#course-structure">
+   Course Structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#equity-considerations">
+   Equity Considerations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-the-course">
+   Using the Course
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-1-get-a-myopenmath-instructor-account">
+     Step 1: Get a MyOpenMath Instructor Account
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-2-copy-the-template-course-shell">
+     Step 2: Copy the Template Course Shell
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-3-prepare-your-course-shell">
+     Step 3: Prepare your Course Shell
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#step-4-make-your-course-available-to-students">
+     Step 4: Make Your Course Available to Students
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-1-use-the-myopenmath-course-shell-directly-recommended">
+       Option 1: Use the MyOpenMath Course Shell Directly (Recommended)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-2-integrate-the-myopenmath-course-into-canvas">
+       Option 2: Integrate the MyOpenMath Course into Canvas
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#best-practices">
+   Best Practices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#common-student-errors">
+   Common Student Errors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#future-work">
+   Future Work
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions">
+   Questions?
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="instructor-guide">
+<h1>Instructor Guide<a class="headerlink" href="#instructor-guide" title="Permalink to this headline">¶</a></h1>
+<p>I taught Introductory Statistics for the first time in the fall 2019 semester. I was almost immediately frustrated with the experience. My biggest concern was that no textbook I could find taught the material with a particular technology in mind at a course-appropriate level. Most textbooks briefly discussed statistical computing using a TI-83 calculator or Microsoft Excel, but it was an afterthought, not a central feature of the text. What’s more, these tools are costly for students and, in the case of the TI-83 calculator, archaic. There are textbooks with a focus on statistical computing with R or Python, but they are intended for students with a good foundation in mathematics and programming, and are not appropriate for an entry-level course. As modern statistics is so heavily dependent on technology, the lack of an entry-level textbook that strongly integrated technology was troubling.</p>
+<p>In a burst of exuberant optimism, I decided to develop the kinds of course materials I wanted myself. As I write this, it has been over a year since I began the project, and it has been more work than I originally anticipated. But, having now taught the course in some configuration for three separate terms, I believe it is ready to be advanced to beta version. This guide is intended to prepare instructors to copy and teach this course.</p>
+<div class="section" id="about-the-course">
+<h2>About the Course<a class="headerlink" href="#about-the-course" title="Permalink to this headline">¶</a></h2>
+<p>This is an entry-level general education statistics course designed to align with <a class="reference external" href="https://c-id.net/descriptors/final/show/365">the C-ID descriptor for Introduction to Statistics</a>. The textbook presents examples using R, a professional-level statistical programming language. While R is incredibly powerful, the text only uses very basic R appropriate to students with no programming experience, using R more like a powerful statistics calculator than a full-featured programming language. Each section of the textbook also includes example videos, though these videos will likely be updated with more professional videos in the future.</p>
+<p>There are also problems corresponding to each section of the textbook written in MyOpenMath. These problems are randomly generated and are generally unique to each student.</p>
+</div>
+<div class="section" id="materials-used-in-the-course">
+<h2>Materials Used in the Course<a class="headerlink" href="#materials-used-in-the-course" title="Permalink to this headline">¶</a></h2>
+<p>This course is designed to be a zero-cost course for students. Most of the materials required are open, and all are free to use.</p>
+<ul class="simple">
+<li><p>I adapted the textbook used for this course, <a class="reference external" href="https://profbaldwin.github.io/IntroductoryStatistics/">Introductory Statistics with R</a>, from Barbara Illowsky and Susan Dean’s open textbook <a class="reference external" href="https://openstax.org/details/books/introductory-statistics">Introductory Statistics</a>. I used Jupyter Notebook (with R) to write the text.</p></li>
+<li><p>I used <a class="reference external" href="https://www.myopenmath.com/">MyOpenMath</a> to write the assignment problems and host the course shell. It has proven to be a powerful and thoughtfully designed tool.</p></li>
+<li><p>To participate in the course, students need access to the R programming language. While several options are available, I’ve found <a class="reference external" href="https://colab.fan/r">Google Colaboratory</a>, Google’s proprietary version of Jupyter Notebook, to be the most convenient. It stores all student code in their Google Drive, allows students to insert explanatory text between code using text cells, and can be shared similar to other documents in Google Drive.</p></li>
+</ul>
+</div>
+<div class="section" id="student-and-instructor-impressions">
+<h2>Student and Instructor Impressions<a class="headerlink" href="#student-and-instructor-impressions" title="Permalink to this headline">¶</a></h2>
+<p>The feedback I’ve received from students has been overwhelmingly positive. I’ve taught several online classes over the past few years. This is the only online course I’ve taught where I have had multiple students, without prompting, message me to let me know how much they are enjoying the course.</p>
+<p>That doesn’t mean students don’t find the course challenging. Especially near the beginning of the semester, some students may feel overwhelmed by the requirement to learn new technologies. The instructor should be a near-daily presence in the course to offer help as needed.</p>
+</div>
+<div class="section" id="course-structure">
+<h2>Course Structure<a class="headerlink" href="#course-structure" title="Permalink to this headline">¶</a></h2>
+<p>The course shell itself is hosted in MyOpenMath. Assignments are split into three categories:</p>
+<ul class="simple">
+<li><p>Practice provides students a collection of (usually around 5) problems to practice after each textbook section. Students have an unlimited number of attempts on the practice problems, and are encouraged to discuss the problems with the instructor and their peers. The problems are generally randomly generated, so each student is presented with a slightly different problem. Practices are auto-graded. Practice assignments are worth 20% of a student’s course grade by default. By default, all Practice assignments are open from the first day of the semester, and one Practice assignment is usually due every Monday, Wednesday, and Friday.</p></li>
+<li><p>Quizzes test the students’ knowledge after each chapter. There are 9 quizzes—one for each chapter. The quiz problems are drawn from the practice problems, though with random elements regenerated. Students should find the quiz problems very similar, but not identical, to the practice problems. The default time limit for a quiz is 2 hours; this can be changed in the settings. I also have the quizzes open-note/open-book; if you wish to change this, make sure you update the syllabus accordingly. Quizzes are auto-graded. Quizzes are worth 45% of a student’s course grade by default. By default, a Quiz opens on the same day the last Practice in the chapter is due, and the Quiz is due two weekdays after it opens.</p></li>
+<li><p>Projects allow students the opportunity to analyze real-world data using statistics. The course has four projects, one each after chapter 2, chapter 5, chapter 6, and chapter 8. These projects will be updated periodically to better align with current events. Projects are <em>not</em> autograded. I encourage students to send me their projects prior to the due date so I could provide feedback and give them the chance to make corrections. Projects are worth 35% of a student’s course grade by default. By default, a Project opens on the same day the last Practice in the chapter is due, and the Project is due four weekdays after it opens.</p></li>
+</ul>
+<p>Notice, there are no high-stakes cumulative exams by default. Instead, students are assessed through several lower-stakes quizzes and projects. There is also a help forum for each section. Students are encouraged to post questions in the help forum so all students may benefit from the response.</p>
+<p>MyOpenMath also allows the automation of late work using LatePasses. The instructor can choose to give every student a certain number of LatePasses. When a student uses a LatePass on an assignment, it grants the student a 24 hour extension on the assignment from the time the assignment was due. LatePasses can also be stacked: two LatePasses can give a student an extension of 48 hours on an assignment. By default, all students start with 21 LatePasses, and students can use up to 7 of those LatePasses on any one assignment. You can easily change these settings if you desire. You can also increase or decrease the number of LatePasses any one student has at anytime during the term.</p>
+</div>
+<div class="section" id="equity-considerations">
+<h2>Equity Considerations<a class="headerlink" href="#equity-considerations" title="Permalink to this headline">¶</a></h2>
+<p>I have endeavored to take equity into account when designing this course. There are many small though, hopefully, meaningful components of the course designed to increase equitable outcomes:</p>
+<ul class="simple">
+<li><p>The course uses zero-cost materials.</p></li>
+<li><p>An effort was made to include problems and projects that reveals diverse experiences.</p></li>
+<li><p>The randomization of MyOpenMath was utilized to randomize names and genders used in problems when appropriate.</p></li>
+<li><p>The course attempts to de-emphasize high-stakes assessments and tries to be reasonably flexible with deadlines.</p></li>
+</ul>
+</div>
+<div class="section" id="using-the-course">
+<h2>Using the Course<a class="headerlink" href="#using-the-course" title="Permalink to this headline">¶</a></h2>
+<p>The course is designed to work almost out of the box. The following steps will help you prepare to copy and use the course shell.</p>
+<div class="section" id="step-1-get-a-myopenmath-instructor-account">
+<h3>Step 1: Get a MyOpenMath Instructor Account<a class="headerlink" href="#step-1-get-a-myopenmath-instructor-account" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Go to <a class="reference external" href="https://www.myopenmath.com/">MyOpenMath.com</a>.</p></li>
+<li><p>Near the bottom of the page, click the link to “request an instructor account.”</p></li>
+<li><p>Follow the instructions to request an account. Make sure the institution you select is “Mt San Jacinto Community College District CA, US” or you won’t be part of the institution group and won’t be able to copy the course template.</p></li>
+<li><p>Your request for an instructor account may take a day or two to be processed.</p></li>
+</ol>
+</div>
+<div class="section" id="step-2-copy-the-template-course-shell">
+<h3>Step 2: Copy the Template Course Shell<a class="headerlink" href="#step-2-copy-the-template-course-shell" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>Once you have an instructor account, sign in to <a class="reference external" href="https://www.myopenmath.com/">MyOpenMath</a>.</p></li>
+<li><p>Click the “Add New Course” button.</p></li>
+<li><p>Click “Copy from my or a colleague’s course.”</p></li>
+<li><p>In the text box, type in the course ID: 98531. Then click, “Look up course.”</p></li>
+<li><p>You should see the course title and author: “MATH-140 Statistics TEMPLATE (Baldwin, Taylor).” Click “Continue.”</p></li>
+<li><p>Choose a course name and enrollment key. Your students will use the enrollment key to join the course.</p></li>
+<li><p>You can safely ignore the remaining settings; you will be able to change them later if you choose. For more information on the settings, see <a class="reference external" href="https://www.myopenmath.com/help.php?section=administration#creatingcourses">MyOpenMath documentation</a>.</p></li>
+<li><p>Click “Submit.” You will see a page informing you of the course ID, LTI key, and secret. Ignore these for now. We will find them again later when we need them. Just click, “Enter the Course.”</p></li>
+</ol>
+</div>
+<div class="section" id="step-3-prepare-your-course-shell">
+<h3>Step 3: Prepare your Course Shell<a class="headerlink" href="#step-3-prepare-your-course-shell" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>If you will be using the MyOpenMath course shell directly, delete any announcements in the “Announcement” block. If you will be integrating the course shell into Canvas, you can delete the “Announcement” block entirely; you will manage any announcements through Canvas directly.</p></li>
+<li><p>If you choose to use it, a template syllabus is provided for convenience on your course home page. Portions of the syllabus that are specific to you and your course, such as instructor information and the section number, are identified by red hash symbols (<span style="color:red;">####</span>). Review the remainder of the syllabus and edit as you feel appropriate. Note that the syllabus is presented as both a single document and broken down into different sections. If you choose to keep both, be sure to apply any edits you make to both.</p></li>
+<li><p>If you wish to change any due dates or settings, the easiest way to do that is to use the “Mass Change” settings on the left side of the course home page.</p></li>
+</ul>
+</div>
+<div class="section" id="step-4-make-your-course-available-to-students">
+<h3>Step 4: Make Your Course Available to Students<a class="headerlink" href="#step-4-make-your-course-available-to-students" title="Permalink to this headline">¶</a></h3>
+<p>There are two ways to make your course available to your students: you can have them create MyOpenMath accounts and join the MyOpenMath course shell directly (recommended), or you can integrate the MyOpenMath course shell into your Canvas course shell.</p>
+<div class="section" id="option-1-use-the-myopenmath-course-shell-directly-recommended">
+<h4>Option 1: Use the MyOpenMath Course Shell Directly (Recommended)<a class="headerlink" href="#option-1-use-the-myopenmath-course-shell-directly-recommended" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>From your course home page, click “Course Settings” from the menu on the left.</p></li>
+<li><p>Take note of your course ID and enrollment key.</p></li>
+<li><p>Provide your course ID and enrollment key to your students, and have your students use these to create a MyOpenMath student account and enroll in your course. It may be helpful to provide them with <a class="reference external" href="https://www.youtube.com/watch?v=v-4hMfgrR7o">an instructional video</a> and/or <a class="reference external" href="https://www.myopenmath.com/help.php?section=usingimas">written instructions</a>.</p></li>
+<li><p>That’s it! Your students are now enrolled in your course in MyOpenMath.</p></li>
+</ol>
+</div>
+<div class="section" id="option-2-integrate-the-myopenmath-course-into-canvas">
+<h4>Option 2: Integrate the MyOpenMath Course into Canvas<a class="headerlink" href="#option-2-integrate-the-myopenmath-course-into-canvas" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>From your course home page, under “Mass Change,” click “Assessments.”</p></li>
+<li><p>Click the “Change Settings” tab.</p></li>
+<li><p>Under “Help and Hints”, set “Show ‘Post this question to forum’ links” to “Do not show ‘Post this question to forum’ links.” By default, students can use “Post this question to forum” links on Practice assignments to post questions to forums when they need help. However, this feature does not work properly when integrating the course with Canvas, so it’s best to disable it to prevent confusion.</p></li>
+<li><p>Click “Apply Changes” on the bottom of the page.</p></li>
+<li><p>From your course home page, click “Course Settings” from the menu on the left.</p></li>
+<li><p>Click “LMS Integration (LTI)”.</p></li>
+<li><p>Copy the LTI key in the form “LTIkey_#####_1”. Using this LTI key (as opposed to the LTI key with 0 at the end) allows your Canvas students automatic access to MyOpenMath without the need to manually create a MyOpenMath account.</p></li>
+<li><p>Check the box next to “Allow the LMS to set assessment due dates.”</p></li>
+<li><p>Follow the instructions in the MyOpenMath help document under <a class="reference external" href="https://www.myopenmath.com/help.php?section=lti#lticanvas">Canvas Integration - Using Import</a> to complete the integration process.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this headline">¶</a></h2>
+<p>Having taught this course over multiple terms, there are a few practices that I recommend.</p>
+<ul class="simple">
+<li><p>For anytime online courses, have an optional introductory Zoom meeting near the beginning of the semester to introduce yourself, go over the syllabus, introduce MyOpenMath, address common mistakes, answer questions, etc. Post the recording of the Zoom meeting so students who didn’t attend can view the recording at their leisure.</p></li>
+<li><p>Encourage students to post questions in the help forums. I recommend responding to the forums once every weekday. When appropriate, use Canvas Studio or some other tool to record your screen as you respond. This way, students will be able to see you illustrate using the technologies in this course.</p></li>
+<li><p>Encourage students to share their work when posting to the help forums. To share their Google Colab Notebook, a student simply needs to click “Share”, change the setting to “Anyone with a link may view,” then copy-and-paste the link in the forum.</p></li>
+<li><p>Encourage students to send their draft projects to you prior to the due date for review and feedback.</p></li>
+</ul>
+</div>
+<div class="section" id="common-student-errors">
+<h2>Common Student Errors<a class="headerlink" href="#common-student-errors" title="Permalink to this headline">¶</a></h2>
+<p>You should be aware of two common student errors.</p>
+<p>First, new Google Colab Notebooks default to running Python, not R. <strong>To create a new Google Colab Notebook that runs R, students <em>must</em> click the link “New Google Colab R-Notebook”.</strong> If students create a Notebook in any other way (for example, by going to File -&gt; New Notebook), it will run Python, not R, and will not be suitable for the class.</p>
+<p>Here is an example of the error you might see if students create a new Notebook in the wrong way then try to run R code:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">f34bbcb468ab</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;x&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>The inclusion of <code class="docutils literal notranslate"><span class="pre">ipython</span></code> in the error message indicates that the Notebook is running Python, not R, which means the student created the Notebook the wrong way. To correct the issue, the student must create a new Notebook using the “New Google Colab R-Notebook” link on the course home page.</p>
+<p>The second common student error involves rounding in MyOpenMath. Most numerical problems in the course will mark the student correct as long as they get the answer correct to at least the third decimal place, though more decimal places are acceptable. As the term goes on, the problems in the course begin to involve more parts which depend on the answers to previous parts. If a student uses the rounded answer to a previous part to calculate the solution to the next part, the small error as a result of the rounding may propogate until the answer to the next part is too far off to be marked correct.</p>
+<p>An example will help illustrate this issue. Suppose the answer to part 1 of a question is 1.23456. MyOpenMath will mark the part correct if the student inputs 1.235 (correct up to 3 decimal places), or 1.2345 (less error), or 1.2346 (even less error), or 1.23456 (perfectly correct). However, if the student uses 1.235 for their calculations instead of the full 1.23456, the error of the former may propogate. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">1.235</span> <span class="o">*</span> <span class="m">10</span>      <span class="c1"># Approximately correct answer * 10</span>
+<span class="m">1.23456</span> <span class="o">*</span> <span class="m">10</span>    <span class="c1"># Perfectly correct answer * 10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">12.35</div><div class="output text_html">12.3456</div></div>
+</div>
+<p>Notice that when we multiply 1.235 by 10, the result is a number no longer accurate to three decimal places. If a student answers part 2 with 12.35, they will be marked wrong, as the answer correct to three decimal places is actually 12.346.</p>
+<p><strong>To avoid this error, students should <em>always</em> copy-and-paste the full result of any calculation.</strong></p>
+</div>
+<div class="section" id="future-work">
+<h2>Future Work<a class="headerlink" href="#future-work" title="Permalink to this headline">¶</a></h2>
+<p>As I mentioned above, this course is in beta version. There are still many improvements I would like to make. Some improvements include:</p>
+<ul class="simple">
+<li><p>Replace example videos with more professional-quality videos with better captioning. These videos may be moved to a different location rather than being embedded in the textbook.</p></li>
+<li><p>Revise wording in the textbook. For example, some of the steps outlines in Chapter 6 could be clearer.</p></li>
+<li><p>Add solutions to MyOpenMath problems.</p></li>
+<li><p>Include textbook sections introducing students to the technology used in the course.</p></li>
+</ul>
+</div>
+<div class="section" id="questions">
+<h2>Questions?<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h2>
+<p>I would be surprised if you don’t run into questions while setting up your course. If you do have questions, please don’t hesitate to contact me at <a class="reference external" href="mailto:tbaldwin&#37;&#52;&#48;msjc&#46;edu">tbaldwin<span>&#64;</span>msjc<span>&#46;</span>edu</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./Instructor Guide"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Taylor Baldwin <br/><br/><small>This work is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. It is adapted from <i>Introductory Statistics</i> by Barbara Illowsky and Susan Dean, which is published by <a href="https://openstax.org/">OpenStax</a> and licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Access for free at <a href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small><br/><br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,735 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5. 3.1 Introduction to Probability &#8212; Introductory Statistics with R</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. 3.2 Multiplication Rules and Independent Events" href="3.2%20Multiplication%20Rules%20and%20Independent%20Events.html" />
+    <link rel="prev" title="4. 2.3 Measures of Dispersion" href="../Ch2%20Descriptive%20Statistics/2.3%20Measures%20of%20Dispersion.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introductory Statistics with R</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Did it work?
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.0%20Sampling%20and%20Data.html">
+   1. Sampling and Data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.1%20Key%20Terms%20in%20Statistics.html">
+     1.1. Key Terms in Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.2%20Scales%20of%20Measurement.html">
+     1.2. Qualitative Data and Quantitative Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.3%20Sampling%20Techniques.html">
+     1.3. Sampling Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.4%20Tables%20and%20Charts.html">
+     1.4. Tables and Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.1%20Measures%20of%20Position.html">
+   2. 2.1 Measures of Position
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.2%20Measures%20of%20Central%20Tendency.html">
+   3. 2.2 Measures of Central Tendency
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.3%20Measures%20of%20Dispersion.html">
+   4. 2.3 Measures of Dispersion
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   5. 3.1 Introduction to Probability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.2%20Multiplication%20Rules%20and%20Independent%20Events.html">
+   6. 3.2 Multiplication Rules and Independent Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.3%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html">
+   7. 3.3 Addition Rules and Mutually Exclusive Events
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.4%20Discrete%20Probability%20Distributions.html">
+   8. 3.4 Discrete Probability Distributions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3.5%20The%20Binomial%20Distribution.html">
+   9. 3.5 The Binomial Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.1%20The%20Standard%20Normal%20Distribution.html">
+   10. 4.1 The Standard Normal Distribution#
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.2%20The%20Normal%20Distribution%20and%20z-scores.html">
+   11. 4.2 The Normal Distribution and
+   <span class="math notranslate nohighlight">
+    \(z\)
+   </span>
+   -Scores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html">
+   12. 4.3 The Central Limit Theorem for Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.4%20The%20Central%20Limit%20Theorem%20for%20Proportions.html">
+   13. 4.4 The Central Limit Theorem for Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.1%20Estimating%20Population%20Means%20%28Sigma%20Known%29.html">
+   14. 5.1 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Known)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.2%20Estimating%20Population%20Proportions.html">
+   15. 5.2 Estimating Population Proportions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.3%20Student%27s%20t-Distribution.html">
+   16. 5.3 Student’s
+   <span class="math notranslate nohighlight">
+    \(t\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.4%20Estimating%20Population%20Means%20%28Sigma%20Unknown%29.html">
+   17. 5.4 Estimating Population Means (
+   <span class="math notranslate nohighlight">
+    \(\sigma\)
+   </span>
+   Unknown)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html">
+   18. 6.1 An Introduction to Hypothesis Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.2%20Hypotheses%20and%20Errors.html">
+   19. 6.2 Hypotheses and Errors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.3%20Rare%20Events%2C%20the%20Sample%2C%20Decision%20and%20Conclusion.html">
+   20. 6.3 Rare Events, the Sample, Decision, and Conclusion
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html">
+   21. 6.4 Hypothesis Tests of One Population
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.1%20The%20Chi-Square%20Distribution.html">
+   22. 7.1 The
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   -Distribution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html">
+   23. 7.2 Hypothesis Testing for the Population Variance
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.3%20Goodness-of-Fit%20Test.html">
+   24. 7.3 Goodness of Fit Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.1%20Scatter%20Plots.html">
+   25. 8.1 Scatter Plots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.2%20Linear%20Equations.html">
+   26. 8.2 Linear Equations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.3%20The%20Regression%20Equation.html">
+   27. 8.3 The Regression Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.4%20The%20Correlation%20Coefficient.html">
+   28. 8.4 The Correlation Coefficient
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.1%20Hypothesis%20Testing%20Two%20Population%20Means.html">
+   29. 9.1 Hypothesis Testing: Two Population Means
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.2%20Hypothesis%20Testing%20Two%20Population%20Variances.html">
+   30. 9.2 Hypothesis Testing Two Population Variances
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.3%20ANOVA.html">
+   31. 9.3 ANOVA
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Ch3 Probability/3.1 Introduction to Probability.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Ch3 Probability/3.1 Introduction to Probability.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Ch3 Probability/3.1 Introduction to Probability.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   5.1. Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#terminology-and-basic-probability">
+   5.2. Terminology and Basic Probability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-1-1">
+     Example 3.1.1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-1">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-2">
+         Part 2#####
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-3">
+         Part 3
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-4">
+         Part 4
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-5">
+         Part 5
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-6">
+         Part 6
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-7">
+         Part 7
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-1-2">
+     Example 3.1.2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id2">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id3">
+         Part 2
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id4">
+         Part 3
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id5">
+         Part 4
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id6">
+         Part 5
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-1-3">
+     Example 3.1.3
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction-to-probability">
+<h1><span class="section-number">5. </span>3.1 Introduction to Probability<a class="headerlink" href="#introduction-to-probability" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objectives">
+<h2><span class="section-number">5.1. </span>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Apply probability and counting rules (including addition and multiplication rules) as pertaining to both continuous random variables and discrete random variables.</p></li>
+<li><p>Analyze an application in the disciplines business, social sciences, psychology, life sciences, health science, and education, and utilize the correct statistical processes to arrive at a solution.</p></li>
+</ul>
+</div>
+<div class="section" id="terminology-and-basic-probability">
+<h2><span class="section-number">5.2. </span>Terminology and Basic Probability<a class="headerlink" href="#terminology-and-basic-probability" title="Permalink to this headline">¶</a></h2>
+<p>Probability is a measure that is associated with how certain we are of outcomes of a particular experiment or activity. An <strong>experiment</strong> is a planned operation carried out under controlled conditions. If the result is not predetermined, then the experiment is said to be a <strong>chance</strong> experiment. Flipping one fair coin twice is an example of an experiment.</p>
+<p>A result of an experiment is called an <strong>outcome</strong>. The <strong>sample space</strong> of an experiment is the set of all possible outcomes. Three ways to represent a sample space are: to list the possible outcomes, to create a tree diagram, or to create a Venn diagram. The uppercase letter <span class="math notranslate nohighlight">\(S\)</span> is used to denote the sample space. For example, if you flip one fair coin, <span class="math notranslate nohighlight">\(S = \{H, T\}\)</span> where <span class="math notranslate nohighlight">\(H\)</span> = heads and <span class="math notranslate nohighlight">\(T\)</span> = tails are the outcomes.</p>
+<p>An <strong>event</strong> is any combination of outcomes. Upper case letters like <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> represent events. For example, if the experiment is to flip one fair coin, event <span class="math notranslate nohighlight">\(A\)</span> might be getting at most one head. The probability of an event <span class="math notranslate nohighlight">\(A\)</span> is written <span class="math notranslate nohighlight">\(P(A)\)</span>.</p>
+<p>The <strong>probability</strong> of any outcome is the <strong>long-term relative frequency</strong> of that outcome. <strong>Probabilities are between zero and one, inclusive</strong> (that is, zero and one and all numbers between these values). <span class="math notranslate nohighlight">\(P(A) = 0\)</span> means the event <span class="math notranslate nohighlight">\(A\)</span> can never happen. <span class="math notranslate nohighlight">\(P(A) = 1\)</span> means the event <span class="math notranslate nohighlight">\(A\)</span> always happens. <span class="math notranslate nohighlight">\(P(A) = 0.5\)</span> means the event <span class="math notranslate nohighlight">\(A\)</span> is equally likely to occur or not to occur. For example, if you flip one fair coin repeatedly (from 20 to 2,000 to 20,000 times) the relative frequency of heads approaches 0.5 (the probability of heads).</p>
+<p><strong>Equally likely</strong> means that each outcome of an experiment occurs with equal probability. For example, if you toss a <strong>fair</strong>, six-sided die, each face (1, 2, 3, 4, 5, or 6) is as likely to occur as any other face. If you toss a fair coin, a Head (<span class="math notranslate nohighlight">\(H\)</span>) and a Tail (<span class="math notranslate nohighlight">\(T\)</span>) are equally likely to occur. If you randomly guess the answer to a true/false question on an exam, you are equally likely to select a correct answer or an incorrect answer.</p>
+<p><strong>To calculate the probability of an event <span class="math notranslate nohighlight">\(A\)</span> when all outcomes in the sample space are equally likely</strong>, find <span class="math notranslate nohighlight">\(n(A)\)</span>, the number of outcomes for event <span class="math notranslate nohighlight">\(A\)</span>, and divide by <span class="math notranslate nohighlight">\(n(S)\)</span>, the total number of outcomes in the sample space <span class="math notranslate nohighlight">\(S\)</span>. Mathematically, we write
+$<span class="math notranslate nohighlight">\( P(A) = \frac{n(A)}{n(S)}.\)</span><span class="math notranslate nohighlight">\(
+For example, if you toss a fair dime and a fair nickel, the sample space is \)</span>S = {HH, TH, HT, TT}<span class="math notranslate nohighlight">\( where \)</span>T<span class="math notranslate nohighlight">\( = tails and \)</span>H<span class="math notranslate nohighlight">\( = heads. The sample space has \)</span>n(S) = 4<span class="math notranslate nohighlight">\( outcomes. \)</span>A<span class="math notranslate nohighlight">\( = getting one head. There are \)</span>n(A) = 2<span class="math notranslate nohighlight">\( outcomes that meet this condition: \)</span>{HT, TH}<span class="math notranslate nohighlight">\(. So \)</span>P(A) =  \frac{n(A)}{n(S)} = \frac{2}{4}  = 0.5$.</p>
+<p>Suppose you roll one fair six-sided die, with the numbers <span class="math notranslate nohighlight">\(\{1, 2, 3, 4, 5, 6\}\)</span> on its faces. Let event <span class="math notranslate nohighlight">\(E\)</span> = rolling a number that is at least five. There are two outcomes: <span class="math notranslate nohighlight">\(\{5, 6\}\)</span>. <span class="math notranslate nohighlight">\(P(E) = \frac{n(E)}{n(S)} = \frac{2}{6}\)</span>. If you were to roll the die only a few times, you would not be surprised if your observed results did not match the probability. If you were to roll the die a very large number of times, you would expect that, overall, <span class="math notranslate nohighlight">\(\frac{2}{6}\)</span> of the rolls would result in an outcome of “at least five”. You would not expect exactly <span class="math notranslate nohighlight">\(\frac{2}{6}\)</span>. The long-term relative frequency of obtaining this result would approach the theoretical probability of <span class="math notranslate nohighlight">\(\frac{2}{6}\)</span> as the number of repetitions grows larger and larger.</p>
+<p>This important characteristic of probability experiments is known as the <strong>law of large numbers</strong> which states that as the number of repetitions of an experiment is increased, the relative frequency obtained in the experiment tends to become closer and closer to the theoretical probability. Even though the outcomes do not happen according to any set pattern or order, overall, the long-term observed relative frequency will approach the theoretical probability. (The word <strong>empirical</strong> is often used instead of the word observed.)</p>
+<p>It is important to realize that in many situations, the outcomes are not equally likely. A coin or die may be <strong>unfair</strong>, or <strong>biased</strong>. Two math professors in Europe had their statistics students test the Belgian one Euro coin and discovered that in 250 trials, a head was obtained 56% of the time and a tail was obtained 44% of the time. The data seem to show that the coin is not a fair coin; more repetitions would be helpful to draw a more accurate conclusion about such bias. Some dice may be biased. Look at the dice in a game you have at home; the spots on each face are usually small holes carved out and then painted to make the spots visible. Your dice may or may not be biased; it is possible that the outcomes may be affected by the slight weight differences due to the different numbers of holes in the faces. Gambling casinos make a lot of money depending on outcomes from rolling dice, so casino dice are made differently to eliminate bias. Casino dice have flat faces; the holes are completely filled with paint having the same density as the material that the dice are made out of so that each face is equally likely to occur. Later we will learn techniques to use to work with probabilities for events that are not equally likely.</p>
+<p><strong>“OR” Event:</strong><br>
+An outcome is in the event <span class="math notranslate nohighlight">\(A \text{ OR } B\)</span> if the outcome is in <span class="math notranslate nohighlight">\(A\)</span> or is in <span class="math notranslate nohighlight">\(B\)</span> or is in both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>. For example, let <span class="math notranslate nohighlight">\(A = \{1, 2, 3, 4, 5\}\)</span> and <span class="math notranslate nohighlight">\(B = \{4, 5, 6, 7, 8\}\)</span>. <span class="math notranslate nohighlight">\(A \text{ OR } B = \{1, 2, 3, 4, 5, 6, 7, 8\}\)</span>. Notice that 4 and 5 are NOT listed twice.</p>
+<p><strong>“AND” Event:</strong><br>
+An outcome is in the event <span class="math notranslate nohighlight">\(A \text{ AND } B\)</span> if the outcome is in both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> at the same time. For example, let <span class="math notranslate nohighlight">\(A = \{1, 2, 3, 4, 5\}\)</span> and <span class="math notranslate nohighlight">\(B = \{4, 5, 6, 7, 8\}\)</span>. Then <span class="math notranslate nohighlight">\(A \text{ AND } B = \{4, 5\}\)</span>.</p>
+<p>The <strong>complement</strong> of event <span class="math notranslate nohighlight">\(A\)</span> is denoted <span class="math notranslate nohighlight">\(A'\)</span> (read “A prime”). <span class="math notranslate nohighlight">\(A'\)</span> consists of all outcomes that are NOT in <span class="math notranslate nohighlight">\(A\)</span>. Notice that <span class="math notranslate nohighlight">\(P(A) + P(A') = 1\)</span>. For example, let <span class="math notranslate nohighlight">\(S = \{1, 2, 3, 4, 5, 6\}\)</span> and let <span class="math notranslate nohighlight">\(A = \{1, 2, 3, 4\}\)</span>. Then, <span class="math notranslate nohighlight">\(A' = \{5, 6\}\)</span>. <span class="math notranslate nohighlight">\(P(A) = \frac{4}{6}\)</span>, <span class="math notranslate nohighlight">\(P(A') = \frac{2}{6}\)</span>, and <span class="math notranslate nohighlight">\(P(A) + P(A') = \frac{4}{6} + \frac{2}{6} = 1\)</span>.</p>
+<p>The <strong>conditional probability</strong> of <span class="math notranslate nohighlight">\(A\)</span> given <span class="math notranslate nohighlight">\(B\)</span> is written <span class="math notranslate nohighlight">\(P(A|B)\)</span>. <span class="math notranslate nohighlight">\(P(A|B)\)</span> is the probability that event <span class="math notranslate nohighlight">\(A\)</span> will occur given that the event <span class="math notranslate nohighlight">\(B\)</span> has already occurred. <strong>A conditional reduces the sample space.</strong> We calculate the probability of <span class="math notranslate nohighlight">\(A\)</span> from the reduced sample space <span class="math notranslate nohighlight">\(B\)</span>. When outcomes are equally likely, we use the formula
+$<span class="math notranslate nohighlight">\( P(A|B) = \frac{n(A \text{ AND } B)}{n(B)}. \)</span><span class="math notranslate nohighlight">\(
+Since we are assuming that we already know that event \)</span>B<span class="math notranslate nohighlight">\( has already occurred, our sample space is reduced from all possible outcomes in the sample space \)</span>S<span class="math notranslate nohighlight">\( to just the outcomes in \)</span>B<span class="math notranslate nohighlight">\(, which is why we divide by \)</span>n(B)<span class="math notranslate nohighlight">\( instead of \)</span>n(S)<span class="math notranslate nohighlight">\(. Similarly, in the numerator, we write the number of outcomes in \)</span>A<span class="math notranslate nohighlight">\( that can occur. But since we already know that \)</span>B<span class="math notranslate nohighlight">\( occurred, only those outcomes in \)</span>A<span class="math notranslate nohighlight">\( that are also in \)</span>B<span class="math notranslate nohighlight">\( are possible. So our numerator is the number of outcomes in \)</span>A \text{ AND } B$.</p>
+<p>For example, suppose we toss one fair, six-sided die. The sample space is <span class="math notranslate nohighlight">\(S = \{1, 2, 3, 4, 5, 6\}\)</span>. Let <span class="math notranslate nohighlight">\(A\)</span> be the event that face is 2 or 3: <span class="math notranslate nohighlight">\(A = \{2, 3\}\)</span>. Let <span class="math notranslate nohighlight">\(B\)</span> be the event that the face is even: <span class="math notranslate nohighlight">\(B = \{2, 4, 6\}\)</span>. To calculate <span class="math notranslate nohighlight">\(P(A|B)\)</span>, we count the number of outcomes of <span class="math notranslate nohighlight">\(A\)</span> that are also in the sample space <span class="math notranslate nohighlight">\(B\)</span>. Then we divide that by the number of outcomes in <span class="math notranslate nohighlight">\(B\)</span> (rather than <span class="math notranslate nohighlight">\(S\)</span>). We get
+$<span class="math notranslate nohighlight">\(P(A|B) = \frac{n(A \text{ and } B)}{n(B)} = \frac{1}{3}.\)</span>$</p>
+<p>When events in the sample space are NOT equally likely, the more general formula to calculate <span class="math notranslate nohighlight">\(P(A|B)\)</span> is
+$<span class="math notranslate nohighlight">\(P(A|B) = \frac{P(A \text{ AND } B)}{P(B)},\)</span><span class="math notranslate nohighlight">\(
+where \)</span>P(B)<span class="math notranslate nohighlight">\( is greater than zero. We can also use this slightly more complicated formula to get the same result to the preceding problem:
+\)</span><span class="math notranslate nohighlight">\(P(A|B) = \frac{P(A \text{ AND } B)}{P(B)} = \frac{\frac{n(A \text{ AND } B)}{n(S)}}{\frac{n(B)}{n(S)}} = \frac{\frac{1}{6}}{\frac{3}{6}} = \frac{1}{3}.\)</span>$</p>
+<p><strong>Note:</strong> Generally, <span class="math notranslate nohighlight">\(P(A|B)\)</span> is NOT equal to <span class="math notranslate nohighlight">\(P(B|A)\)</span>. Make sure you are aware of the order events are written when calculating conditional probability.</p>
+<hr class="docutils" />
+<div class="section" id="example-3-1-1">
+<h3>Example 3.1.1<a class="headerlink" href="#example-3-1-1" title="Permalink to this headline">¶</a></h3>
+<p>The sample space <span class="math notranslate nohighlight">\(S\)</span> is the set of whole numbers starting at 1 and less than 20. Assume the outcomes are equally likely. Let event <span class="math notranslate nohighlight">\(A\)</span> = the even numbers and event <span class="math notranslate nohighlight">\(B\)</span> = numbers greater than 13. Find the following (in mathematical notation).</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(A\)</span>, and <span class="math notranslate nohighlight">\(B\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(A)\)</span> and <span class="math notranslate nohighlight">\(P(B)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A \text{ AND } B\)</span> and <span class="math notranslate nohighlight">\(A \text{ OR } B\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(A \text{ AND } B)\)</span> and <span class="math notranslate nohighlight">\(P(A \text{ OR } B)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(A'\)</span> and <span class="math notranslate nohighlight">\(P(A')\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(A) + P(A')\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(A|B)\)</span> and <span class="math notranslate nohighlight">\(P(B|A)\)</span>. Are the probabilities equal?</p></li>
+</ol>
+<div class="section" id="solution">
+<h4>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="part-1">
+<h5>Part 1<a class="headerlink" href="#part-1" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(S = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19\}\)</span></p>
+<p><span class="math notranslate nohighlight">\(A = \{ 2, 4, 6, 8, 10, 12, 14, 16, 18\}\)</span></p>
+<p><span class="math notranslate nohighlight">\(B = \{14, 15, 16, 17, 18, 19\}\)</span></p>
+</div>
+<div class="section" id="part-2">
+<h5>Part 2#####<a class="headerlink" href="#part-2" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(P(A) = \dfrac{n(A)}{n(S)} = \dfrac{9}{19} = 0.4737\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(B) = \dfrac{n(B)}{n(S)} = \dfrac{6}{19} = 0.3158\)</span></p>
+</div>
+<div class="section" id="part-3">
+<h5>Part 3<a class="headerlink" href="#part-3" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(A \text{ AND } B = \{14, 16, 18\}\)</span></p>
+<p><span class="math notranslate nohighlight">\(A \text{ OR } B = \{2, 4, 6, 8, 10, 12, 14, 15, 16, 17, 18, 19\}\)</span></p>
+</div>
+<div class="section" id="part-4">
+<h5>Part 4<a class="headerlink" href="#part-4" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(P(A \text{ AND } B) = \dfrac{n(A \text{ AND } B)}{n(S)} = \dfrac{3}{19} = 0.1579\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(A \text{ OR } B) = \dfrac{n(A \text{ OR } B)}{n(S)} = \dfrac{12}{19} = 0.6316\)</span></p>
+</div>
+<div class="section" id="part-5">
+<h5>Part 5<a class="headerlink" href="#part-5" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(A' = \{1, 3, 5, 7, 9, 11, 13, 15, 17, 19\}\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(A') = \dfrac{n(A')}{n(S)} = \dfrac{10}{19} = 0.5263\)</span></p>
+</div>
+<div class="section" id="part-6">
+<h5>Part 6<a class="headerlink" href="#part-6" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(P(A) + P(A') = \dfrac{9}{19} + \dfrac{10}{19} = 1\)</span></p>
+</div>
+<div class="section" id="part-7">
+<h5>Part 7<a class="headerlink" href="#part-7" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(P(A|B) = \dfrac{n(A \text{ AND } B)}{n(B)} = \dfrac{3}{6} = 0.5\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(B|A) = \dfrac{n(B \text{ AND } A)}{n(A)} = \dfrac{3}{9} = 0.3333\)</span></p>
+<p><span class="math notranslate nohighlight">\(P(A|B)\)</span> is NOT equal to <span class="math notranslate nohighlight">\(P(B|A)\)</span>.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-3-1-2">
+<h3>Example 3.1.2<a class="headerlink" href="#example-3-1-2" title="Permalink to this headline">¶</a></h3>
+<p>You draw one card from a well-shuffled standard deck of 52 cards. Let <span class="math notranslate nohighlight">\(♥\)</span> = drawing a Heart and <span class="math notranslate nohighlight">\(K\)</span> = drawing a King.</p>
+<p><a href="_playingcards.html" target="_blank"><img src="playingcards.svg" alt="A standard deck of playing cards."></a></p>
+<p>Find each of the following.</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(n(S)\)</span>, <span class="math notranslate nohighlight">\(n(♥)\)</span>, and <span class="math notranslate nohighlight">\(n(K)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(♥)\)</span> and <span class="math notranslate nohighlight">\(P(K)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(n(♥ \text{ AND } K)\)</span> and <span class="math notranslate nohighlight">\(n(♥ \text{ OR } K)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(♥ \text{ AND } K)\)</span> and <span class="math notranslate nohighlight">\(P(♥ \text{ OR } K)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(P(♥|K)\)</span> and <span class="math notranslate nohighlight">\(P(K|♥)\)</span></p></li>
+</ol>
+<div class="section" id="id1">
+<h4>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id2">
+<h5>Part 1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(n(S) = 52\)</span></p>
+<p><span class="math notranslate nohighlight">\(n(♥) = 13\)</span></p>
+<p><span class="math notranslate nohighlight">\(n(K) = 4\)</span></p>
+</div>
+<div class="section" id="id3">
+<h5>Part 2<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(P(♥) = \dfrac{n(♥)}{n(S)} = \dfrac{13}{52} = 0.25\)</span><br>
+So there is a 25% chance that the card you draw is a Heart.</p>
+<p><span class="math notranslate nohighlight">\(P(K) = \dfrac{n(K)}{n(S)} = \dfrac{4}{52} = 0.0769\)</span></br>
+So there is a 7.69% chance that the card you draw is a King.</p>
+</div>
+<div class="section" id="id4">
+<h5>Part 3<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(n(♥ \text{ AND } K) = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(n(♥ \text{ OR } K) = 16\)</span></p>
+</div>
+<div class="section" id="id5">
+<h5>Part 4<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(P(♥ \text{ AND } K) = \dfrac{n(♥ \text{ AND } K)}{n(S)} = \dfrac{1}{52} = 0.0192\)</span><br>
+So there is a 1.92% chance that the card you draw is the King of Hearts.</p>
+<p><span class="math notranslate nohighlight">\(n(♥ \text{ OR } K) = \dfrac{n(♥ \text{ OR } K)}{n(S)} = \dfrac{16}{52} = 0.3077\)</span><br>
+So there is a 30.77% chance the the card you draw is either a Heart or a King (or both).</p>
+</div>
+<div class="section" id="id6">
+<h5>Part 5<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h5>
+<p><span class="math notranslate nohighlight">\(P(♥|K) = \dfrac{n(♥ \text{ AND } K)}{n(K)} = \dfrac{1}{4} = 0.25\)</span><br>
+So if you draw a card and you aleady know that it is a King, there is a 25% chance that it is also a Heart.</p>
+<p><span class="math notranslate nohighlight">\(P(K|♥) = \dfrac{n(K \text{ AND } ♥)}{n(♥)} = \dfrac{1}{13} = 0.0769\)</span><br>
+So if you draw a card and you already know that it is a Heart, there is a 7.69% chance that it is also a King.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-3-1-3">
+<h3>Example 3.1.3<a class="headerlink" href="#example-3-1-3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**VID=ZONr5za7_Vc**#</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><small style="color:gray"><b>License:</b> This work is licensed under a <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license.</small></p>
+<p><small style="color:gray"><b>Author:</b> Taylor Baldwin, Mt. San Jacinto College</small></p>
+<p><small style="color:gray"><b>Adapted From:</b> <i>Introductory Statistics</i>, by Barbara Illowsky and Susan Dean. Access for free at <a class="reference external" href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./Ch3 Probability"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../Ch2%20Descriptive%20Statistics/2.3%20Measures%20of%20Dispersion.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">4. </span>2.3 Measures of Dispersion</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="3.2%20Multiplication%20Rules%20and%20Independent%20Events.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">6. </span>3.2 Multiplication Rules and Independent Events</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Taylor Baldwin <br/><br/><small>This work is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. It is adapted from <i>Introductory Statistics</i> by Barbara Illowsky and Susan Dean, which is published by <a href="https://openstax.org/">OpenStax</a> and licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Access for free at <a href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small><br/><br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
