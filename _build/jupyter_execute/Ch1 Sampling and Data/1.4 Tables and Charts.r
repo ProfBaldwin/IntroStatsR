@@ -1,3 +1,14 @@
+# Relative Frequency for Face-to-Face Modality
+42/75
+
+# Relative Frequency for Online Modality
+26/75
+
+# Relative Frequency for Hybrid Modality
+7/75
+
+## To Do: Example Video with missing relative frequency
+
 proportions = c(19, 43, 38)
 age_groups = c("Children", "Working-age Adults", "Retirees")
 
@@ -29,7 +40,7 @@ dev.off()
 proportions = c(19, 43, 38)
 age_groups = c("Children", "Working-age Adults", "Retirees")
 
-pie(x = proportions, labels = age_groups)
+pie(proportions, labels = age_groups)
 
 png("park_city_piechart.png", width = 1000, height = 1000)
 
@@ -38,7 +49,7 @@ par(mar = c(2, 0, 0, 0))
 proportions = c(19, 43, 38)
 age_groups = c("Children", "Working-age\nAdults", "Retirees")
 
-pie(x = proportions, labels = age_groups, cex = 2.5)
+pie(proportions, labels = age_groups, cex = 2.5)
 
 dev.off()
 
@@ -79,18 +90,46 @@ dev.off()
 
 data = c(60, 60.5, 61, 61, 61.5, 63.5, 63.5, 63.5, 64, 64, 64, 64, 64, 64, 64, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68, 68, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69.5, 69.5, 69.5, 69.5, 69.5, 70, 70, 70, 70, 70, 70, 70.5, 70.5, 70.5, 71, 71, 71, 72, 72, 72, 72.5, 72.5, 73, 73.5, 74)
 
-hist(x = data)
+hist(data)
 
 png("soccer_hist.png", width = 1000, height = 500)
 
 par(mgp = c(4, 1, 0), mar = c(5, 6, 5, 0))
 data = c(60, 60.5, 61, 61, 61.5, 63.5, 63.5, 63.5, 64, 64, 64, 64, 64, 64, 64, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68, 68, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69.5, 69.5, 69.5, 69.5, 69.5, 70, 70, 70, 70, 70, 70, 70.5, 70.5, 70.5, 71, 71, 71, 72, 72, 72, 72.5, 72.5, 73, 73.5, 74)
 
-hist(x = data, cex.lab = 2.5, cex.axis = 2, cex.main = 2.5, col = "gray70")
+hist(data, cex.lab = 2.5, cex.axis = 2, cex.main = 2.5, col = "gray70")
 
 dev.off()
 
-#**ALT=Histogram of data in example 5.4 generated using R**#
-books <- c(0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6)
+books = c(0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6)
 
-hist(x = books)
+hist(books)
+
+png("books_hist.png", width = 1000, height = 500)
+
+par(mgp = c(4, 1, 0), mar = c(5, 6, 5, 0))
+books = c(0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6)
+
+hist(books, cex.lab = 2.5, cex.axis = 2, cex.main = 2.5, col = "gray70")
+
+dev.off()
+
+png("books_bar.png", width = 1000, height = 500)
+
+par(mgp = c(4, 1, 0), mar = c(5, 6, 5, 0))
+books = c(0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6)
+
+freq = c()
+lab = c()
+for (j in 0:6) {
+    freq = append(freq, sum(books == j))
+    lab = append(lab, paste0(j, " books"))
+}
+
+barplot(height = freq, names = lab, 
+        main = "Bar chart of books",
+        ylab = "Frequency",
+        xlab = "Number of Books",
+        cex.lab = 2.5, cex.axis = 2, cex.names = 2, cex.main = 2.5)
+
+dev.off()
