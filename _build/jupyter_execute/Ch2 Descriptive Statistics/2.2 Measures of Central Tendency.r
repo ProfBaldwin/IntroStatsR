@@ -73,9 +73,9 @@ rangebrace = function(x0, x1, y, d, col){
     lines(Xr, Y, lwd = 3, col = col)
 }
 
-c1 = "blue3"#"#332288"
-c2 = "forestgreen"#"#117733"
-c3 = "red3"#"#882255"
+c1 = "blue3"
+c2 = "forestgreen"
+c3 = "red3"
 
 a = 0
 b = 9.5
