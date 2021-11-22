@@ -9,6 +9,23 @@
 
 ## To Do: Example Video with missing relative frequency
 
+png("elementary_attendance_barchart.png", width = 1000, height = 500)
+
+absences = c(5, 2, 3, 4, 6)
+day = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+
+barplot(height = absences, names = day, ylim = c(0,6.2), cex.names = 2, cex.axis = 2, cex.main = 2.5, main = "Student Absences")
+for (j in 1:6) {
+    abline(h = j, col = "gray50")
+}
+barplot(height = absences, names = day, ylim = c(0,6.2), cex.names = 2, cex.axis = 2, cex.main = 2.5, main = "Student Absences", add = TRUE)
+
+dev.off()
+
+2/20 * 100
+
+## To Do: Video Example Reading Barcharts
+
 proportions = c(19, 43, 38)
 age_groups = c("Children", "Working-age Adults", "Retirees")
 
@@ -36,6 +53,8 @@ race = c("A", "B", "C", "D", "E", "F")
 barplot(height = APproportion, names = race, cex.names = 2, cex.axis = 2)
 
 dev.off()
+
+## To Do: Video Example Creating Bar Charts
 
 proportions = c(19, 43, 38)
 age_groups = c("Children", "Working-age Adults", "Retirees")
@@ -86,7 +105,29 @@ a <- matrix(c(17, 18, 20, 22, 23,
 
 dev.off()
 
-#**VID=hHDvzYoxWHI**#
+png("gas_hist.png", width = 1000, height = 700)
+
+x = runif(45, min = 4.30, max = 4.40)
+x = append(x, runif(60, min = 4.40, max = 4.50))
+x = append(x, runif(70, min = 4.50, max = 4.60))
+x = append(x, runif(40, min = 4.60, max = 4.70))
+x = append(x, runif(20, min = 4.70, max = 4.80))
+x = append(x, runif(15, min = 4.80, max = 4.90))
+x = append(x, runif(5, min = 4.90, max = 5.00))
+
+par(mgp = c(4, 1, 0), mar = c(5, 6, 5, 0))
+hist(x, ylim = c(0, 71), xaxt = "n", xlab = "Gas Prices", main = "Histogram of Gas Prices in the Bay Area", cex.lab = 2.5, cex.axis = 2, cex.main = 2.5, col = "gray70")
+for (j in 1:7) {
+    abline(h = j*10, col = "gray50")
+}
+hist(x, ylim = c(0, 71), xaxt = "n", xlab = "Gas Prices", main = "Histogram of Gas Prices in the Bay Area", cex.lab = 2.5, cex.axis = 2, cex.main = 2.5, col = "gray70", add = TRUE)
+axis(1, at = seq(from = 4.30, to = 5.00, by = 0.10), labels = c("4.30", "4.40", "4.50", "4.60", "4.70", "4.80", "4.90", "5.00"), cex.axis = 2)
+
+dev.off()
+
+130/255 * 100
+
+## To Do: Video Example Interpret Histogram
 
 data = c(60, 60.5, 61, 61, 61.5, 63.5, 63.5, 63.5, 64, 64, 64, 64, 64, 64, 64, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68, 68, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69.5, 69.5, 69.5, 69.5, 69.5, 70, 70, 70, 70, 70, 70, 70.5, 70.5, 70.5, 71, 71, 71, 72, 72, 72, 72.5, 72.5, 73, 73.5, 74)
 
@@ -133,3 +174,5 @@ barplot(height = freq, names = lab,
         cex.lab = 2.5, cex.axis = 2, cex.names = 2, cex.main = 2.5)
 
 dev.off()
+
+## To Do: Video Example Create Histogram

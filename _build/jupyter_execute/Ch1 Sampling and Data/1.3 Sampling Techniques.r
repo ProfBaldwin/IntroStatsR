@@ -18,8 +18,16 @@ barplot(height = rep(n/10, 10), names = 1:10, ylim = c(0, 25), ylab = "Frequency
 
 dev.off()
 
+sample(2:29, size = 5)
+
+## To Do: Video Example on Simple Random Sampling
+
 # Randomly choose one student as a starting point
 sample(1:30, size = 1)
+
+sample(2:29, size = 1)
+
+## To Do: Video Example on Systematic Sampling
 
 S = 1:30
 A = sort(sample(S, size = 10))
@@ -37,6 +45,10 @@ sample(1:15, size = 3)
 
 # Randomly choose 1 student from the Grade C or Lower stratum
 sample(1:5, size = 1)
+
+0.152 * 400
+
+## To Do: Video Example Stratified Sampling
 
 # Code to create table_clusters.png, to be displayed below.
 library("plotrix")
@@ -96,4 +108,6 @@ dev.off()
 # Randomly select two of the ten tables
 sample(1:10, size = 2)
 
-#**VID=UPFdV3gKPJQ**#
+sample(1:130, size = 6)
+
+## To Do: Video Example Cluster Sampling
