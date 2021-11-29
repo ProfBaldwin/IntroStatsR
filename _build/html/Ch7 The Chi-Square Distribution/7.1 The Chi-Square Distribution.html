@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>20. 7.1 The \(\chi^2\)-Distribution &#8212; Introductory Statistics with R</title>
+    <title>7.1. 7.1 The \(\chi^2\)-Distribution &#8212; Introductory Statistics with R</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="21. 7.2 Hypothesis Testing for the Population Variance" href="7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html" />
-    <link rel="prev" title="19. 6.4 Hypothesis Tests of One Population" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html" />
+    <link rel="next" title="7.2. 7.2 Hypothesis Testing for the Population Variance" href="7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html" />
+    <link rel="prev" title="7. The \(\chi^2\)-Distribution" href="7.0%20The%20Chi-Square%20Distribution.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -136,175 +136,263 @@
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.1%20Measures%20of%20Position.html">
-     2.1. 2.1 Measures of Position
+     2.1. Measures of Position
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.2%20Measures%20of%20Central%20Tendency.html">
-     2.2. 2.2 Measures of Central Tendency
+     2.2. Measures of Central Tendency
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.3%20Measures%20of%20Dispersion.html">
-     2.3. 2.3 Measures of Dispersion
+     2.3. Measures of Dispersion
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch3%20Probability/3.1%20Introduction%20to%20Probability.html">
-   3. 3.1 Introduction to Probability
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch3%20Probability/3.0%20Probability.html">
+   3. Probability
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch3%20Probability/3.1%20Introduction%20to%20Probability.html">
+     3.1. 3.1 Introduction to Probability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch3%20Probability/3.2%20Multiplication%20Rules%20and%20Independent%20Events.html">
+     3.2. 3.2 Multiplication Rules and Independent Events
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch3%20Probability/3.3%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html">
+     3.3. 3.3 Addition Rules and Mutually Exclusive Events
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch3%20Probability/3.4%20Discrete%20Probability%20Distributions.html">
+     3.4. 3.4 Discrete Probability Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch3%20Probability/3.5%20The%20Binomial%20Distribution.html">
+     3.5. 3.5 The Binomial Distribution
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch3%20Probability/3.2%20Multiplication%20Rules%20and%20Independent%20Events.html">
-   4. 3.2 Multiplication Rules and Independent Events
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.0%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem.html">
+   4. The Normal Distribution and the Central Limit Theorem
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.1%20The%20Standard%20Normal%20Distribution.html">
+     4.1. 4.1 The Standard Normal Distribution#
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.2%20The%20Normal%20Distribution%20and%20z-scores.html">
+     4.2. 4.2 The Normal Distribution and
+     <span class="math notranslate nohighlight">
+      \(z\)
+     </span>
+     -Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html">
+     4.3. 4.3 The Central Limit Theorem for Means
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.4%20The%20Central%20Limit%20Theorem%20for%20Proportions.html">
+     4.4. 4.4 The Central Limit Theorem for Proportions
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch3%20Probability/3.3%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html">
-   5. 3.3 Addition Rules and Mutually Exclusive Events
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.0%20Confidence%20Intervals.html">
+   5. Confidence Intervals
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.1%20Estimating%20Population%20Means%20%28Sigma%20Known%29.html">
+     5.1. 5.1 Estimating Population Means (
+     <span class="math notranslate nohighlight">
+      \(\sigma\)
+     </span>
+     Known)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.2%20Estimating%20Population%20Proportions.html">
+     5.2. 5.2 Estimating Population Proportions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.3%20Student%27s%20t-Distribution.html">
+     5.3. 5.3 Student’s
+     <span class="math notranslate nohighlight">
+      \(t\)
+     </span>
+     -Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.4%20Estimating%20Population%20Means%20%28Sigma%20Unknown%29.html">
+     5.4. 5.4 Estimating Population Means (
+     <span class="math notranslate nohighlight">
+      \(\sigma\)
+     </span>
+     Unknown)
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch3%20Probability/3.4%20Discrete%20Probability%20Distributions.html">
-   6. 3.4 Discrete Probability Distributions
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.0%20An%20Introduction%20to%20Hypothesis%20Testing.html">
+   6. An Introduction to Hypothesis Testing
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html">
+     6.1. 6.1 An Introduction to Hypothesis Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.2%20Hypotheses%20and%20Errors.html">
+     6.2. 6.2 Hypotheses and Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.3%20Rare%20Events%2C%20the%20Sample%2C%20Decision%20and%20Conclusion.html">
+     6.3. 6.3 Rare Events, the Sample, Decision, and Conclusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html">
+     6.4. 6.4 Hypothesis Tests of One Population
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch3%20Probability/3.5%20The%20Binomial%20Distribution.html">
-   7. 3.5 The Binomial Distribution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.1%20The%20Standard%20Normal%20Distribution.html">
-   8. 4.1 The Standard Normal Distribution#
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.2%20The%20Normal%20Distribution%20and%20z-scores.html">
-   9. 4.2 The Normal Distribution and
-   <span class="math notranslate nohighlight">
-    \(z\)
-   </span>
-   -Scores
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html">
-   10. 4.3 The Central Limit Theorem for Means
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.4%20The%20Central%20Limit%20Theorem%20for%20Proportions.html">
-   11. 4.4 The Central Limit Theorem for Proportions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.1%20Estimating%20Population%20Means%20%28Sigma%20Known%29.html">
-   12. 5.1 Estimating Population Means (
-   <span class="math notranslate nohighlight">
-    \(\sigma\)
-   </span>
-   Known)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.2%20Estimating%20Population%20Proportions.html">
-   13. 5.2 Estimating Population Proportions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.3%20Student%27s%20t-Distribution.html">
-   14. 5.3 Student’s
-   <span class="math notranslate nohighlight">
-    \(t\)
-   </span>
-   -Distribution
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.4%20Estimating%20Population%20Means%20%28Sigma%20Unknown%29.html">
-   15. 5.4 Estimating Population Means (
-   <span class="math notranslate nohighlight">
-    \(\sigma\)
-   </span>
-   Unknown)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html">
-   16. 6.1 An Introduction to Hypothesis Testing
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.2%20Hypotheses%20and%20Errors.html">
-   17. 6.2 Hypotheses and Errors
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.3%20Rare%20Events%2C%20the%20Sample%2C%20Decision%20and%20Conclusion.html">
-   18. 6.3 Rare Events, the Sample, Decision, and Conclusion
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html">
-   19. 6.4 Hypothesis Tests of One Population
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   20. 7.1 The
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="7.0%20The%20Chi-Square%20Distribution.html">
+   7. The
    <span class="math notranslate nohighlight">
     \(\chi^2\)
    </span>
    -Distribution
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     7.1. 7.1 The
+     <span class="math notranslate nohighlight">
+      \(\chi^2\)
+     </span>
+     -Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html">
+     7.2. 7.2 Hypothesis Testing for the Population Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="7.3%20Goodness-of-Fit%20Test.html">
+     7.3. 7.3 Goodness of Fit Test
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html">
-   21. 7.2 Hypothesis Testing for the Population Variance
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.0%20Correlation%20and%20Linear%20Regression.html">
+   8. Correlation and Linear Regression
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.1%20Scatter%20Plots.html">
+     8.1. 8.1 Scatter Plots
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.2%20Linear%20Equations.html">
+     8.2. 8.2 Linear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.3%20The%20Regression%20Equation.html">
+     8.3. 8.3 The Regression Equation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.4%20The%20Correlation%20Coefficient.html">
+     8.4. 8.4 The Correlation Coefficient
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="7.3%20Goodness-of-Fit%20Test.html">
-   22. 7.3 Goodness of Fit Test
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.0%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations.html">
+   9. Hypothesis Tests of Two or More Populations
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.1%20Scatter%20Plots.html">
-   23. 8.1 Scatter Plots
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.2%20Linear%20Equations.html">
-   24. 8.2 Linear Equations
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.3%20The%20Regression%20Equation.html">
-   25. 8.3 The Regression Equation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.4%20The%20Correlation%20Coefficient.html">
-   26. 8.4 The Correlation Coefficient
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.1%20Hypothesis%20Testing%20Two%20Population%20Means.html">
-   27. 9.1 Hypothesis Testing: Two Population Means
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.2%20Hypothesis%20Testing%20Two%20Population%20Variances.html">
-   28. 9.2 Hypothesis Testing Two Population Variances
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.3%20ANOVA.html">
-   29. 9.3 ANOVA
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.1%20Hypothesis%20Testing%20Two%20Population%20Means.html">
+     9.1. 9.1 Hypothesis Testing: Two Population Means
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.2%20Hypothesis%20Testing%20Two%20Population%20Variances.html">
+     9.2. 9.2 Hypothesis Testing Two Population Variances
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.3%20ANOVA.html">
+     9.3. 9.3 ANOVA
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -401,12 +489,12 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#objectives">
-   20.1. Objectives
+   Objectives
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   20.2. The
+   The
    <span class="math notranslate nohighlight">
     \(\chi^2\)
    </span>
@@ -456,16 +544,16 @@
               <div>
                 
   <div class="section" id="the-chi-2-distribution">
-<h1><span class="section-number">20. </span>7.1 The <span class="math notranslate nohighlight">\(\chi^2\)</span>-Distribution<a class="headerlink" href="#the-chi-2-distribution" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7.1. </span>7.1 The <span class="math notranslate nohighlight">\(\chi^2\)</span>-Distribution<a class="headerlink" href="#the-chi-2-distribution" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="objectives">
-<h2><span class="section-number">20.1. </span>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Analyze categorical data using <span class="math notranslate nohighlight">\(2\times 2\)</span> tables and chi-square analysis.</p></li>
 <li><p>Analyze an application in the disciplines business, social sciences, psychology, life sciences, health science, and education, and utilize the correct statistical processes to arrive at a solution.</p></li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h2><span class="section-number">20.2. </span>The <span class="math notranslate nohighlight">\(\chi^2\)</span>-Distribution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>The <span class="math notranslate nohighlight">\(\chi^2\)</span>-Distribution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>For the <span class="math notranslate nohighlight">\(\chi^2\)</span>-distribution (that is, the chi-square distribution), the population mean is <span class="math notranslate nohighlight">\(\mu = df\)</span>, where <span class="math notranslate nohighlight">\(df\)</span> is the degrees of freedom. The population standard deviation is <span class="math notranslate nohighlight">\(\sigma = \sqrt{2(df)}\)</span>.</p>
 <p>The random variable for a <span class="math notranslate nohighlight">\(\chi^2\)</span>-distribution with <span class="math notranslate nohighlight">\(k\)</span> degrees of freedom is the sum of <span class="math notranslate nohighlight">\(k\)</span> independent, squared standard normal variables:</p>
 <div class="math notranslate nohighlight">
@@ -599,11 +687,11 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html" title="previous page">
+        <a class="left-prev" href="7.0%20The%20Chi-Square%20Distribution.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">19. </span>6.4 Hypothesis Tests of One Population</p>
+                <p class="prevnext-title"><span class="section-number">7. </span>The <span class="math notranslate nohighlight">\(\chi^2\)</span>-Distribution</p>
             </div>
         </a>
     </div>
@@ -611,7 +699,7 @@
         <a class="right-next" href="7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">21. </span>7.2 Hypothesis Testing for the Population Variance</p>
+                <p class="prevnext-title"><span class="section-number">7.2. </span>7.2 Hypothesis Testing for the Population Variance</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
