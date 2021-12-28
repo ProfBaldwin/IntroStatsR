@@ -1,0 +1,977 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3.4. Addition Rules and Mutually Exclusive Events &#8212; Introductory Statistics with R</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystyles.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.5. 3.4 Discrete Probability Distributions" href="3.5%20Discrete%20Probability%20Distributions.html" />
+    <link rel="prev" title="3.3. Multiplication Rules and Independent Events" href="3.3%20Multiplication%20Rules%20and%20Independent%20Events.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introductory Statistics with R</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Did it work?
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.0%20Sampling%20and%20Data.html">
+   1. Sampling and Data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.1%20Key%20Terms%20in%20Statistics.html">
+     1.1. Key Terms in Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.2%20Scales%20of%20Measurement.html">
+     1.2. Qualitative Data and Quantitative Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.3%20Sampling%20Techniques.html">
+     1.3. Sampling Techniques
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch1%20Sampling%20and%20Data/1.4%20Tables%20and%20Charts.html">
+     1.4. Tables and Charts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.0%20Descriptive%20Statistics.html">
+   2. Descriptive Statistics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.1%20Measures%20of%20Position.html">
+     2.1. Measures of Position
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.2%20Measures%20of%20Central%20Tendency.html">
+     2.2. Measures of Central Tendency
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch2%20Descriptive%20Statistics/2.3%20Measures%20of%20Dispersion.html">
+     2.3. Measures of Dispersion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="3.0%20Probability.html">
+   3. Probability
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="3.1%20Introduction%20to%20Probability.html">
+     3.1. Introduction to Probability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3.2%20Conditional%20Probability.html">
+     3.2. Conditional Probability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3.3%20Multiplication%20Rules%20and%20Independent%20Events.html">
+     3.3. Multiplication Rules and Independent Events
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.4. Addition Rules and Mutually Exclusive Events
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3.5%20Discrete%20Probability%20Distributions.html">
+     3.5. 3.4 Discrete Probability Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3.6%20The%20Binomial%20Distribution.html">
+     3.6. 3.5 The Binomial Distribution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.0%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem.html">
+   4. The Normal Distribution and the Central Limit Theorem
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.1%20The%20Standard%20Normal%20Distribution.html">
+     4.1. 4.1 The Standard Normal Distribution#
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.2%20The%20Normal%20Distribution%20and%20z-scores.html">
+     4.2. 4.2 The Normal Distribution and
+     <span class="math notranslate nohighlight">
+      \(z\)
+     </span>
+     -Scores
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html">
+     4.3. 4.3 The Central Limit Theorem for Means
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.4%20The%20Central%20Limit%20Theorem%20for%20Proportions.html">
+     4.4. 4.4 The Central Limit Theorem for Proportions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.0%20Confidence%20Intervals.html">
+   5. Confidence Intervals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.1%20Estimating%20Population%20Means%20%28Sigma%20Known%29.html">
+     5.1. 5.1 Estimating Population Means (
+     <span class="math notranslate nohighlight">
+      \(\sigma\)
+     </span>
+     Known)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.2%20Estimating%20Population%20Proportions.html">
+     5.2. 5.2 Estimating Population Proportions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.3%20Student%27s%20t-Distribution.html">
+     5.3. 5.3 Student’s
+     <span class="math notranslate nohighlight">
+      \(t\)
+     </span>
+     -Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.4%20Estimating%20Population%20Means%20%28Sigma%20Unknown%29.html">
+     5.4. 5.4 Estimating Population Means (
+     <span class="math notranslate nohighlight">
+      \(\sigma\)
+     </span>
+     Unknown)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.0%20An%20Introduction%20to%20Hypothesis%20Testing.html">
+   6. An Introduction to Hypothesis Testing
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html">
+     6.1. 6.1 An Introduction to Hypothesis Testing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.2%20Hypotheses%20and%20Errors.html">
+     6.2. 6.2 Hypotheses and Errors
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.3%20Rare%20Events%2C%20the%20Sample%2C%20Decision%20and%20Conclusion.html">
+     6.3. 6.3 Rare Events, the Sample, Decision, and Conclusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html">
+     6.4. 6.4 Hypothesis Tests of One Population
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.0%20The%20Chi-Square%20Distribution.html">
+   7. The
+   <span class="math notranslate nohighlight">
+    \(\chi^2\)
+   </span>
+   -Distribution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.1%20The%20Chi-Square%20Distribution.html">
+     7.1. 7.1 The
+     <span class="math notranslate nohighlight">
+      \(\chi^2\)
+     </span>
+     -Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html">
+     7.2. 7.2 Hypothesis Testing for the Population Variance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.3%20Goodness-of-Fit%20Test.html">
+     7.3. 7.3 Goodness of Fit Test
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.0%20Correlation%20and%20Linear%20Regression.html">
+   8. Correlation and Linear Regression
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.1%20Scatter%20Plots.html">
+     8.1. 8.1 Scatter Plots
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.2%20Linear%20Equations.html">
+     8.2. 8.2 Linear Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.3%20The%20Regression%20Equation.html">
+     8.3. 8.3 The Regression Equation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.4%20The%20Correlation%20Coefficient.html">
+     8.4. 8.4 The Correlation Coefficient
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.0%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations.html">
+   9. Hypothesis Tests of Two or More Populations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.1%20Hypothesis%20Testing%20Two%20Population%20Means.html">
+     9.1. 9.1 Hypothesis Testing: Two Population Means
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.2%20Hypothesis%20Testing%20Two%20Population%20Variances.html">
+     9.2. 9.2 Hypothesis Testing Two Population Variances
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.3%20ANOVA.html">
+     9.3. 9.3 ANOVA
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Ch3 Probability/3.4 Addition Rules and Mutually Exclusive Events.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/Ch3 Probability/3.4 Addition Rules and Mutually Exclusive Events.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/executablebooks/jupyter-book/blob/master/Ch3 Probability/3.4 Addition Rules and Mutually Exclusive Events.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectives">
+   Objectives
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-addition-rule">
+   The Addition Rule
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example">
+     Example
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-1">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-2">
+         Part 2
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutually-exclusive-events">
+   Mutually Exclusive Events
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Example
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id4">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id5">
+         Part 2
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-3">
+         Part 3
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-4">
+         Part 4
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-5">
+         Part 5
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Example
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id8">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id9">
+         Part 2
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id10">
+         Part 3
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id11">
+         Part 4
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#id12">
+         Part 5
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-3-3">
+     Example 3.3.3
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id13">
+       Solution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complementary-events">
+   Complementary Events
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Example
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="addition-rules-and-mutually-exclusive-events">
+<h1><span class="section-number">3.4. </span>Addition Rules and Mutually Exclusive Events<a class="headerlink" href="#addition-rules-and-mutually-exclusive-events" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Apply probability and counting rules (including addition and multiplication rules) as pertaining to both continuous random variables and discrete random variables.</p></li>
+<li><p>Analyze an application in the disciplines business, social sciences, psychology, life sciences, health science, and education, and utilize the correct statistical processes to arrive at a solution.</p></li>
+</ul>
+</div>
+<div class="section" id="the-addition-rule">
+<h2>The Addition Rule<a class="headerlink" href="#the-addition-rule" title="Permalink to this headline">¶</a></h2>
+<p>Given two events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>, we would like to know how to calculate <span class="math notranslate nohighlight">\(P(A\text{ OR }B)\)</span>, the probability that the outcome is in event <span class="math notranslate nohighlight">\(A\)</span> or in event <span class="math notranslate nohighlight">\(B\)</span>. We know the probability that the outcome is in event <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(P(A)\)</span>, and the probability that the outcome is in event <span class="math notranslate nohighlight">\(B\)</span> is <span class="math notranslate nohighlight">\(P(B)\)</span>, so it may be reasonable to conclude that we can calculate <span class="math notranslate nohighlight">\(P(A\text{ OR }B)\)</span> by simply adding <span class="math notranslate nohighlight">\(P(A)\)</span> and <span class="math notranslate nohighlight">\(P(B)\)</span>. But this isn’t quite right.</p>
+<div class="figure align-default" id="vennand2">
+<a class="reference internal image-reference" href="../_images/vennAND.svg"><img alt="A venn diagram of two events A and B. The intersection of the two events is shaded representing the composite event (A AND B)." src="../_images/vennAND.svg" width="40%" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.7 </span><span class="caption-text">A venn diagram of two events A and B. The shaded portion of the diagram represents event <span class="math notranslate nohighlight">\(A \text{ AND } B\)</span>. Outcomes that are both in <span class="math notranslate nohighlight">\(A\)</span> and in <span class="math notranslate nohighlight">\(B\)</span> would be in this intersection.</span><a class="headerlink" href="#vennand2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Observe from the Venn Diagram that generally event <span class="math notranslate nohighlight">\(A\)</span> and event <span class="math notranslate nohighlight">\(B\)</span> share some outcomes. The set of shared outcomes is event <span class="math notranslate nohighlight">\(A\text{ AND }B\)</span>. We count the set of shared outcomes <span class="math notranslate nohighlight">\(A\text{ AND }B\)</span> once when we calculate <span class="math notranslate nohighlight">\(P(A)\)</span>, then <em>again</em> when we calculate <span class="math notranslate nohighlight">\(P(B)\)</span>, meaning we count the probability of the outcomes in <span class="math notranslate nohighlight">\(A\text{ AND }B\)</span> <em>twice</em>. We only want to count each outcome <em>once</em>. To correct this, we need to subtract the excess: since we counted <span class="math notranslate nohighlight">\(P(A\text{ AND }B)\)</span> twice instead of just once, we need to subtract <span class="math notranslate nohighlight">\(P(A\text{ AND }B)\)</span> once to remove the excess. This gives us our <strong>addition rule</strong>:</p>
+<div class="math notranslate nohighlight">
+\[ P(A\text{ OR } B) = P(A) + P(B) - P(A\text{ AND }B). \]</div>
+<p>This equation can be expressed visually as</p>
+<div class="full-width docutils">
+<div class="figure align-default" id="venn-add-rule">
+<a class="reference internal image-reference" href="../_images/venn2.svg"><img alt="The addition rule is represented as an equation written using Venn diagrams." src="../_images/venn2.svg" width="100%" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.8 </span><span class="caption-text">A diagram of the addition rule <span class="math notranslate nohighlight">\(P(A \text{ OR } B) = P(A) + P(B) - P(A \text{ AND } B)\)</span>. Notice event <span class="math notranslate nohighlight">\(A \text{ AND } B\)</span>, represented by the intersection of the two circles, is counted once when we calculate <span class="math notranslate nohighlight">\(P(A)\)</span> and again when we calculate <span class="math notranslate nohighlight">\(P(B)\)</span>. Because we double count this event, we have to subtract <span class="math notranslate nohighlight">\(P(A \text{ AND } B)\)</span> once to correct for the overcounting.</span><a class="headerlink" href="#venn-add-rule" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>Carlos plays college soccer. He makes a goal <span class="math notranslate nohighlight">\(65\%\)</span> of the time he shoots. Carlos is going to attempt two goals in a row in the next game, and he tends to shoot in streaks. The probability that he makes the second goal <em>given</em> that he made the first goal is <span class="math notranslate nohighlight">\(0.90\)</span>.</p>
+<ol class="simple">
+<li><p>What is the probability that Carlos makes both goals?</p></li>
+<li><p>What is the probability that carlos makes the first goal or the second goal?</p></li>
+</ol>
+<div class="section" id="solution">
+<h4>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h4>
+<p>Let’s first translate this problem into math. Let <span class="math notranslate nohighlight">\(G_1 = \)</span> the event Carlos is successful on his first goal attempt, and let <span class="math notranslate nohighlight">\(G_2 = \)</span> the event Carlos is successful on his second goal attempt. Because Carlos makes a goal <span class="math notranslate nohighlight">\(65\%\)</span> of the time he shoots,</p>
+<div class="math notranslate nohighlight">
+\[ P(G_1) = 0.65, P(G_2) = 0.65.\]</div>
+<p>We are told that the probability that Carlos makes the second goal <em>given</em> that he made his first goal is <span class="math notranslate nohighlight">\(0.90\)</span>. Mathematically, that means</p>
+<div class="math notranslate nohighlight">
+\[ P(G_2|G_1) = 0.90. \]</div>
+<div class="section" id="part-1">
+<h5>Part 1<a class="headerlink" href="#part-1" title="Permalink to this headline">¶</a></h5>
+<p>We want to find the probability that Carlos makes both goals; that is, we want to find</p>
+<div class="math notranslate nohighlight">
+\[ P(G_1 \text{ AND } G_2). \]</div>
+<p>Since we know <span class="math notranslate nohighlight">\(P(G_2|G_1)\)</span> (and we don’t know <span class="math notranslate nohighlight">\(P(G_1|G_2)\)</span>), we use the multiplication rule</p>
+<div class="math notranslate nohighlight">
+\[P(G_1 \text{ AND } G_2) = P(G_1) \cdot P(G_2|G_1) = 0.65 \cdot 0.90 = 0.585.\]</div>
+<p>We calculate that Carlos has a <span class="math notranslate nohighlight">\(58.5\%\)</span> chance of making both his first goal attempt and his second goal attempt.</p>
+</div>
+<div class="section" id="part-2">
+<h5>Part 2<a class="headerlink" href="#part-2" title="Permalink to this headline">¶</a></h5>
+<p>We want to find <span class="math notranslate nohighlight">\(P(G_1 \text{ OR } G_2)\)</span>. Using the addition rule and the value of <span class="math notranslate nohighlight">\(P(G_1 \text{ AND } G_2)\)</span> that we found in Part 1, we calculate</p>
+<div class="math notranslate nohighlight">
+\[ P(G_1 \text{ OR } G_2) = P(G_1) + P(G_2) - P(G_1 \text{ AND } G_2) = 0.65 + 0.65 - 0.585 = 0.715.\]</div>
+<p>So there is a <span class="math notranslate nohighlight">\(71.5\%\)</span> chance that Carlos makes his first goal or his second goal.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## To Do: Addition Rule Example</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="mutually-exclusive-events">
+<h2>Mutually Exclusive Events<a class="headerlink" href="#mutually-exclusive-events" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are <strong>mutually exclusive</strong> events if they cannot occur at the same time. This means that <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> do not share any outcomes. Thus, two events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are mutually exclusive if and only if <span class="math notranslate nohighlight">\(P(A \text{ AND } B) = 0\)</span>.</p>
+<div class="figure align-default" id="vennexcl">
+<a class="reference internal image-reference" href="../_images/vennExcl.svg"><img alt="A venn diagram of two mutually exclusive events A and B. The circles representing the two events do not intersect." src="../_images/vennExcl.svg" width="40%" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.9 </span><span class="caption-text">A venn diagram of two mutually exclusive events A and B. The circles representing the two events do not intersect, so <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> have no outcomes in common. This means <span class="math notranslate nohighlight">\(P(A \text{ AND } B) = 0\)</span> since it is impossible for events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> to occur at the same time.</span><a class="headerlink" href="#vennexcl" title="Permalink to this image">¶</a></p>
+</div>
+<p>For example, imagine you roll a die. Let event <span class="math notranslate nohighlight">\(E\)</span> be rolling an even number, and let event <span class="math notranslate nohighlight">\(D\)</span> be rolling an odd number. Notice it is impossible for event <span class="math notranslate nohighlight">\(E\)</span> and event <span class="math notranslate nohighlight">\(D\)</span> to both occur at the same time since there is no outcome where the die comes up both an even number and an odd number at the same time. This means <span class="math notranslate nohighlight">\(P(E \text{ AND } D) = 0\)</span>, so events <span class="math notranslate nohighlight">\(E\)</span> and <span class="math notranslate nohighlight">\(D\)</span> are mutually exclusive.</p>
+<p>As another example, suppose the sample space of some experiment is <span class="math notranslate nohighlight">\(S = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10\}\)</span> where each outcome is equally likely. Let <span class="math notranslate nohighlight">\(I = \{1, 2, 3, 4, 5\}\)</span>, <span class="math notranslate nohighlight">\(J = \{4, 5, 6, 7, 8\}\)</span>, and <span class="math notranslate nohighlight">\(K = \{7, 9\}\)</span>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(I \text{ AND } J = \{4, 5\}\)</span>, so  <span class="math notranslate nohighlight">\(P(I\text{ AND }J) = \frac{2}{10}\)</span>. Since <span class="math notranslate nohighlight">\(P(I \text{ AND } J) \neq 0\)</span>, events <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(J\)</span> are <em>not</em> mutually exclusive.</p></li>
+<li><p><span class="math notranslate nohighlight">\(J \text{ AND } K = \{7\}\)</span>, so <span class="math notranslate nohighlight">\(P(J \text{ AND } K) = \frac{1}{10}\)</span>. Since <span class="math notranslate nohighlight">\(P(J \text{ AND } K) \neq 0\)</span>, events <span class="math notranslate nohighlight">\(J\)</span> and <span class="math notranslate nohighlight">\(K\)</span> are <em>not</em> mutually exclusive.</p></li>
+<li><p><span class="math notranslate nohighlight">\(I \text{ AND } K = \{\}\)</span>, meaning events <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(K\)</span> have no outcomes in common and <span class="math notranslate nohighlight">\(I \text{ AND } K\)</span> is empty. So <span class="math notranslate nohighlight">\(P(I\text{ AND }K) = \frac{0}{10} = 0\)</span>. Therefore, events <span class="math notranslate nohighlight">\(I\)</span> and <span class="math notranslate nohighlight">\(K\)</span> <em>are</em> mutually exclusive.</p></li>
+</ul>
+<p>If two events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are mutually exclusive, then because <span class="math notranslate nohighlight">\(P(A \text{ AND } B) = 0\)</span>, the addition rule <span class="math notranslate nohighlight">\(P(A \text{ OR } B) = P(A) + P(B) - P(A \text{ AND } B)\)</span> simplifies to</p>
+<div class="math notranslate nohighlight">
+\[ P(A\text{ OR } B) = P(A) + P(B). \]</div>
+<p>Note that this simplified addition rule works <em>only</em> when <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are mutually exclusive.</p>
+<p>If it is not known whether two events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are mutually exclusive, assume they are not until you can show otherwise.</p>
+<hr class="docutils" />
+<div class="section" id="id2">
+<h3>Example<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Keyarah draws one card from a standard deck of <span class="math notranslate nohighlight">\(52\)</span> cards. (See <a class="reference internal" href="3.1%20Introduction%20to%20Probability.html#playingcards"><span class="std std-numref">Figure 3.2</span></a>.) Let <span class="math notranslate nohighlight">\(♠\)</span> be event where the card is a spade, and let <span class="math notranslate nohighlight">\(♣\)</span> be the event where the card is a club.</p>
+<ol class="simple">
+<li><p>What is the probability that Keyarah draws a spade? What is the probability that Keyarah draws a club?</p></li>
+<li><p>Given that Keyarah draws a spade, what is the possibility that the card is also a club?</p></li>
+<li><p>What is the probability that the card Keyarah draws is a spade and a club?</p></li>
+<li><p>Are <span class="math notranslate nohighlight">\(♠\)</span> and <span class="math notranslate nohighlight">\(♣\)</span> mutually exclusive?</p></li>
+<li><p>What is the probability that the card Keyarah draws is a spade or a club?</p></li>
+</ol>
+<div class="section" id="id3">
+<h4>Solution<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id4">
+<h5>Part 1<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
+<p>The outcomes of this experiment are all equally likely since each card in the deck has the same chance of being drawn. Since there are <span class="math notranslate nohighlight">\(13\)</span> spades in a deck and <span class="math notranslate nohighlight">\(52\)</span> cards total,</p>
+<div class="math notranslate nohighlight">
+\[ P(♠) = \frac{n(♠)}{n(S)} = \frac{13}{52} = 0.25. \]</div>
+<p>There is a <span class="math notranslate nohighlight">\(25\%\)</span> chance that Keyarah draws a spade.</p>
+<p>Similarly, there are <span class="math notranslate nohighlight">\(13\)</span> clubs in a deck, so</p>
+<div class="math notranslate nohighlight">
+\[ P(♣) = \frac{n(♣)}{n(S)} = \frac{13}{52} = 0.25. \]</div>
+<p>There is a <span class="math notranslate nohighlight">\(25\%\)</span> chance that Keyarah draws a club.</p>
+</div>
+<div class="section" id="id5">
+<h5>Part 2<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
+<p>Since the outcomes are all equally likely, the conditional probability can be found using the formula</p>
+<div class="math notranslate nohighlight">
+\[ P(♣|♠) = \frac{n(♣ \text{ AND } ♠)}{n(♠)}. \]</div>
+<p>We know there are <span class="math notranslate nohighlight">\(13\)</span> spades in the deck, so <span class="math notranslate nohighlight">\(n(♠) = 13\)</span>. But there aren’t any cards that are both a club and a spade, so <span class="math notranslate nohighlight">\(n(♣ \text{ AND } ♠) = 0\)</span>. Thus</p>
+<div class="math notranslate nohighlight">
+\[ P(♣|♠) = \frac{n(♣ \text{ AND } ♠)}{n(♠)} = \frac{0}{13} = 0. \]</div>
+</div>
+<div class="section" id="part-3">
+<h5>Part 3<a class="headerlink" href="#part-3" title="Permalink to this headline">¶</a></h5>
+<p>Since the outcomes are all equally likely, we can calculate</p>
+<div class="math notranslate nohighlight">
+\[P(♠ \text{ AND } ♣) = \frac{n(♠ \text{ AND } ♣)}{n(S)} = \frac{0}{52} = 0. \]</div>
+<p>Alternatively, we could use our results from Part 1 and Part 2 to calculate this quantity using the multiplication rule:</p>
+<div class="math notranslate nohighlight">
+\[P(♠ \text{ AND } ♣) = P(♠) \cdot P(♣|♠) = 0.25 \cdot 0 = 0. \]</div>
+<p>Both methods are valid in this case, and both give us the same result: there is a <span class="math notranslate nohighlight">\(0\%\)</span> chance that Keyarah draws a card that is both a spade and a club.</p>
+</div>
+<div class="section" id="part-4">
+<h5>Part 4<a class="headerlink" href="#part-4" title="Permalink to this headline">¶</a></h5>
+<p>Since <span class="math notranslate nohighlight">\(P(♠ \text{ AND } ♣) = 0\)</span>, events <span class="math notranslate nohighlight">\(♠\)</span> and <span class="math notranslate nohighlight">\(♣\)</span> are mutually exclusive.</p>
+</div>
+<div class="section" id="part-5">
+<h5>Part 5<a class="headerlink" href="#part-5" title="Permalink to this headline">¶</a></h5>
+<p>Because <span class="math notranslate nohighlight">\(♠\)</span> and <span class="math notranslate nohighlight">\(♣\)</span> are mutually exclusive, we can use the simplified addition rule:</p>
+<div class="math notranslate nohighlight">
+\[ P(♠ \text{ OR } ♣) = P(♠) + P(♣) = 0.25 + 0.25 = 0.5. \]</div>
+<p>There is a <span class="math notranslate nohighlight">\(50\%\)</span> chance that Keyarah draws a spade or a club.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id6">
+<h3>Example<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Studies show that about one woman in seven (approximately <span class="math notranslate nohighlight">\(14.3\%\)</span>) who live to be <span class="math notranslate nohighlight">\(90\)</span> will develop breast cancer. Suppose that of those women who develop breast cancer, a test is negative <span class="math notranslate nohighlight">\(2\%\)</span> of the time; that is, the test gives a false negative result. Also suppose that in the general population of women, the test for breast cancer is negative about <span class="math notranslate nohighlight">\(85\%\)</span> of the time. Let <span class="math notranslate nohighlight">\(B =\)</span> woman develops breast cancer and let <span class="math notranslate nohighlight">\(N =\)</span> tests negative. Suppose one woman is selected at random.</p>
+<ol class="simple">
+<li><p>What is the probability that the woman develops breast cancer? What is the probability that woman tests negative?</p></li>
+<li><p>Given that the woman has breast cancer, what is the probability that she tests negative?</p></li>
+<li><p>What is the probability that the woman has breast cancer <em>and</em> tests negative?</p></li>
+<li><p>Are <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(N\)</span> mutually exclusive?</p></li>
+<li><p>What is the probability that the woman has breast cancer or tests negative?</p></li>
+</ol>
+<div class="section" id="id7">
+<h4>Solution<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id8">
+<h5>Part 1<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h5>
+<p>The probability that the randomly chosen woman develops breast cancer is <span class="math notranslate nohighlight">\(P(B) = 0.143\)</span>. The probability that the woman tests negative for breast cancer is <span class="math notranslate nohighlight">\(P(N) = 0.85\)</span>.</p>
+</div>
+<div class="section" id="id9">
+<h5>Part 2<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h5>
+<p>Given that the woman has breast cancer, the probability that she tests negative is <span class="math notranslate nohighlight">\(P(N|B) = 0.02\)</span>.</p>
+</div>
+<div class="section" id="id10">
+<h5>Part 3<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h5>
+<p>To find the probability that the woman has breast cancer <em>and</em> tests negative, we use the multiplication rule:</p>
+<div class="math notranslate nohighlight">
+\[ P(B\text{ AND }N) = P(B) \cdot P(N|B) = 0.143 \cdot 0.02 = 0.0029. \]</div>
+<p>There is a <span class="math notranslate nohighlight">\(0.29\%\)</span> chance that the woman has breast cancer and tests negative.</p>
+</div>
+<div class="section" id="id11">
+<h5>Part 4<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h5>
+<p>Events <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(N\)</span> are <em>not</em> mutually exclusive since <span class="math notranslate nohighlight">\(P(B\text{ AND }N) = 0.0029 \neq 0\)</span>.</p>
+</div>
+<div class="section" id="id12">
+<h5>Part 5<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h5>
+<p>Since <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(N\)</span> are not mutually exclusive, we need to use the more general addition rule:</p>
+<div class="math notranslate nohighlight">
+\[ P(B\text{ OR }N) = P(B) + P(N) - P(B\text{ AND } N) = 0.143 + 0.85 - 0.0029 = 0.9901.\]</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="example-3-3-3">
+<h3>Example 3.3.3<a class="headerlink" href="#example-3-3-3" title="Permalink to this headline">¶</a></h3>
+<p>An urn has 5 red marbles, 3 blue marbles, and 6 green marbles, and 6 yellow marbles. Seamus pulls one marble at random out of the urn. What is the probability that the marble is red or blue?</p>
+<div class="section" id="id13">
+<h4>Solution<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<p>Let <span class="math notranslate nohighlight">\(R\)</span> = the event of drawing a red marble and <span class="math notranslate nohighlight">\(B\)</span> = the event of drawing a blue marble. First, note that <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are mutually exclusive: the marble Seamus pulls out can’t be both red and blue at the same time, so <span class="math notranslate nohighlight">\(P(R\text{ AND } B) = 0\)</span>. Thus,</p>
+<div class="math notranslate nohighlight">
+\[P(R\text{ OR } B) = P(R) + P(B) = \frac{5}{20} + \frac{3}{20} = \frac{8}{20} = 0.4. \]</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id14">
+<h3>Example<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## To Do: Addition Rule Mutually Exclusive</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="complementary-events">
+<h2>Complementary Events<a class="headerlink" href="#complementary-events" title="Permalink to this headline">¶</a></h2>
+<p>The complement of an event <span class="math notranslate nohighlight">\(A\)</span> is the event with all the outcomes not in <span class="math notranslate nohighlight">\(A\)</span>. The complement of <span class="math notranslate nohighlight">\(A\)</span> is often written <span class="math notranslate nohighlight">\(A^c\)</span>.</p>
+<div class="figure align-default" id="venncomp">
+<a class="reference internal image-reference" href="../_images/vennComp.svg"><img alt="Two diagrams are shown. Both diagrams consist of a circle inside of a larger square. The circle in both diagrams is labeled $A$, and the upper left-hand corner of the square in both diagrams is labeled $A^c$. The circle is shaded in the diagram on the left. The region inside the square but outside the circle is shaded in the diagram on the right." src="../_images/vennComp.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.10 </span><span class="caption-text">The shaded portion in the diagram on the left represents event <span class="math notranslate nohighlight">\(A\)</span>. The shaded portion in the diagram on the right represents event <span class="math notranslate nohighlight">\(A^c\)</span>. Notice that <span class="math notranslate nohighlight">\(A^c\)</span> consists of the entire sample space that is not in <span class="math notranslate nohighlight">\(A\)</span>, so any outcome not in <span class="math notranslate nohighlight">\(A\)</span> is in <span class="math notranslate nohighlight">\(A^c\)</span> (and vice versa). Together, <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(A^c\)</span> fill the sample space.</span><a class="headerlink" href="#venncomp" title="Permalink to this image">¶</a></p>
+</div>
+<p>For example, let the sample space of an experiment be <span class="math notranslate nohighlight">\(S = \{1, 2, 3, 4, 5, 6, 7\}\)</span>. Let <span class="math notranslate nohighlight">\(E = \{2, 5, 6\}\)</span>. Then the complement of <span class="math notranslate nohighlight">\(E\)</span> has every outcome not in <span class="math notranslate nohighlight">\(E\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ E^c = \{1, 3, 4, 7\}. \]</div>
+<p>For two complementary events <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(A^c\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(A^c\)</span> are mutually exclusive.</p></li>
+<li><p>Every possible outcome is in either <span class="math notranslate nohighlight">\(A\)</span> or in <span class="math notranslate nohighlight">\(A^c\)</span>.</p></li>
+</ul>
+<p>Because every possible outcome is either in <span class="math notranslate nohighlight">\(A\)</span> or <span class="math notranslate nohighlight">\(A^c\)</span>, there is a <span class="math notranslate nohighlight">\(100\%\)</span> chance that either <span class="math notranslate nohighlight">\(A\)</span> is true or <span class="math notranslate nohighlight">\(A^c\)</span> is true. That is,</p>
+<div class="math notranslate nohighlight">
+\[ P(A \text{ OR } A^c) = P(A) + P(A^c) = 1. \]</div>
+<p>The observation is useful for calculating probabilities of complementary events.</p>
+<p>For example, suppose you play a game where it is only possible to win or lose (so it is not possible to tie). Let <span class="math notranslate nohighlight">\(W\)</span> be the event where you win, and let <span class="math notranslate nohighlight">\(L\)</span> be the event where you lose. Since in every outcome where you do not win the game, you will lose the game, and since you cannot win and lose at the same time, events <span class="math notranslate nohighlight">\(W\)</span> and <span class="math notranslate nohighlight">\(L\)</span> are complementary. (This means <span class="math notranslate nohighlight">\(W^c = L\)</span> and <span class="math notranslate nohighlight">\(L^c = W\)</span>.) So <span class="math notranslate nohighlight">\(P(W) + P(L) = 1\)</span>.</p>
+<p>Now imagine there is a <span class="math notranslate nohighlight">\(32\%\)</span> chance you lose the game, so <span class="math notranslate nohighlight">\(P(L) = 0.32\)</span>. Since <span class="math notranslate nohighlight">\(W\)</span> is the complement of <span class="math notranslate nohighlight">\(L\)</span>, we can use the probability that you lose to find the probability that you win. By rearranging the equation <span class="math notranslate nohighlight">\(P(W) + P(L) = 1\)</span>, we get <span class="math notranslate nohighlight">\(P(W) = 1 - P(L)\)</span>. Using this formula, we calculate</p>
+<div class="math notranslate nohighlight">
+\[ P(W) = 1 - P(L) = 1 - 0.32 = 0.68. \]</div>
+<p>So if there is a <span class="math notranslate nohighlight">\(32\%\)</span> chance you lose the game, then there is a <span class="math notranslate nohighlight">\(68\%\)</span> chance you win the game.</p>
+<hr class="docutils" />
+<div class="section" id="id15">
+<h3>Example<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./Ch3 Probability"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="3.3%20Multiplication%20Rules%20and%20Independent%20Events.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">3.3. </span>Multiplication Rules and Independent Events</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="3.5%20Discrete%20Probability%20Distributions.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">3.5. </span>3.4 Discrete Probability Distributions</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Taylor Baldwin <br/><br/><small>This work is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license. It is adapted from  <a href="https://openstax.org/books/introductory-statistics/pages/1-introduction"><i>Introductory Statistics</i></a> by Barbara Illowsky and Susan Dean, which is published by <a href="https://openstax.org/">OpenStax</a> and licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Access it for free at <a href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small><br/><br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

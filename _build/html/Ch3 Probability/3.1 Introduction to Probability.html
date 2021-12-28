@@ -54,7 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="3.2. 3.2 Multiplication Rules and Independent Events" href="3.2%20Multiplication%20Rules%20and%20Independent%20Events.html" />
+    <link rel="next" title="3.2. Conditional Probability" href="3.2%20Conditional%20Probability.html" />
     <link rel="prev" title="3. Probability" href="3.0%20Probability.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -167,23 +167,28 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3.2%20Multiplication%20Rules%20and%20Independent%20Events.html">
-     3.2. 3.2 Multiplication Rules and Independent Events
+    <a class="reference internal" href="3.2%20Conditional%20Probability.html">
+     3.2. Conditional Probability
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3.3%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html">
-     3.3. 3.3 Addition Rules and Mutually Exclusive Events
+    <a class="reference internal" href="3.3%20Multiplication%20Rules%20and%20Independent%20Events.html">
+     3.3. Multiplication Rules and Independent Events
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3.4%20Discrete%20Probability%20Distributions.html">
-     3.4. 3.4 Discrete Probability Distributions
+    <a class="reference internal" href="3.4%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html">
+     3.4. 3.3 Addition Rules and Mutually Exclusive Events
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="3.5%20The%20Binomial%20Distribution.html">
-     3.5. 3.5 The Binomial Distribution
+    <a class="reference internal" href="3.5%20Discrete%20Probability%20Distributions.html">
+     3.5. 3.4 Discrete Probability Distributions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3.6%20The%20Binomial%20Distribution.html">
+     3.6. 3.5 The Binomial Distribution
     </a>
    </li>
   </ul>
@@ -625,55 +630,6 @@
      Example 3.1.6
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id13">
-     Example 3.1.1
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id14">
-       Solution
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id15">
-         Part 1
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id16">
-         Part 2#####
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id17">
-         Part 3
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id18">
-         Part 4
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#part-5">
-         Part 5
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#part-6">
-         Part 6
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#part-7">
-         Part 7
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
-   </li>
   </ul>
  </li>
 </ul>
@@ -692,8 +648,10 @@
 <div class="section" id="objectives">
 <h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Apply probability and counting rules (including addition and multiplication rules) as pertaining to both continuous random variables and discrete random variables.</p></li>
-<li><p>Analyze an application in the disciplines business, social sciences, psychology, life sciences, health science, and education, and utilize the correct statistical processes to arrive at a solution.</p></li>
+<li><p>Understand fundamental terminology used in probability and be able to apply it appropriately.</p></li>
+<li><p>Express an event of a probability experiment as a list of outcomes in set notation.</p></li>
+<li><p>Understand the law of large numbers.</p></li>
+<li><p>Calculate basic probability involving sample spaces with equally likely outcomes.</p></li>
 </ul>
 </div>
 <div class="section" id="experiments-outcomes-and-events">
@@ -808,12 +766,12 @@ F = \{&amp;\textrm{Jack of Spades, Queen of Spades, King of Spades,} \\
 <p>This important characteristic of probability experiments is known as the <strong>law of large numbers</strong> which states that as the number of repetitions of an experiment is increased, the proportion obtained in the experiments tends to become closer and closer to the theoretical probability. Even though the outcomes of the experiments do not happen according to any set pattern or order, overall, the long-term observed proportion will approach the theoretical probability.</p>
 <div class="figure align-default" id="observed-coin-flips">
 <a class="reference internal image-reference" href="../_images/observed_coin_flips.png"><img alt="A graph relating the propotion of heads to the number of coin tosses." src="../_images/observed_coin_flips.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">A computer was used to simulate 1,000 coin tosses. The graph relates the proportion of heads that have come up to the number of times the coin has been tossed. Notice that when the coin has been tossed only a few times, the graph looks wild, and the proportion of heads can be quite different than the probability of tossing a head, <span class="math notranslate nohighlight">\(0.5\)</span>. As the number of coin tosses increases, the graph gows less erratic, and the proportion of heads tends to get closer to <span class="math notranslate nohighlight">\(0.5\)</span>.</span><a class="headerlink" href="#observed-coin-flips" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">A computer was used to simulate 1,000 coin tosses. The graph relates the proportion of heads that have come up to the number of times the coin has been tossed. Notice that when the coin has been tossed only a few times, the graph looks wild, and the proportion of heads can be quite different than the probability of tossing a head, <span class="math notranslate nohighlight">\(0.5\)</span>. As the number of coin tosses increases, the graph grows less erratic, and the proportion of heads tends to get closer to <span class="math notranslate nohighlight">\(0.5\)</span>.</span><a class="headerlink" href="#observed-coin-flips" title="Permalink to this image">¶</a></p>
 </div>
 <p>When all the outcomes of an experiment are <strong>equally likely</strong>—that is, when each outcome in the sample space has the same probability of occuring—the probability of an event <span class="math notranslate nohighlight">\(E\)</span> can be calculated using the formula</p>
 <div class="math notranslate nohighlight">
 \[ P(E) = \frac{n(E)}{n(S)}. \]</div>
-<p>That is, to find <span class="math notranslate nohighlight">\(P(E)\)</span>, we divide the number of outcomes in event <span class="math notranslate nohighlight">\(E\)</span> by the total number of possible outcomes in the sample space <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<p>That is, to find <span class="math notranslate nohighlight">\(P(E)\)</span>, we divide the number of possible outcomes in event <span class="math notranslate nohighlight">\(E\)</span> by the total number of possible outcomes in the sample space <span class="math notranslate nohighlight">\(S\)</span>.</p>
 <p>For example, imagine we toss a fair coin. Since it is just as likely for a coin to come up heads as it is to come up tails, all the outcomes are equally likely. Let <span class="math notranslate nohighlight">\(H\)</span> be the event where the coin comes up heads. Since there are only two possible outcomes in the sample space (heads or tails), <span class="math notranslate nohighlight">\(n(S) = 2\)</span>. Since there is only one outcome in <span class="math notranslate nohighlight">\(H\)</span> (heads), <span class="math notranslate nohighlight">\(n(H) = 1\)</span>. So the probability of tossing a coin and having it come up heads is</p>
 <div class="math notranslate nohighlight">
 \[ P(H) = \frac{n(H)}{n(S)} = \frac{1}{2} = 0.5. \]</div>
@@ -909,7 +867,7 @@ F = \{&amp;\textrm{Jack of Spades, Queen of Spades, King of Spades,} \\
 </ol>
 <div class="section" id="id10">
 <h4>Solution<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h4>
-<p>Note that since the individually is selected randomly, each individual has an equal probability of being chosen. So the outcomes are equally likely. And since there are <span class="math notranslate nohighlight">\(466\)</span> individuals in the sample that could be selected, <span class="math notranslate nohighlight">\(n(S) = 466\)</span>.</p>
+<p>Note that since the individual is selected randomly, each individual has an equal probability of being chosen. So the outcomes are equally likely. And since there are <span class="math notranslate nohighlight">\(466\)</span> individuals in the sample that could be selected, <span class="math notranslate nohighlight">\(n(S) = 466\)</span>.</p>
 <div class="section" id="id11">
 <h5>Part 1<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h5>
 <p>To find the probability that the randomly chosen individual is a Democrat, we must first determine how many Democrats are in the sample. Looking at <a class="reference internal" href="#abortion-table"><span class="std std-numref">Table 3.1</span></a>, we see that <span class="math notranslate nohighlight">\(76\)</span> Democrats believe abortion should be legal under any circumstances, <span class="math notranslate nohighlight">\(62\)</span> Democrats believe abortion should be legal only under certain circumstances, and <span class="math notranslate nohighlight">\(12\)</span> Democrats believe abortion should be illegal under all circumstances. Adding these together, we see that the total number of Democrats in the sample is</p>
@@ -942,83 +900,6 @@ F = \{&amp;\textrm{Jack of Spades, Queen of Spades, King of Spades,} \\
 </div>
 </div>
 </div>
-<hr class="docutils" />
-<p>Blah!</p>
-<hr class="docutils" />
-<p>Blah!</p>
-<hr class="docutils" />
-<p>A coin or die may be <strong>unfair</strong>, or <strong>biased</strong>. Two math professors in Europe had their statistics students test the Belgian one Euro coin and discovered that in 250 trials, a head was obtained 56% of the time and a tail was obtained 44% of the time. The data seem to show that the coin is not a fair coin; more repetitions would be helpful to draw a more accurate conclusion about such bias. Some dice may be biased. Look at the dice in a game you have at home; the spots on each face are usually small holes carved out and then painted to make the spots visible. Your dice may or may not be biased; it is possible that the outcomes may be affected by the slight weight differences due to the different numbers of holes in the faces. Gambling casinos make a lot of money depending on outcomes from rolling dice, so casino dice are made differently to eliminate bias. Casino dice have flat faces; the holes are completely filled with paint having the same density as the material that the dice are made out of so that each face is equally likely to occur. Later we will learn techniques to use to work with probabilities for events that are not equally likely.</p>
-<p>The <strong>probability</strong> of any outcome is the <strong>long-term relative frequency</strong> of that outcome. <strong>Probabilities are between zero and one, inclusive</strong> (that is, zero and one and all numbers between these values). <span class="math notranslate nohighlight">\(P(A) = 0\)</span> means the event <span class="math notranslate nohighlight">\(A\)</span> can never happen. <span class="math notranslate nohighlight">\(P(A) = 1\)</span> means the event <span class="math notranslate nohighlight">\(A\)</span> always happens. <span class="math notranslate nohighlight">\(P(A) = 0.5\)</span> means the event <span class="math notranslate nohighlight">\(A\)</span> is equally likely to occur or not to occur. For example, if you flip one fair coin repeatedly (from 20 to 2,000 to 20,000 times) the relative frequency of heads approaches 0.5 (the probability of heads).</p>
-<p><strong>Equally likely</strong> means that each outcome of an experiment occurs with equal probability. For example, if you toss a <strong>fair</strong>, six-sided die, each face (1, 2, 3, 4, 5, or 6) is as likely to occur as any other face. If you toss a fair coin, a Head (<span class="math notranslate nohighlight">\(H\)</span>) and a Tail (<span class="math notranslate nohighlight">\(T\)</span>) are equally likely to occur. If you randomly guess the answer to a true/false question on an exam, you are equally likely to select a correct answer or an incorrect answer.</p>
-<p><strong>To calculate the probability of an event <span class="math notranslate nohighlight">\(A\)</span> when all outcomes in the sample space are equally likely</strong>, find <span class="math notranslate nohighlight">\(n(A)\)</span>, the number of outcomes for event <span class="math notranslate nohighlight">\(A\)</span>, and divide by <span class="math notranslate nohighlight">\(n(S)\)</span>, the total number of outcomes in the sample space <span class="math notranslate nohighlight">\(S\)</span>. Mathematically, we write
-$<span class="math notranslate nohighlight">\( P(A) = \frac{n(A)}{n(S)}.\)</span><span class="math notranslate nohighlight">\(
-For example, if you toss a fair dime and a fair nickel, the sample space is \)</span>S = {HH, TH, HT, TT}<span class="math notranslate nohighlight">\( where \)</span>T<span class="math notranslate nohighlight">\( = tails and \)</span>H<span class="math notranslate nohighlight">\( = heads. The sample space has \)</span>n(S) = 4<span class="math notranslate nohighlight">\( outcomes. \)</span>A<span class="math notranslate nohighlight">\( = getting one head. There are \)</span>n(A) = 2<span class="math notranslate nohighlight">\( outcomes that meet this condition: \)</span>{HT, TH}<span class="math notranslate nohighlight">\(. So \)</span>P(A) =  \frac{n(A)}{n(S)} = \frac{2}{4}  = 0.5$.</p>
-<p>Suppose you roll one fair six-sided die, with the numbers <span class="math notranslate nohighlight">\(\{1, 2, 3, 4, 5, 6\}\)</span> on its faces. Let event <span class="math notranslate nohighlight">\(E\)</span> = rolling a number that is at least five. There are two outcomes: <span class="math notranslate nohighlight">\(\{5, 6\}\)</span>. <span class="math notranslate nohighlight">\(P(E) = \frac{n(E)}{n(S)} = \frac{2}{6}\)</span>. If you were to roll the die only a few times, you would not be surprised if your observed results did not match the probability. If you were to roll the die a very large number of times, you would expect that, overall, <span class="math notranslate nohighlight">\(\frac{2}{6}\)</span> of the rolls would result in an outcome of “at least five”. You would not expect exactly <span class="math notranslate nohighlight">\(\frac{2}{6}\)</span>. The long-term relative frequency of obtaining this result would approach the theoretical probability of <span class="math notranslate nohighlight">\(\frac{2}{6}\)</span> as the number of repetitions grows larger and larger.</p>
-<p><strong>“OR” Event:</strong><br>
-An outcome is in the event <span class="math notranslate nohighlight">\(A \text{ OR } B\)</span> if the outcome is in <span class="math notranslate nohighlight">\(A\)</span> or is in <span class="math notranslate nohighlight">\(B\)</span> or is in both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span>. For example, let <span class="math notranslate nohighlight">\(A = \{1, 2, 3, 4, 5\}\)</span> and <span class="math notranslate nohighlight">\(B = \{4, 5, 6, 7, 8\}\)</span>. <span class="math notranslate nohighlight">\(A \text{ OR } B = \{1, 2, 3, 4, 5, 6, 7, 8\}\)</span>. Notice that 4 and 5 are NOT listed twice.</p>
-<p><strong>“AND” Event:</strong><br>
-An outcome is in the event <span class="math notranslate nohighlight">\(A \text{ AND } B\)</span> if the outcome is in both <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> at the same time. For example, let <span class="math notranslate nohighlight">\(A = \{1, 2, 3, 4, 5\}\)</span> and <span class="math notranslate nohighlight">\(B = \{4, 5, 6, 7, 8\}\)</span>. Then <span class="math notranslate nohighlight">\(A \text{ AND } B = \{4, 5\}\)</span>.</p>
-<p>The <strong>complement</strong> of event <span class="math notranslate nohighlight">\(A\)</span> is denoted <span class="math notranslate nohighlight">\(A'\)</span> (read “A prime”). <span class="math notranslate nohighlight">\(A'\)</span> consists of all outcomes that are NOT in <span class="math notranslate nohighlight">\(A\)</span>. Notice that <span class="math notranslate nohighlight">\(P(A) + P(A') = 1\)</span>. For example, let <span class="math notranslate nohighlight">\(S = \{1, 2, 3, 4, 5, 6\}\)</span> and let <span class="math notranslate nohighlight">\(A = \{1, 2, 3, 4\}\)</span>. Then, <span class="math notranslate nohighlight">\(A' = \{5, 6\}\)</span>. <span class="math notranslate nohighlight">\(P(A) = \frac{4}{6}\)</span>, <span class="math notranslate nohighlight">\(P(A') = \frac{2}{6}\)</span>, and <span class="math notranslate nohighlight">\(P(A) + P(A') = \frac{4}{6} + \frac{2}{6} = 1\)</span>.</p>
-<p>The <strong>conditional probability</strong> of <span class="math notranslate nohighlight">\(A\)</span> given <span class="math notranslate nohighlight">\(B\)</span> is written <span class="math notranslate nohighlight">\(P(A|B)\)</span>. <span class="math notranslate nohighlight">\(P(A|B)\)</span> is the probability that event <span class="math notranslate nohighlight">\(A\)</span> will occur given that the event <span class="math notranslate nohighlight">\(B\)</span> has already occurred. <strong>A conditional reduces the sample space.</strong> We calculate the probability of <span class="math notranslate nohighlight">\(A\)</span> from the reduced sample space <span class="math notranslate nohighlight">\(B\)</span>. When outcomes are equally likely, we use the formula
-$<span class="math notranslate nohighlight">\( P(A|B) = \frac{n(A \text{ AND } B)}{n(B)}. \)</span><span class="math notranslate nohighlight">\(
-Since we are assuming that we already know that event \)</span>B<span class="math notranslate nohighlight">\( has already occurred, our sample space is reduced from all possible outcomes in the sample space \)</span>S<span class="math notranslate nohighlight">\( to just the outcomes in \)</span>B<span class="math notranslate nohighlight">\(, which is why we divide by \)</span>n(B)<span class="math notranslate nohighlight">\( instead of \)</span>n(S)<span class="math notranslate nohighlight">\(. Similarly, in the numerator, we write the number of outcomes in \)</span>A<span class="math notranslate nohighlight">\( that can occur. But since we already know that \)</span>B<span class="math notranslate nohighlight">\( occurred, only those outcomes in \)</span>A<span class="math notranslate nohighlight">\( that are also in \)</span>B<span class="math notranslate nohighlight">\( are possible. So our numerator is the number of outcomes in \)</span>A \text{ AND } B$.</p>
-<p>For example, suppose we toss one fair, six-sided die. The sample space is <span class="math notranslate nohighlight">\(S = \{1, 2, 3, 4, 5, 6\}\)</span>. Let <span class="math notranslate nohighlight">\(A\)</span> be the event that face is 2 or 3: <span class="math notranslate nohighlight">\(A = \{2, 3\}\)</span>. Let <span class="math notranslate nohighlight">\(B\)</span> be the event that the face is even: <span class="math notranslate nohighlight">\(B = \{2, 4, 6\}\)</span>. To calculate <span class="math notranslate nohighlight">\(P(A|B)\)</span>, we count the number of outcomes of <span class="math notranslate nohighlight">\(A\)</span> that are also in the sample space <span class="math notranslate nohighlight">\(B\)</span>. Then we divide that by the number of outcomes in <span class="math notranslate nohighlight">\(B\)</span> (rather than <span class="math notranslate nohighlight">\(S\)</span>). We get
-$<span class="math notranslate nohighlight">\(P(A|B) = \frac{n(A \text{ and } B)}{n(B)} = \frac{1}{3}.\)</span>$</p>
-<p>When events in the sample space are NOT equally likely, the more general formula to calculate <span class="math notranslate nohighlight">\(P(A|B)\)</span> is
-$<span class="math notranslate nohighlight">\(P(A|B) = \frac{P(A \text{ AND } B)}{P(B)},\)</span><span class="math notranslate nohighlight">\(
-where \)</span>P(B)<span class="math notranslate nohighlight">\( is greater than zero. We can also use this slightly more complicated formula to get the same result to the preceding problem:
-\)</span><span class="math notranslate nohighlight">\(P(A|B) = \frac{P(A \text{ AND } B)}{P(B)} = \frac{\frac{n(A \text{ AND } B)}{n(S)}}{\frac{n(B)}{n(S)}} = \frac{\frac{1}{6}}{\frac{3}{6}} = \frac{1}{3}.\)</span>$</p>
-<p><strong>Note:</strong> Generally, <span class="math notranslate nohighlight">\(P(A|B)\)</span> is NOT equal to <span class="math notranslate nohighlight">\(P(B|A)\)</span>. Make sure you are aware of the order events are written when calculating conditional probability.</p>
-</div>
-<div class="section" id="id13">
-<h3>Example 3.1.1<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
-<p>The sample space <span class="math notranslate nohighlight">\(S\)</span> is the set of whole numbers starting at 1 and less than 20. Assume the outcomes are equally likely. Let event <span class="math notranslate nohighlight">\(A\)</span> = the even numbers and event <span class="math notranslate nohighlight">\(B\)</span> = numbers greater than 13. Find the following (in mathematical notation).</p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(S\)</span>, <span class="math notranslate nohighlight">\(A\)</span>, and <span class="math notranslate nohighlight">\(B\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(A)\)</span> and <span class="math notranslate nohighlight">\(P(B)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(A \text{ AND } B\)</span> and <span class="math notranslate nohighlight">\(A \text{ OR } B\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(A \text{ AND } B)\)</span> and <span class="math notranslate nohighlight">\(P(A \text{ OR } B)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(A'\)</span> and <span class="math notranslate nohighlight">\(P(A')\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(A) + P(A')\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(P(A|B)\)</span> and <span class="math notranslate nohighlight">\(P(B|A)\)</span>. Are the probabilities equal?</p></li>
-</ol>
-<div class="section" id="id14">
-<h4>Solution<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
-<div class="section" id="id15">
-<h5>Part 1<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h5>
-<p><span class="math notranslate nohighlight">\(S = \{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19\}\)</span></p>
-<p><span class="math notranslate nohighlight">\(A = \{ 2, 4, 6, 8, 10, 12, 14, 16, 18\}\)</span></p>
-<p><span class="math notranslate nohighlight">\(B = \{14, 15, 16, 17, 18, 19\}\)</span></p>
-</div>
-<div class="section" id="id16">
-<h5>Part 2#####<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h5>
-<p><span class="math notranslate nohighlight">\(P(A) = \dfrac{n(A)}{n(S)} = \dfrac{9}{19} = 0.4737\)</span></p>
-<p><span class="math notranslate nohighlight">\(P(B) = \dfrac{n(B)}{n(S)} = \dfrac{6}{19} = 0.3158\)</span></p>
-</div>
-<div class="section" id="id17">
-<h5>Part 3<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h5>
-<p><span class="math notranslate nohighlight">\(A \text{ AND } B = \{14, 16, 18\}\)</span></p>
-<p><span class="math notranslate nohighlight">\(A \text{ OR } B = \{2, 4, 6, 8, 10, 12, 14, 15, 16, 17, 18, 19\}\)</span></p>
-</div>
-<div class="section" id="id18">
-<h5>Part 4<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h5>
-<p><span class="math notranslate nohighlight">\(P(A \text{ AND } B) = \dfrac{n(A \text{ AND } B)}{n(S)} = \dfrac{3}{19} = 0.1579\)</span></p>
-<p><span class="math notranslate nohighlight">\(P(A \text{ OR } B) = \dfrac{n(A \text{ OR } B)}{n(S)} = \dfrac{12}{19} = 0.6316\)</span></p>
-</div>
-<div class="section" id="part-5">
-<h5>Part 5<a class="headerlink" href="#part-5" title="Permalink to this headline">¶</a></h5>
-<p><span class="math notranslate nohighlight">\(A' = \{1, 3, 5, 7, 9, 11, 13, 15, 17, 19\}\)</span></p>
-<p><span class="math notranslate nohighlight">\(P(A') = \dfrac{n(A')}{n(S)} = \dfrac{10}{19} = 0.5263\)</span></p>
-</div>
-<div class="section" id="part-6">
-<h5>Part 6<a class="headerlink" href="#part-6" title="Permalink to this headline">¶</a></h5>
-<p><span class="math notranslate nohighlight">\(P(A) + P(A') = \dfrac{9}{19} + \dfrac{10}{19} = 1\)</span></p>
-</div>
-<div class="section" id="part-7">
-<h5>Part 7<a class="headerlink" href="#part-7" title="Permalink to this headline">¶</a></h5>
-<p><span class="math notranslate nohighlight">\(P(A|B) = \dfrac{n(A \text{ AND } B)}{n(B)} = \dfrac{3}{6} = 0.5\)</span></p>
-<p><span class="math notranslate nohighlight">\(P(B|A) = \dfrac{n(B \text{ AND } A)}{n(A)} = \dfrac{3}{9} = 0.3333\)</span></p>
-<p><span class="math notranslate nohighlight">\(P(A|B)\)</span> is NOT equal to <span class="math notranslate nohighlight">\(P(B|A)\)</span>.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="die-attribution"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -1028,8 +909,6 @@ where \)</span>P(B)<span class="math notranslate nohighlight">\( is greater than
 <dd><p><a class="reference internal" href="#playingcards"><span class="std std-numref">Figure 3.2</span></a> was adapted from an image <a class="reference external" href="https://commons.wikimedia.org/wiki/File:English_pattern_playing_cards_deck.svg">created by Dmitry Fomin</a>, which is made available under the <a class="reference external" href="https://creativecommons.org/publicdomain/zero/1.0/deed.en">Creative Commons CC0 1.0 Universal Public Domain Dedication</a>.</p>
 </dd>
 </dl>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -1073,10 +952,10 @@ where \)</span>P(B)<span class="math notranslate nohighlight">\( is greater than
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="3.2%20Multiplication%20Rules%20and%20Independent%20Events.html" title="next page">
+        <a class="right-next" href="3.2%20Conditional%20Probability.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">3.2. </span>3.2 Multiplication Rules and Independent Events</p>
+                <p class="prevnext-title"><span class="section-number">3.2. </span>Conditional Probability</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
@@ -1090,7 +969,7 @@ where \)</span>P(B)<span class="math notranslate nohighlight">\( is greater than
     <div class="container">
       <p>
         
-          By Taylor Baldwin <br/><br/><small>This work is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license. It is adapted from <i>Introductory Statistics</i> by Barbara Illowsky and Susan Dean, which is published by <a href="https://openstax.org/">OpenStax</a> and licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Access for free at <a href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small><br/><br/>
+          By Taylor Baldwin <br/><br/><small>This work is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a> license. It is adapted from  <a href="https://openstax.org/books/introductory-statistics/pages/1-introduction"><i>Introductory Statistics</i></a> by Barbara Illowsky and Susan Dean, which is published by <a href="https://openstax.org/">OpenStax</a> and licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license. Access it for free at <a href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small><br/><br/>
         
             &copy; Copyright 2021.<br/>
       </p>

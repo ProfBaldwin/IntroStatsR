@@ -17,10 +17,11 @@ chapters:
 - file: Ch3 Probability/3.0 Probability
   sections:
     - file: Ch3 Probability/3.1 Introduction to Probability
-    - file: Ch3 Probability/3.2 Multiplication Rules and Independent Events
-    - file: Ch3 Probability/3.3 Addition Rules and Mutually Exclusive Events
-    - file: Ch3 Probability/3.4 Discrete Probability Distributions
-    - file: Ch3 Probability/3.5 The Binomial Distribution
+    - file: Ch3 Probability/3.2 Conditional Probability
+    - file: Ch3 Probability/3.3 Multiplication Rules and Independent Events
+    - file: Ch3 Probability/3.4 Addition Rules and Mutually Exclusive Events
+    - file: Ch3 Probability/3.5 Discrete Probability Distributions
+    - file: Ch3 Probability/3.6 The Binomial Distribution
 - file: Ch4 The Normal Distribution and the Central Limit Theorem/4.0 The Normal Distribution and the Central Limit Theorem
   sections:
     - file: Ch4 The Normal Distribution and the Central Limit Theorem/4.1 The Standard Normal Distribution
