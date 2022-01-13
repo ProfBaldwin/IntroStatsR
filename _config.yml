@@ -9,3 +9,5 @@ launch_buttons:
 sphinx:
     config:
         language: en
+
+only_build_toc_files: true

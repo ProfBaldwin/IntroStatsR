@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.6. 3.5 The Binomial Distribution &#8212; Introductory Statistics with R</title>
+    <title>3.6. The Binomial Distribution &#8212; Introductory Statistics with R</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,8 +54,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. The Normal Distribution and the Central Limit Theorem" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.0%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem.html" />
-    <link rel="prev" title="3.5. 3.4 Discrete Probability Distributions" href="3.5%20Discrete%20Probability%20Distributions.html" />
+    <link rel="next" title="3.7. Continuous Probability Distributions" href="3.7%20Continuous%20Probability%20Distributions.html" />
+    <link rel="prev" title="3.5. Discrete Probability Distributions" href="3.5%20Discrete%20Probability%20Distributions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -178,223 +178,22 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3.4%20Addition%20Rules%20and%20Mutually%20Exclusive%20Events.html">
-     3.4. 3.3 Addition Rules and Mutually Exclusive Events
+     3.4. Addition Rules and Mutually Exclusive Events
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="3.5%20Discrete%20Probability%20Distributions.html">
-     3.5. 3.4 Discrete Probability Distributions
+     3.5. Discrete Probability Distributions
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.6. 3.5 The Binomial Distribution
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.0%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem.html">
-   4. The Normal Distribution and the Central Limit Theorem
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.1%20The%20Standard%20Normal%20Distribution.html">
-     4.1. 4.1 The Standard Normal Distribution#
+     3.6. The Binomial Distribution
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.2%20The%20Normal%20Distribution%20and%20z-scores.html">
-     4.2. 4.2 The Normal Distribution and
-     <span class="math notranslate nohighlight">
-      \(z\)
-     </span>
-     -Scores
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.3%20The%20Central%20Limit%20Theorem%20for%20Means.html">
-     4.3. 4.3 The Central Limit Theorem for Means
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.4%20The%20Central%20Limit%20Theorem%20for%20Proportions.html">
-     4.4. 4.4 The Central Limit Theorem for Proportions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.0%20Confidence%20Intervals.html">
-   5. Confidence Intervals
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.1%20Estimating%20Population%20Means%20%28Sigma%20Known%29.html">
-     5.1. 5.1 Estimating Population Means (
-     <span class="math notranslate nohighlight">
-      \(\sigma\)
-     </span>
-     Known)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.2%20Estimating%20Population%20Proportions.html">
-     5.2. 5.2 Estimating Population Proportions
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.3%20Student%27s%20t-Distribution.html">
-     5.3. 5.3 Student’s
-     <span class="math notranslate nohighlight">
-      \(t\)
-     </span>
-     -Distribution
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch5%20Confidence%20Intervals/5.4%20Estimating%20Population%20Means%20%28Sigma%20Unknown%29.html">
-     5.4. 5.4 Estimating Population Means (
-     <span class="math notranslate nohighlight">
-      \(\sigma\)
-     </span>
-     Unknown)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.0%20An%20Introduction%20to%20Hypothesis%20Testing.html">
-   6. An Introduction to Hypothesis Testing
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.1%20An%20Introduction%20to%20Hypothesis%20Testing.html">
-     6.1. 6.1 An Introduction to Hypothesis Testing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.2%20Hypotheses%20and%20Errors.html">
-     6.2. 6.2 Hypotheses and Errors
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.3%20Rare%20Events%2C%20the%20Sample%2C%20Decision%20and%20Conclusion.html">
-     6.3. 6.3 Rare Events, the Sample, Decision, and Conclusion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch6%20An%20Introduction%20to%20Hypothesis%20Testing/6.4%20Hypothesis%20Tests%20of%20One%20Population.html">
-     6.4. 6.4 Hypothesis Tests of One Population
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.0%20The%20Chi-Square%20Distribution.html">
-   7. The
-   <span class="math notranslate nohighlight">
-    \(\chi^2\)
-   </span>
-   -Distribution
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.1%20The%20Chi-Square%20Distribution.html">
-     7.1. 7.1 The
-     <span class="math notranslate nohighlight">
-      \(\chi^2\)
-     </span>
-     -Distribution
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.2%20Hypothesis%20Testing%20for%20the%20Population%20Variance.html">
-     7.2. 7.2 Hypothesis Testing for the Population Variance
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch7%20The%20Chi-Square%20Distribution/7.3%20Goodness-of-Fit%20Test.html">
-     7.3. 7.3 Goodness of Fit Test
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.0%20Correlation%20and%20Linear%20Regression.html">
-   8. Correlation and Linear Regression
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.1%20Scatter%20Plots.html">
-     8.1. 8.1 Scatter Plots
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.2%20Linear%20Equations.html">
-     8.2. 8.2 Linear Equations
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.3%20The%20Regression%20Equation.html">
-     8.3. 8.3 The Regression Equation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch8%20Correlation%20and%20Linear%20Regression/8.4%20The%20Correlation%20Coefficient.html">
-     8.4. 8.4 The Correlation Coefficient
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.0%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations.html">
-   9. Hypothesis Tests of Two or More Populations
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.1%20Hypothesis%20Testing%20Two%20Population%20Means.html">
-     9.1. 9.1 Hypothesis Testing: Two Population Means
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.2%20Hypothesis%20Testing%20Two%20Population%20Variances.html">
-     9.2. 9.2 Hypothesis Testing Two Population Variances
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Ch9%20Hypothesis%20Tests%20of%20Two%20or%20More%20Populations/9.3%20ANOVA.html">
-     9.3. 9.3 ANOVA
+    <a class="reference internal" href="3.7%20Continuous%20Probability%20Distributions.html">
+     3.7. Continuous Probability Distributions
     </a>
    </li>
   </ul>
@@ -503,17 +302,41 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-3-5-1">
-     Example 3.5.1
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-3-5-2">
-     Example 3.5.2
+    <a class="reference internal nav-link" href="#example-3-6-1">
+     Example 3.6.1
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#solution">
+       Solution
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-1">
+         Part 1
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-2">
+         Part 2
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#part-3">
+         Part 3
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-6-2">
+     Example 3.6.2
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
        Solution
       </a>
       <ul class="nav section-nav flex-column">
@@ -537,58 +360,9 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-3-5-3">
-     Example 3.5.3
+    <a class="reference internal nav-link" href="#example-3-6-3">
+     Example 3.6.3
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Solution
-      </a>
-      <ul class="nav section-nav flex-column">
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#part-1">
-         Part 1
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#part-2">
-         Part 2
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#part-3">
-         Part 3
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#part-4">
-         Part 4
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#part-5">
-         Part 5
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#part-6">
-         Part 6
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#part-7">
-         Part 7
-        </a>
-       </li>
-       <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#part-8">
-         Part 8
-        </a>
-       </li>
-      </ul>
-     </li>
-    </ul>
    </li>
   </ul>
  </li>
@@ -598,8 +372,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-3-5-4">
-     Example 3.5.4
+    <a class="reference internal nav-link" href="#example-3-6-4">
+     Example 3.6.4
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
@@ -623,7 +397,7 @@
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id7">
+        <a class="reference internal nav-link" href="#part-4">
          Part 4
         </a>
        </li>
@@ -632,22 +406,22 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-3-5-5">
-     Example 3.5.5
+    <a class="reference internal nav-link" href="#example-3-6-5">
+     Example 3.6.5
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
+      <a class="reference internal nav-link" href="#id7">
        Solution
       </a>
       <ul class="nav section-nav flex-column">
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id9">
+        <a class="reference internal nav-link" href="#id8">
          Part 1
         </a>
        </li>
        <li class="toc-h5 nav-item toc-entry">
-        <a class="reference internal nav-link" href="#id10">
+        <a class="reference internal nav-link" href="#id9">
          Part 2
         </a>
        </li>
@@ -656,8 +430,8 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#example-3-5-6">
-     Example 3.5.6
+    <a class="reference internal nav-link" href="#example-3-6-6">
+     Example 3.6.6
     </a>
    </li>
   </ul>
@@ -674,108 +448,115 @@
               <div>
                 
   <div class="section" id="the-binomial-distribution">
-<h1><span class="section-number">3.6. </span>3.5 The Binomial Distribution<a class="headerlink" href="#the-binomial-distribution" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.6. </span>The Binomial Distribution<a class="headerlink" href="#the-binomial-distribution" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="objectives">
 <h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Apply probability and counting rules (including addition and multiplication rules) as pertaining to both continuous random variables and discrete random variables.</p></li>
-<li><p>Analyze an application in the disciplines business, social sciences, psychology, life sciences, health science, and education, and utilize the correct statistical processes to arrive at a solution.</p></li>
+<li><p>Identify experiments that fit a binomial probability distribution.</p></li>
+<li><p>Calculate the expected value and standard deviation for a binomial distribution.</p></li>
+<li><p>Calculate probabilities using a binomial distribution.</p></li>
 </ul>
 </div>
 <div class="section" id="id1">
 <h2>The Binomial Distribution<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>There are three characteristics of a binomial experiment.</p>
+<p>There are three characteristics of a <strong>binomial experiment</strong>.</p>
 <ul class="simple">
-<li><p>There are a fixed number of trials. Think of trials as repetitions of an experiment. The letter n denotes the number of trials.</p></li>
-<li><p>There are only two possible outcomes, called “success” and “failure,” for each trial. The letter <span class="math notranslate nohighlight">\(p\)</span> denotes the probability of a success on one trial, and <span class="math notranslate nohighlight">\(q\)</span> denotes the probability of a failure on one trial. <span class="math notranslate nohighlight">\(p + q = 1\)</span>.</p></li>
-<li><p>The <span class="math notranslate nohighlight">\(n\)</span> trials are independent and are repeated using identical conditions. Because the <span class="math notranslate nohighlight">\(n\)</span> trials are independent, the outcome of one trial does not help in predicting the outcome of another trial. Another way of saying this is that for each individual trial, the probability, <span class="math notranslate nohighlight">\(p\)</span>, of a success and probability, <span class="math notranslate nohighlight">\(q\)</span>, of a failure remain the same. For example, randomly guessing at a true-false statistics question has only two outcomes. If a success is guessing correctly, then a failure is guessing incorrectly. Suppose Joe always guesses correctly on any statistics true-false question with probability <span class="math notranslate nohighlight">\(p = 0.6\)</span>. Then, <span class="math notranslate nohighlight">\(q = 0.4\)</span>. This means that for every true-false statistics question Joe answers, his probability of success (<span class="math notranslate nohighlight">\(p = 0.6\)</span> and his probability of failure (<span class="math notranslate nohighlight">\(q = 0.4\)</span>) remain the same.
-The outcomes of a binomial experiment fit a <strong>binomial probability distribution</strong>, which is a special kind of discrete probability distribution. The random variable <span class="math notranslate nohighlight">\(X\)</span> = the number of successes obtained in the <span class="math notranslate nohighlight">\(n\)</span> independent trials.</p></li>
+<li><p>There are a fixed number of trials. Think of trials as repetitions of an experiment. The letter <span class="math notranslate nohighlight">\(n\)</span> denotes the number of trials. <br/><br/> For example, if we conduct a binomial experiment by rolling a six-sided die ten times, then the binomial experiment has <span class="math notranslate nohighlight">\(n = 10\)</span> trials.<br/><br/></p></li>
+<li><p>There are only two possible outcomes, called “success” and “failure,” for each trial. The letter <span class="math notranslate nohighlight">\(p\)</span> denotes the probability of a success for one trial, and <span class="math notranslate nohighlight">\(q\)</span> denotes the probability of a failure for one trial. Since “success” and “failure” are complementary outcomes, <span class="math notranslate nohighlight">\(p + q = 1\)</span>. <br/><br/> Imagine we roll a six-sided die ten times, and we want to know many twos we roll. Then each of the <span class="math notranslate nohighlight">\(n = 10\)</span> trials is counted a “success” when we roll a two and is a “failure” when we roll anything that isn’t a two. In this case, the probability a trial is a success is <span class="math notranslate nohighlight">\(p = \frac{1}{6}\)</span>, and the probability a trial is a failure is <span class="math notranslate nohighlight">\(q = \frac{5}{6}\)</span>. (Note, <span class="math notranslate nohighlight">\(p + q = \frac{1}{6} + \frac{5}{6} = 1\)</span>.)<br/><br/></p></li>
+<li><p>The <span class="math notranslate nohighlight">\(n\)</span> trials of a binomial experiment are independent and are repeated using identical conditions. Because the <span class="math notranslate nohighlight">\(n\)</span> trials are independent and identical, the probability of success <span class="math notranslate nohighlight">\(p\)</span> and probability of failure <span class="math notranslate nohighlight">\(q\)</span> are the same for each trial. <br/><br/> In our binomial experiment of <span class="math notranslate nohighlight">\(n = 10\)</span> die rolls, we have a probabiliy of <span class="math notranslate nohighlight">\(p = \frac{1}{6}\)</span> of rolling a two on the second trial no matter what happened during the first trial. The probability of success and the probability of failure is the same for every roll of the die.</p></li>
 </ul>
-<p>The mean, <span class="math notranslate nohighlight">\(\mu\)</span>, and variance, <span class="math notranslate nohighlight">\(\sigma^2\)</span>, for the binomial probability distribution are <span class="math notranslate nohighlight">\(\mu = np\)</span> and <span class="math notranslate nohighlight">\(\sigma^2 = npq\)</span>. The standard deviation, <span class="math notranslate nohighlight">\(\sigma\)</span>, is then <span class="math notranslate nohighlight">\(\sigma =  \sqrt{npq}\)</span>.</p>
-<hr class="docutils" />
-<div class="section" id="example-3-5-1">
-<h3>Example 3.5.1<a class="headerlink" href="#example-3-5-1" title="Permalink to this headline">¶</a></h3>
-<p>At ABC College, the withdrawal rate from an elementary physics course is 30% for any given term. This implies that, for any given term, 70% of the students stay in the class for the entire term. A “success” could be defined as an individual who withdrew. The random variable <span class="math notranslate nohighlight">\(X\)</span> = the number of students who withdraw from the randomly selected elementary physics class. The probability of success is <span class="math notranslate nohighlight">\(p = 0.30\)</span> and the probability of failure is <span class="math notranslate nohighlight">\(q = 0.70\)</span>. If we track 20 students to see whether or not they withdraw, then this is a binomial experiment with <span class="math notranslate nohighlight">\(n = 20\)</span>.</p>
+<p>The outcomes of a binomial experiment fit a <strong>binomial probability distribution</strong>, which is a special kind of discrete probability distribution. A binomial distribution is a formula that gives the probability that there were exactly <span class="math notranslate nohighlight">\(x\)</span> successes in the <span class="math notranslate nohighlight">\(n\)</span>, where we can choose any whole number <span class="math notranslate nohighlight">\(x\)</span>  between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>The expected value of a binomial distribution is</p>
+<div class="math notranslate nohighlight">
+\[ \mu = n \cdot p. \]</div>
+<p>The standard deviation of a binomial distribution is</p>
+<div class="math notranslate nohighlight">
+\[ \sigma = \sqrt{n \cdot p \cdot q}. \]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be aware that the success of a trial in a binomial experiment isn’t necessarily good, and the failure of a trial isn’t necessarily bad. Rather, we call the outcome we are trying to measure a success regardless of whether it is good or bad.</p>
+<p>For example, we may consider a test for cancer a success if cancer is detected since that is what we are trying to measure, even though a cancer diagnosis is definitely bad.</p>
 </div>
 <hr class="docutils" />
-<div class="section" id="example-3-5-2">
-<h3>Example 3.5.2<a class="headerlink" href="#example-3-5-2" title="Permalink to this headline">¶</a></h3>
-<p>Suppose you play a game that you can only either win or lose. The probability that you win any game is 55%, and the probability that you lose is 45%. Each game you play is independent. You play the game 20 times.</p>
+<div class="section" id="example-3-6-1">
+<h3>Example 3.6.1<a class="headerlink" href="#example-3-6-1" title="Permalink to this headline">¶</a></h3>
+<p>At ABC College, the withdrawal rate from an elementary physics course is <span class="math notranslate nohighlight">\(30\%\)</span> for any given term. This implies that, for any given term, <span class="math notranslate nohighlight">\(70\%\)</span> of the students stay in the class for the entire term. We track <span class="math notranslate nohighlight">\(20\)</span> students in an elementary physics course to see if they withdraw from the course. Assume the probability that each student withdraws is independent from the other students.</p>
 <ol class="simple">
-<li><p>Write the function that describes the probability that you win 15 of the 20 times.</p></li>
-<li><p>Find the expected value of the distribution.</p></li>
-<li><p>Find the standard deviation of the distribution.</p></li>
+<li><p>Is this a binomial experiment? Why or why not?</p></li>
+<li><p>How many students are expected to withdraw from the course?</p></li>
+<li><p>What is the standard deviation?</p></li>
 </ol>
 <div class="section" id="solution">
 <h4>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h4>
-<p>Here, if you define <span class="math notranslate nohighlight">\(X\)</span> as the number of wins, then <span class="math notranslate nohighlight">\(X\)</span> takes on the values 0, 1, 2, 3, …, 20. The probability of a success is <span class="math notranslate nohighlight">\(p = 0.55\)</span>. The probability of a failure is <span class="math notranslate nohighlight">\(q = 0.45\)</span>.</p>
-<div class="section" id="step-1">
-<h5>Step 1<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h5>
-<p>The number of trials is <span class="math notranslate nohighlight">\(n = 20\)</span>. The probability question can be stated mathematically as <span class="math notranslate nohighlight">\(P(x = 15)\)</span>.</p>
+<div class="section" id="part-1">
+<h5>Part 1<a class="headerlink" href="#part-1" title="Permalink to this headline">¶</a></h5>
+<p>There are three conditions an experiment must satisfy to be a binomial experiment.</p>
+<ol class="simple">
+<li><p>Are there are a fixed number of trials? Yes. In this case, we are looking to see if each of the <span class="math notranslate nohighlight">\(20\)</span> students withdraws from the course, so the experiment consists of <span class="math notranslate nohighlight">\(n = 20\)</span> trials.</p></li>
+<li><p>Does each trial only have two possible outcomes? Yes. Each student will either withdraw or not withdraw from the course.</p></li>
+<li><p>Are the trials independent and identical? Yes. We are told in the prompt to assume that the probability that each student withdraws is independent from the other students, so the probability that a student will withdraw is identical for each student.</p></li>
+</ol>
+<p>Since these three conditions are met, this is a binomial experiment.</p>
 </div>
-<div class="section" id="step-2">
-<h5>Step 2<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h5>
-<p>The expected value of the distribution is
-$<span class="math notranslate nohighlight">\( \mu = np = 20(0.55) = 11. \)</span>$</p>
+<div class="section" id="part-2">
+<h5>Part 2<a class="headerlink" href="#part-2" title="Permalink to this headline">¶</a></h5>
+<p>To find how many students are expected to withdraw from the course, we need to find the expected value. Since there are <span class="math notranslate nohighlight">\(20\)</span> students, the experiment consists of <span class="math notranslate nohighlight">\(n = 20\)</span> trials. Since we are interested in how many students will withdraw from the course, we will call a trial a success if the student withdraws from the course. So the probability of success is <span class="math notranslate nohighlight">\(p = 0.30\)</span>. So the expected value is</p>
+<div class="math notranslate nohighlight">
+\[ \mu = n \cdot p = 20 \cdot 0.30 = 6. \]</div>
+<p>We expect <span class="math notranslate nohighlight">\(6\)</span> of the <span class="math notranslate nohighlight">\(20\)</span> students to drop the course.</p>
 </div>
-<div class="section" id="step-3">
-<h5>Step 3<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h5>
-<p>The standard deviation of the distribution is
-$<span class="math notranslate nohighlight">\( \sigma = \sqrt{npq} = \sqrt{20(0.55)(0.45)} = 2.2249. \)</span>$</p>
+<div class="section" id="part-3">
+<h5>Part 3<a class="headerlink" href="#part-3" title="Permalink to this headline">¶</a></h5>
+<p>Since the probability of success of any one trial is <span class="math notranslate nohighlight">\(p = 0.30\)</span>, the probability of failure is <span class="math notranslate nohighlight">\(q = 0.70\)</span>. Then the standard deviation of the binomial distribution is</p>
+<div class="math notranslate nohighlight">
+\[ \sigma = \sqrt{n \cdot p \cdot q} = \sqrt{20 \cdot 0.30 \cdot 0.70} = 2.0494. \]</div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="example-3-5-3">
-<h3>Example 3.5.3<a class="headerlink" href="#example-3-5-3" title="Permalink to this headline">¶</a></h3>
-<p>Approximately 70% of statistics students do their homework in time for it to be collected and graded. Each student does homework independently. In a statistics class of 50 students, what is the probability that at least 40 will do their homework on time? Students are selected randomly.</p>
+<div class="section" id="example-3-6-2">
+<h3>Example 3.6.2<a class="headerlink" href="#example-3-6-2" title="Permalink to this headline">¶</a></h3>
+<p>Suppose you play a game where you draw a single card from a well-shuffled <span class="math notranslate nohighlight">\(52\)</span>-card deck. You win the game if you draw a Spade. If you do not draw a spade, you lose. You play the game <span class="math notranslate nohighlight">\(50\)</span> times.</p>
 <ol class="simple">
-<li><p>Is this a binomial problem? Why or why not?</p></li>
-<li><p>How do we define <span class="math notranslate nohighlight">\(X\)</span>?</p></li>
-<li><p>What values does <span class="math notranslate nohighlight">\(x\)</span> take on?</p></li>
-<li><p>What is “failure,” in words?</p></li>
-<li><p>What is <span class="math notranslate nohighlight">\(n\)</span>? What is <span class="math notranslate nohighlight">\(p\)</span>? What is <span class="math notranslate nohighlight">\(q\)</span>?</p></li>
-<li><p>State the probability question mathematically.</p></li>
-<li><p>What is the expected value of the distribution?</p></li>
-<li><p>What is the standard deviation of the distribution?</p></li>
+<li><p>Is this a binomial experiment? Why or why not?</p></li>
+<li><p>How many times do you expect to win the game?</p></li>
+<li><p>What is the standard deviation?</p></li>
 </ol>
 <div class="section" id="id2">
 <h4>Solution<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
-<div class="section" id="part-1">
-<h5>Part 1<a class="headerlink" href="#part-1" title="Permalink to this headline">¶</a></h5>
-<p>This is a binomial problem because there are a fixed number of trials, there is only a success or a failure for each trial, and the trials are independent (that is, the probability of success doesn’t change from trial to trial).</p>
+<div class="section" id="step-1">
+<h5>Step 1<a class="headerlink" href="#step-1" title="Permalink to this headline">¶</a></h5>
+<p>There are three conditions an experiment must satisfy to be a binomial experiment.</p>
+<ol class="simple">
+<li><p>Are there are a fixed number of trials? Yes. In this case, you play the game <span class="math notranslate nohighlight">\(50\)</span> times, so the experiment has <span class="math notranslate nohighlight">\(n = 50\)</span> trials.</p></li>
+<li><p>Does each trial only have two possible outcomes? Yes. Each time you play the game, you can either win or lose.</p></li>
+<li><p>Are the trials independent and identical? Yes. Each time you play the game, you are drawing from a full deck of <span class="math notranslate nohighlight">\(52\)</span> cards. Since you play with the full deck each game, the games are independent and identical.</p></li>
+</ol>
+<p>Since these three conditions are met, this is a binomial experiment.</p>
 </div>
-<div class="section" id="part-2">
-<h5>Part 2<a class="headerlink" href="#part-2" title="Permalink to this headline">¶</a></h5>
-<p><span class="math notranslate nohighlight">\(X\)</span> = the number of students who do their homework on time.</p>
+<div class="section" id="step-2">
+<h5>Step 2<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h5>
+<p>We want to find the expected value. There are <span class="math notranslate nohighlight">\(n = 50\)</span> trials since you play the game <span class="math notranslate nohighlight">\(50\)</span> times. Since we are interested in how many times you win the game, a trail is a success if you win. Since there are <span class="math notranslate nohighlight">\(13\)</span> spades in a deck of <span class="math notranslate nohighlight">\(52\)</span> cards, the probability of success is <span class="math notranslate nohighlight">\(p = \frac{13}[52} = 0.25\)</span>. Then the expected value is</p>
+<div class="math notranslate nohighlight">
+\[ \mu = n \cdot p = 50 \cdot 0.25 = 12.5. \]</div>
+<p>We expect you to win <span class="math notranslate nohighlight">\(12.5\)</span> of the <span class="math notranslate nohighlight">\(50\)</span> games.</p>
 </div>
-<div class="section" id="part-3">
-<h5>Part 3<a class="headerlink" href="#part-3" title="Permalink to this headline">¶</a></h5>
-<p><span class="math notranslate nohighlight">\(x = 0, 1, 2, 3, \ldots, 50\)</span></p>
+<div class="section" id="step-3">
+<h5>Step 3<a class="headerlink" href="#step-3" title="Permalink to this headline">¶</a></h5>
+<p>Since the probability of success is <span class="math notranslate nohighlight">\(p = 0.25\)</span> and <span class="math notranslate nohighlight">\(p + q = 1\)</span>, the probability of failure must be <span class="math notranslate nohighlight">\(q = 0.75\)</span>. Then the standard deviation is</p>
+<div class="math notranslate nohighlight">
+\[ \sigma = \sqrt{n \cdot p \cdot q} = \sqrt{50 \cdot 0.25 \cdot 0.75} = 3.0619. \]</div>
 </div>
-<div class="section" id="part-4">
-<h5>Part 4<a class="headerlink" href="#part-4" title="Permalink to this headline">¶</a></h5>
-<p>Failure is defined as a student who does not complete his or her homework on time.</p>
 </div>
-<div class="section" id="part-5">
-<h5>Part 5<a class="headerlink" href="#part-5" title="Permalink to this headline">¶</a></h5>
-<p>The number of trials is <span class="math notranslate nohighlight">\(n = 50\)</span>.</p>
-<p>The probability of success is <span class="math notranslate nohighlight">\(p = 0.70\)</span>.</p>
-<p>The probability of failure is <span class="math notranslate nohighlight">\(q = 0.30\)</span>.</p>
 </div>
-<div class="section" id="part-6">
-<h5>Part 6<a class="headerlink" href="#part-6" title="Permalink to this headline">¶</a></h5>
-<p>We want to know the probability that <strong>at least</strong> 40 will do their homework on time. We write this mathematically as <span class="math notranslate nohighlight">\(P(x \geq 40)\)</span>.</p>
+<hr class="docutils" />
+<div class="section" id="example-3-6-3">
+<h3>Example 3.6.3<a class="headerlink" href="#example-3-6-3" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## To Do: Video Example Binomial Distribution</span>
+</pre></div>
 </div>
-<div class="section" id="part-7">
-<h5>Part 7<a class="headerlink" href="#part-7" title="Permalink to this headline">¶</a></h5>
-<p>The expected value is
-$<span class="math notranslate nohighlight">\( \mu = np = 50(0.70) = 35 \)</span>$</p>
-</div>
-<div class="section" id="part-8">
-<h5>Part 8<a class="headerlink" href="#part-8" title="Permalink to this headline">¶</a></h5>
-<p>The standard deviation of the distribution is
-$<span class="math notranslate nohighlight">\( \sigma = \sqrt{npq} = \sqrt{50(0.70)(0.30)} = 3.2404 \)</span>$</p>
 </div>
 </div>
 </div>
@@ -790,11 +571,11 @@ where \)</span>n<span class="math notranslate nohighlight">\( is the number of t
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">dbinom</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">prob</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>where <code>x</code> is the value or list of values we want to calculate the probability for, <code>size</code> is the number of trials <span class="math notranslate nohighlight">\(n\)</span>, and <code>prob</code> is the probability of success <span class="math notranslate nohighlight">\(p\)</span> of one trial.</p>
+<p>where <code>x</code> is the number of successes we want to calculate the probability of obtaining, <code>size</code> is the number of trials <span class="math notranslate nohighlight">\(n\)</span>, and <code>prob</code> is the probability of success <span class="math notranslate nohighlight">\(p\)</span> of one trial. Alternatively, <code>x</code> could be a list of values, in which case the function will return a list of probabilities, one for each value in <code>x</code>.</p>
 <hr class="docutils" />
-<div class="section" id="example-3-5-4">
-<h3>Example 3.5.4<a class="headerlink" href="#example-3-5-4" title="Permalink to this headline">¶</a></h3>
-<p>It has been stated that about 41% of adult workers have a high school diploma but do not pursue any further education. 20 adult workers are randomly selected.</p>
+<div class="section" id="example-3-6-4">
+<h3>Example 3.6.4<a class="headerlink" href="#example-3-6-4" title="Permalink to this headline">¶</a></h3>
+<p>It has been stated that about <span class="math notranslate nohighlight">\(41\%\)</span> of adult workers have a high school diploma but do not pursue any further education. Suppose <span class="math notranslate nohighlight">\(20\)</span> adult workers are randomly selected.</p>
 <ol class="simple">
 <li><p>Find the probability that exactly 7 of the 20 workers have a high school diploma but do not pursue further education.</p></li>
 <li><p>Find the probability that at most 4 workers have a high school diploma but do not pursue further education.</p></li>
@@ -803,11 +584,12 @@ where \)</span>n<span class="math notranslate nohighlight">\( is the number of t
 </ol>
 <div class="section" id="id3">
 <h4>Solution<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
-<p>For this problem, <span class="math notranslate nohighlight">\(X\)</span> = the number of workers, of the 20 selected, that have a high school diploma but do not pursue further education. The number of trials is <span class="math notranslate nohighlight">\(n = 20\)</span>, and the probability of “success” is <span class="math notranslate nohighlight">\(p = 0.41\)</span>. So
-$<span class="math notranslate nohighlight">\( X \sim B(20, 0.41) \)</span>$</p>
+<p>For this problem, <span class="math notranslate nohighlight">\(X =\)</span> the number of workers, of the <span class="math notranslate nohighlight">\(20\)</span> selected, that have a high school diploma but do not pursue further education. The number of trials is <span class="math notranslate nohighlight">\(n = 20\)</span>, and the probability of “success” is <span class="math notranslate nohighlight">\(p = 0.41\)</span>. So</p>
+<div class="math notranslate nohighlight">
+\[ X \sim B(20, 0.41) \]</div>
 <div class="section" id="id4">
 <h5>Part 1<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
-<p>We want to find <span class="math notranslate nohighlight">\(P(x = 7)\)</span>. Simply use the <code>dbinom</code> function.</p>
+<p>We want to find <span class="math notranslate nohighlight">\(P(X = 7)\)</span>. We will use the <code>dbinom</code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">dbinom</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="m">7</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">20</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="m">0.41</span><span class="p">)</span>
@@ -817,11 +599,11 @@ $<span class="math notranslate nohighlight">\( X \sim B(20, 0.41) \)</span>$</p>
 <div class="cell_output docutils container">
 <div class="output text_html">0.158480894003918</div></div>
 </div>
-<p>The probability that exactly 7 of the 20 adults have a high school diploma but do not pursue further education is <span class="math notranslate nohighlight">\(P(x = 7) = 0.1585\)</span>, or 15.85%.</p>
+<p>The probability that exactly <span class="math notranslate nohighlight">\(7\)</span> of the <span class="math notranslate nohighlight">\(20\)</span> adults have a high school diploma but do not pursue further education is <span class="math notranslate nohighlight">\(P(X = 7) = 0.1585\)</span>, or <span class="math notranslate nohighlight">\(15.85\%\)</span>.</p>
 </div>
 <div class="section" id="id5">
 <h5>Part 2<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
-<p>We want to find <span class="math notranslate nohighlight">\(P(x \leq 4)\)</span>. In other words, we want to know the probability that <span class="math notranslate nohighlight">\(x\)</span> is 0 or 1 or 2 or 3 or 4. We will again use the <code>dbinom</code> function, but instead of passing a single value, we will pass a list of values. Let’s first see how this works.</p>
+<p>We want to find <span class="math notranslate nohighlight">\(P(X \leq 4)\)</span>. In other words, we want to know the probability that <span class="math notranslate nohighlight">\(x\)</span> is <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span> or <span class="math notranslate nohighlight">\(2\)</span> or <span class="math notranslate nohighlight">\(3\)</span> or <span class="math notranslate nohighlight">\(4\)</span>. We will again use the <code>dbinom</code> function, but instead of passing a single value, we will pass a list of values. Let’s first see how this works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
@@ -839,11 +621,11 @@ $<span class="math notranslate nohighlight">\( X \sim B(20, 0.41) \)</span>$</p>
 </ol>
 </div></div>
 </div>
-<p>This gives us a list of 5 probabilities, one for each value we passed. For example, we can see from the list that <span class="math notranslate nohighlight">\(P(x = 4) = 0.0295\)</span>.</p>
-<p>But these values are all mutually exclusive (because, for example, we can’t have at the same time 2 and 3 adults with a high school diploma but who do not pursue higher education; it is either 2, or 3, not both). So</p>
+<p>This gives us a list of <span class="math notranslate nohighlight">\(5\)</span> probabilities, one for each value we passed. For example, we can see from the list that <span class="math notranslate nohighlight">\(P(X = 4) = 0.0295\)</span>.</p>
+<p>But these values are all mutually exclusive (because, for example, we can’t have at the same time <span class="math notranslate nohighlight">\(2\)</span> and <span class="math notranslate nohighlight">\(3\)</span> adults with a high school diploma but who do not pursue higher education; it can be either <span class="math notranslate nohighlight">\(2\)</span>, or <span class="math notranslate nohighlight">\(3\)</span>, not both). So</p>
 <div class="math notranslate nohighlight">
-\[ P(x \leq 4) = P(x = 0) + P(x = 1) + P(x = 2) + P(x = 3) + P(x = 4); \]</div>
-<p>that is, we just need to add up these probabilities.</p>
+\[ P(X \leq 4) = P(X = 0) + P(X = 1) + P(X = 2) + P(X = 3) + P(X = 4); \]</div>
+<p>that is, we just need to add up these probabilities. We can do this quickly using the <code>sum</code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
@@ -855,11 +637,11 @@ $<span class="math notranslate nohighlight">\( X \sim B(20, 0.41) \)</span>$</p>
 <div class="cell_output docutils container">
 <div class="output text_html">0.0422964397112352</div></div>
 </div>
-<p>So <span class="math notranslate nohighlight">\(P(X \leq 4) = 0.0423\)</span>. That is, there is a 4.23% chance that no more than 4 adults of the 20 selected have a high school diploma but do not pursue higher education.</p>
+<p>So <span class="math notranslate nohighlight">\(P(X \leq 4) = 0.0423\)</span>. That is, there is a <span class="math notranslate nohighlight">\(4.23\%\)</span> chance that no more than <span class="math notranslate nohighlight">\(4\)</span> adults of the <span class="math notranslate nohighlight">\(20\)</span> selected have a high school diploma but do not pursue higher education.</p>
 </div>
 <div class="section" id="id6">
 <h5>Part 3<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h5>
-<p>We want <span class="math notranslate nohighlight">\(P(x &gt; 15)\)</span>.</p>
+<p>We want <span class="math notranslate nohighlight">\(P(X &gt; 15)\)</span>. “More than <span class="math notranslate nohighlight">\(15\)</span>” means that <span class="math notranslate nohighlight">\(16\)</span> or <span class="math notranslate nohighlight">\(17\)</span> or <span class="math notranslate nohighlight">\(18\)</span> or <span class="math notranslate nohighlight">\(19\)</span> or <span class="math notranslate nohighlight">\(20\)</span> of the adults have a high school diploma but do not pursue further education. (Note, we stop at <span class="math notranslate nohighlight">\(20\)</span> because that’s the total number of adults. We can’t have more successes than we have trials.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">16</span><span class="p">,</span> <span class="m">17</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="m">19</span><span class="p">,</span> <span class="m">20</span><span class="p">)</span>
@@ -871,10 +653,10 @@ $<span class="math notranslate nohighlight">\( X \sim B(20, 0.41) \)</span>$</p>
 <div class="cell_output docutils container">
 <div class="output text_html">0.000443150625878507</div></div>
 </div>
-<p>So <span class="math notranslate nohighlight">\(P(x &gt; 15) = 0.0004\)</span>. There is only a 0.04% chance that more than 15 of the 20 adults selected have a high school diploma but do not pursue further education.</p>
+<p>So <span class="math notranslate nohighlight">\(P(x &gt; 15) = 0.0004\)</span>. There is only a <span class="math notranslate nohighlight">\(0.04\%\)</span> chance that more than <span class="math notranslate nohighlight">\(15\)</span> of the <span class="math notranslate nohighlight">\(20\)</span> adults selected have a high school diploma but do not pursue further education.</p>
 </div>
-<div class="section" id="id7">
-<h5>Part 4<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h5>
+<div class="section" id="part-4">
+<h5>Part 4<a class="headerlink" href="#part-4" title="Permalink to this headline">¶</a></h5>
 <p>We want <span class="math notranslate nohighlight">\(P(8 &lt; x &lt; 18)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -887,24 +669,24 @@ $<span class="math notranslate nohighlight">\( X \sim B(20, 0.41) \)</span>$</p>
 <div class="cell_output docutils container">
 <div class="output text_html">0.440587402134619</div></div>
 </div>
-<p>So <span class="math notranslate nohighlight">\(P(8 &lt; x &lt; 18) = 0.4406\)</span>. This is a 44.06% chance that between 8 and 18 adults of the 20 selected have a high school diploma but do not pursue futher education.</p>
+<p>So <span class="math notranslate nohighlight">\(P(8 &lt; x &lt; 18) = 0.4406\)</span>. There is a <span class="math notranslate nohighlight">\(44.06\%\)</span> chance that between <span class="math notranslate nohighlight">\(8\)</span> and <span class="math notranslate nohighlight">\(18\)</span> adults of the <span class="math notranslate nohighlight">\(20\)</span> selected have a high school diploma but do not pursue futher education.</p>
 </div>
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="example-3-5-5">
-<h3>Example 3.5.5<a class="headerlink" href="#example-3-5-5" title="Permalink to this headline">¶</a></h3>
-<p>The lifetime risk of developing pancreatic cancer is about one in 78 (1.28%). Suppose we randomly sample 200 people. Let <span class="math notranslate nohighlight">\(X\)</span> = the number of people who will develop pancreatic cancer.</p>
+<div class="section" id="example-3-6-5">
+<h3>Example 3.6.5<a class="headerlink" href="#example-3-6-5" title="Permalink to this headline">¶</a></h3>
+<p>The lifetime risk of developing pancreatic cancer is about <span class="math notranslate nohighlight">\(1.28\%\)</span>. Suppose we randomly sample <span class="math notranslate nohighlight">\(200\)</span> people. Let <span class="math notranslate nohighlight">\(X =\)</span> the number of people who will develop pancreatic cancer.</p>
 <ol class="simple">
-<li><p>Is it more likely that five or six people will develop pancreatic cancer? Justify your answer numerically.</p></li>
+<li><p>Is it more likely that five people or six people of the <span class="math notranslate nohighlight">\(200\)</span> people in the sample will develop pancreatic cancer? Justify your answer numerically.</p></li>
 <li><p>Find the probability that less than eight people develop pancreatic cancer.</p></li>
 </ol>
-<div class="section" id="id8">
-<h4>Solution<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id7">
+<h4>Solution<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
 <p>For this problem, <span class="math notranslate nohighlight">\(X \sim B(200, 0.0128)\)</span>.</p>
-<div class="section" id="id9">
-<h5>Part 1<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h5>
-<p>We need to find <span class="math notranslate nohighlight">\(P(x = 5)\)</span> and <span class="math notranslate nohighlight">\(P(x = 6)\)</span> and see which probability is greater.</p>
+<div class="section" id="id8">
+<h5>Part 1<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h5>
+<p>We need to find <span class="math notranslate nohighlight">\(P(X = 5)\)</span> and <span class="math notranslate nohighlight">\(P(X = 6)\)</span> and see which probability is greater.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">)</span>
@@ -919,11 +701,11 @@ $<span class="math notranslate nohighlight">\( X \sim B(20, 0.41) \)</span>$</p>
 </ol>
 </div></div>
 </div>
-<p>So <span class="math notranslate nohighlight">\(P(x = 5) = 0.0707\)</span> and <span class="math notranslate nohighlight">\(P(x = 6) = 0.0298\)</span>. Since the probability is greater when <span class="math notranslate nohighlight">\(x = 5\)</span> than when <span class="math notranslate nohighlight">\(x = 6\)</span>, it is more likely that 5 people develop pancreatic cancer than it is for 6 people to develop pancreatic cancer.</p>
+<p>So <span class="math notranslate nohighlight">\(P(x = 5) = 0.0707\)</span> and <span class="math notranslate nohighlight">\(P(x = 6) = 0.0298\)</span>. Since the probability is greater when <span class="math notranslate nohighlight">\(x = 5\)</span> than when <span class="math notranslate nohighlight">\(x = 6\)</span>, it is more likely that <span class="math notranslate nohighlight">\(5\)</span> of the <span class="math notranslate nohighlight">\(200\)</span> people develop pancreatic cancer than it is for <span class="math notranslate nohighlight">\(6\)</span> of the <span class="math notranslate nohighlight">\(200\)</span> people to develop pancreatic cancer.</p>
 </div>
-<div class="section" id="id10">
-<h5>Part 2<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h5>
-<p>We want to find <span class="math notranslate nohighlight">\(P(x &lt; 8)\)</span>.</p>
+<div class="section" id="id9">
+<h5>Part 2<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h5>
+<p>We want to find <span class="math notranslate nohighlight">\(P(X &lt; 8)\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">7</span><span class="p">)</span>
@@ -935,24 +717,20 @@ $<span class="math notranslate nohighlight">\( X \sim B(20, 0.41) \)</span>$</p>
 <div class="cell_output docutils container">
 <div class="output text_html">0.995434178943854</div></div>
 </div>
-<p>So <span class="math notranslate nohighlight">\(P(x &lt; 8) = 0.9954\)</span>. There is a 99.54% chance that fewer than 8 of the 200 people sampled develop pancreatic cancer.</p>
+<p>So <span class="math notranslate nohighlight">\(P(x &lt; 8) = 0.9954\)</span>. There is a 99.54% chance that fewer than <span class="math notranslate nohighlight">\(8\)</span> of the <span class="math notranslate nohighlight">\(200\)</span> people sampled develop pancreatic cancer.</p>
 </div>
 </div>
 </div>
 <hr class="docutils" />
-<div class="section" id="example-3-5-6">
-<h3>Example 3.5.6<a class="headerlink" href="#example-3-5-6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="example-3-6-6">
+<h3>Example 3.6.6<a class="headerlink" href="#example-3-6-6" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">#**VID=XLKrsYg-WOE**#</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## To Do: Video Example dbinom</span>
 </pre></div>
 </div>
 </div>
 </div>
-<hr class="docutils" />
-<p><small style="color:gray"><b>License:</b> This work is licensed under a <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> license.</small></p>
-<p><small style="color:gray"><b>Author:</b> Taylor Baldwin, Mt. San Jacinto College</small></p>
-<p><small style="color:gray"><b>Adapted From:</b> <i>Introductory Statistics</i>, by Barbara Illowsky and Susan Dean. Access for free at <a class="reference external" href="https://openstax.org/books/introductory-statistics/pages/1-introduction">https://openstax.org/books/introductory-statistics/pages/1-introduction</a>.</small></p>
 </div>
 </div>
 </div>
@@ -991,15 +769,15 @@ $<span class="math notranslate nohighlight">\( X \sim B(20, 0.41) \)</span>$</p>
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">3.5. </span>3.4 Discrete Probability Distributions</p>
+                <p class="prevnext-title"><span class="section-number">3.5. </span>Discrete Probability Distributions</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="../Ch4%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem/4.0%20The%20Normal%20Distribution%20and%20the%20Central%20Limit%20Theorem.html" title="next page">
+        <a class="right-next" href="3.7%20Continuous%20Probability%20Distributions.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">4. </span>The Normal Distribution and the Central Limit Theorem</p>
+                <p class="prevnext-title"><span class="section-number">3.7. </span>Continuous Probability Distributions</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

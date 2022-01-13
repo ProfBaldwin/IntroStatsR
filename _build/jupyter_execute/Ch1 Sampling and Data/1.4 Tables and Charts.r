@@ -26,14 +26,14 @@ dev.off()
 
 ## To Do: Video Example Reading Barcharts
 
-proportions = c(19, 43, 38)
+proportions = c(19.11, 43.37, 37.52)
 age_groups = c("Children", "Working-age Adults", "Retirees")
 
 barplot(height = proportions, names = age_groups)
 
 png("park_city_barchart.png", width = 1000, height = 500)
 
-proportions = c(19, 43, 38)
+proportions = c(19.11, 43.37, 37.52)
 age_groups = c("Children", "Working-age Adults", "Retirees")
 
 barplot(height = proportions, names = age_groups, cex.names = 2, cex.axis = 2)
@@ -56,7 +56,7 @@ dev.off()
 
 ## To Do: Video Example Creating Bar Charts
 
-proportions = c(19, 43, 38)
+proportions = c(19.11, 43.37, 37.52)
 age_groups = c("Children", "Working-age Adults", "Retirees")
 
 pie(proportions, labels = age_groups)
@@ -65,7 +65,7 @@ png("park_city_piechart.png", width = 1000, height = 1000)
 
 par(mar = c(2, 0, 0, 0))
 
-proportions = c(19, 43, 38)
+proportions = c(19.11, 43.37, 37.52)
 age_groups = c("Children", "Working-age\nAdults", "Retirees")
 
 pie(proportions, labels = age_groups, cex = 2.5)
