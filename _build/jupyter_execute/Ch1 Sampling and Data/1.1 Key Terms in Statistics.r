@@ -10,11 +10,3 @@ par(mar = c(7, 7, 0, 0))
 hist(hours_sleep, main="", xlab="Hours Slept per Night", cex.lab = 2, cex.axis = 1.5, col = "gray70")
 
 dev.off()
-
-## To Do: Example Video
-
-## To Do: Example Video
-
-## To Do: Example Video
-
-## To Do: Example Video
