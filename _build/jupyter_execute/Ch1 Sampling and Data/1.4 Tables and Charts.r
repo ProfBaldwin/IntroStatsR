@@ -7,8 +7,6 @@
 # Relative Frequency for Hybrid Modality
 7/75
 
-## To Do: Example Video with missing relative frequency
-
 png("elementary_attendance_barchart.png", width = 1000, height = 500)
 
 absences = c(5, 2, 3, 4, 6)
@@ -23,8 +21,6 @@ barplot(height = absences, names = day, ylim = c(0,6.2), cex.names = 2, cex.axis
 dev.off()
 
 2/20 * 100
-
-## To Do: Video Example Reading Barcharts
 
 proportions = c(19.11, 43.37, 37.52)
 age_groups = c("Children", "Working-age Adults", "Retirees")
@@ -53,8 +49,6 @@ race = c("A", "B", "C", "D", "E", "F")
 barplot(height = APproportion, names = race, cex.names = 2, cex.axis = 2)
 
 dev.off()
-
-## To Do: Video Example Creating Bar Charts
 
 proportions = c(19.11, 43.37, 37.52)
 age_groups = c("Children", "Working-age Adults", "Retirees")
@@ -127,8 +121,6 @@ dev.off()
 
 130/255 * 100
 
-## To Do: Video Example Interpret Histogram
-
 data = c(60, 60.5, 61, 61, 61.5, 63.5, 63.5, 63.5, 64, 64, 64, 64, 64, 64, 64, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 64.5, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 66.5, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67, 67.5, 67.5, 67.5, 67.5, 67.5, 67.5, 68, 68, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69.5, 69.5, 69.5, 69.5, 69.5, 70, 70, 70, 70, 70, 70, 70.5, 70.5, 70.5, 71, 71, 71, 72, 72, 72, 72.5, 72.5, 73, 73.5, 74)
 
 hist(data)
@@ -174,5 +166,3 @@ barplot(height = freq, names = lab,
         cex.lab = 2.5, cex.axis = 2, cex.names = 2, cex.main = 2.5)
 
 dev.off()
-
-## To Do: Video Example Create Histogram
