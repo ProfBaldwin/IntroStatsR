@@ -50,8 +50,6 @@ mu
 M = quantile(x, probs = 0.50)
 M
 
-## To Do: Video Example Mean/Median
-
 xbar = (1*5000000 + 49*30000)/50
 xbar
 
@@ -101,5 +99,3 @@ Arrows((a + c)/2, -1.5, (a + c)/2, -0.17, lwd = 3, col = c3, arr.type = "triangl
 text(x = (a + c)/2, y = -1.5, labels = "Median", cex = 2, pos = 1, col = c3)
 
 dev.off()
-
-## To Do: Example Video like above

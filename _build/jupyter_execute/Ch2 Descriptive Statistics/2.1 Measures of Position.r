@@ -2,8 +2,6 @@ ages = c(18, 21, 22, 25, 26, 27, 29, 30, 31, 33, 36, 37, 41, 42, 47, 52, 55, 57,
 
 quantile(ages, probs = 0.73)
 
-## To Do: Video Example Quantiles
-
 library(beeswarm)
 
 png("quartiles_and_quarters.png", width = 1000, height = 700)
@@ -80,8 +78,6 @@ quantile(prices, probs = 0.50)
 #Third Quartile
 quantile(prices, probs = 0.75)
 
-## To Do: Video Example of Quartiles and Quarters
-
 data = c(1, 2, 2, 3, 5, 7, 9, 9, 11, 12, 15)
 
 quantile(data, probs = 0.25)
@@ -154,8 +150,6 @@ par(mar = c(1, 3, 1, 1))
 boxplot(heights, col = "gray70", lwd = 3, cex.axis = 2)
 
 dev.off()
-
-# To Do: Video Example on Boxplots
 
 data1 = c(64, 73, 101.3, 71.1, 94, 85.5, 99.9, 42, 92.4, 103, 54.7, 72.5, 101.9, 86.4, 47.2, 71.5, 71)
 data2 = c(56.8, 71, 49, 69.4, 67.6, 71, 68.5, 61.1, 50.9, 71, 71, 71, 72, 72, 71, 64, 67.2, 52.5, 71, 69, 72, 71.3, 58.3, 71, 71)
