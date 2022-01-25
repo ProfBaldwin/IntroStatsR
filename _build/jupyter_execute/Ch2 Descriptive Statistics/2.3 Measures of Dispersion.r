@@ -61,8 +61,6 @@ mu
 sigma = sqrt( sum( (x - mu)^2 )/N )
 sigma
 
-## To Do: Population Std. Dev. Example
-
 x = c(33, 42, 49, 49, 53, 55, 55, 61, 63, 67, 68, 68, 69, 69, 72, 73, 74, 78, 80, 83, 88, 88, 88, 90, 92, 94, 94, 94, 94, 96, 100)
 
 # Calculate the Sample Mean
