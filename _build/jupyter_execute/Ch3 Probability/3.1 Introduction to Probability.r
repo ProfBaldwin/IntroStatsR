@@ -1,5 +1,3 @@
-## To Do: Video Example Set Notation
-
 png("observed_coin_flips.png", width = 1000, height = 500)
 
 n = 1000
@@ -26,5 +24,3 @@ for (j in 1:N){
 }
 
 dev.off()
-
-## To Do: Video Example Equally Likely Probability
