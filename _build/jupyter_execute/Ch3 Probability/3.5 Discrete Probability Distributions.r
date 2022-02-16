@@ -1,5 +1,3 @@
-## To Do: Example Video Discrete Probability Distribution
-
 x = c(1, 2, 3, 4, 5, 6)
 Px = c(1/6, 1/6, 1/6, 1/6, 1/6, 1/6)
 
@@ -18,8 +16,6 @@ Px = c(0.00001, 0.99999)
 mu = sum(x*Px)
 mu
 
-## To Do: Video Example Expected Value
-
 x = c(1, 2, 3)
 Px = c(0.40, 0.55, 0.05)
 
@@ -37,5 +33,3 @@ mu
 
 sigma = sqrt( sum( (x - mu)^2 * Px ) )
 sigma
-
-## To Do: Example Video Standard Deviation
