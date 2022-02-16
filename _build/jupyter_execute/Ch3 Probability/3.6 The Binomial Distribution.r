@@ -1,5 +1,3 @@
-## To Do: Video Example Binomial Distribution
-
 dbinom(x = 7, size = 20, prob = 0.41)
 
 values = c(0, 1, 2, 3, 4)
@@ -23,5 +21,3 @@ dbinom(x = values, size = 200, prob = 0.0128)
 values = c(0, 1, 2, 3, 4, 5, 6, 7)
 probs = dbinom(x = values, size = 200, prob = 0.0128)
 sum(probs)
-
-## To Do: Video Example dbinom

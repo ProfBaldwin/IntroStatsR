@@ -465,7 +465,7 @@
 <li><p>There are only two possible outcomes, called “success” and “failure,” for each trial. The letter <span class="math notranslate nohighlight">\(p\)</span> denotes the probability of a success for one trial, and <span class="math notranslate nohighlight">\(q\)</span> denotes the probability of a failure for one trial. Since “success” and “failure” are complementary outcomes, <span class="math notranslate nohighlight">\(p + q = 1\)</span>. <br/><br/> Imagine we roll a six-sided die ten times, and we want to know many twos we roll. Then each of the <span class="math notranslate nohighlight">\(n = 10\)</span> trials is counted a “success” when we roll a two and is a “failure” when we roll anything that isn’t a two. In this case, the probability a trial is a success is <span class="math notranslate nohighlight">\(p = \frac{1}{6}\)</span>, and the probability a trial is a failure is <span class="math notranslate nohighlight">\(q = \frac{5}{6}\)</span>. (Note, <span class="math notranslate nohighlight">\(p + q = \frac{1}{6} + \frac{5}{6} = 1\)</span>.)<br/><br/></p></li>
 <li><p>The <span class="math notranslate nohighlight">\(n\)</span> trials of a binomial experiment are independent and are repeated using identical conditions. Because the <span class="math notranslate nohighlight">\(n\)</span> trials are independent and identical, the probability of success <span class="math notranslate nohighlight">\(p\)</span> and probability of failure <span class="math notranslate nohighlight">\(q\)</span> are the same for each trial. <br/><br/> In our binomial experiment of <span class="math notranslate nohighlight">\(n = 10\)</span> die rolls, we have a probabiliy of <span class="math notranslate nohighlight">\(p = \frac{1}{6}\)</span> of rolling a two on the second trial no matter what happened during the first trial. The probability of success and the probability of failure is the same for every roll of the die.</p></li>
 </ul>
-<p>The outcomes of a binomial experiment fit a <strong>binomial probability distribution</strong>, which is a special kind of discrete probability distribution. A binomial distribution is a formula that gives the probability that there were exactly <span class="math notranslate nohighlight">\(x\)</span> successes in the <span class="math notranslate nohighlight">\(n\)</span>, where we can choose any whole number <span class="math notranslate nohighlight">\(x\)</span>  between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>The outcomes of a binomial experiment fit a <strong>binomial probability distribution</strong>, which is a special kind of discrete probability distribution. A binomial distribution is a formula that gives the probability that there were exactly <span class="math notranslate nohighlight">\(x\)</span> successes in the <span class="math notranslate nohighlight">\(n\)</span> trials, where we can choose any whole number <span class="math notranslate nohighlight">\(x\)</span>  between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>The expected value of a binomial distribution is</p>
 <div class="math notranslate nohighlight">
 \[ \mu = n \cdot p. \]</div>
@@ -536,7 +536,7 @@
 </div>
 <div class="section" id="step-2">
 <h5>Step 2<a class="headerlink" href="#step-2" title="Permalink to this headline">¶</a></h5>
-<p>We want to find the expected value. There are <span class="math notranslate nohighlight">\(n = 50\)</span> trials since you play the game <span class="math notranslate nohighlight">\(50\)</span> times. Since we are interested in how many times you win the game, a trail is a success if you win. Since there are <span class="math notranslate nohighlight">\(13\)</span> spades in a deck of <span class="math notranslate nohighlight">\(52\)</span> cards, the probability of success is <span class="math notranslate nohighlight">\(p = \frac{13}[52} = 0.25\)</span>. Then the expected value is</p>
+<p>We want to find the expected value. There are <span class="math notranslate nohighlight">\(n = 50\)</span> trials since you play the game <span class="math notranslate nohighlight">\(50\)</span> times. Since we are interested in how many times you win the game, a trail is a success if you win. Since there are <span class="math notranslate nohighlight">\(13\)</span> spades in a deck of <span class="math notranslate nohighlight">\(52\)</span> cards, the probability of success is <span class="math notranslate nohighlight">\(p = \frac{13}{52} = 0.25\)</span>. Then the expected value is</p>
 <div class="math notranslate nohighlight">
 \[ \mu = n \cdot p = 50 \cdot 0.25 = 12.5. \]</div>
 <p>We expect you to win <span class="math notranslate nohighlight">\(12.5\)</span> of the <span class="math notranslate nohighlight">\(50\)</span> games.</p>
@@ -552,21 +552,15 @@
 <hr class="docutils" />
 <div class="section" id="example-3-6-3">
 <h3>Example 3.6.3<a class="headerlink" href="#example-3-6-3" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## To Do: Video Example Binomial Distribution</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/743d9cba1bb24148b87a09802e646f57" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div></div>
 </div>
 <hr class="docutils" />
 <div class="section" id="notation-and-calculation">
 <h2>Notation and Calculation<a class="headerlink" href="#notation-and-calculation" title="Permalink to this headline">¶</a></h2>
-<p>When we want to say that <span class="math notranslate nohighlight">\(X\)</span> is a random variable with a binomial distribution, we write
-$<span class="math notranslate nohighlight">\( X \sim B(n, p) \)</span><span class="math notranslate nohighlight">\(
-where \)</span>n<span class="math notranslate nohighlight">\( is the number of trials and \)</span>p$ is the probability of success of any one trial.</p>
+<p>When we want to say that <span class="math notranslate nohighlight">\(X\)</span> is a random variable with a binomial distribution, we write</p>
+<div class="math notranslate nohighlight">
+\[ X \sim B(n, p) \]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of trials and <span class="math notranslate nohighlight">\(p\)</span> is the probability of success of any one trial.</p>
 <p>We can calculate the the probability of a binomial distribution using the R function</p>
 <div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">dbinom</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">prob</span><span class="p">)</span>
 </pre></div>
@@ -724,14 +718,7 @@ where \)</span>n<span class="math notranslate nohighlight">\( is the number of t
 <hr class="docutils" />
 <div class="section" id="example-3-6-6">
 <h3>Example 3.6.6<a class="headerlink" href="#example-3-6-6" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1">## To Do: Video Example dbinom</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/699df3f7cfeb430392e6e8423a34e0dc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div></div>
 </div>
 </div>
 

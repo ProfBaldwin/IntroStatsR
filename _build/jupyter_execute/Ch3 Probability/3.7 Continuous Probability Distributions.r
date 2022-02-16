@@ -126,8 +126,6 @@ text(0, 3.07, labels = "y", cex = 2.5, pos = 3, xpd = TRUE)
 
 dev.off()
 
-## To Do: Video Example Is it a pdf?
-
 png("pdf_rect2.png", width = 1000, height = 500)
 
 par(mar = c(2, 3, 3, 2))
@@ -311,5 +309,3 @@ text(2.03, 0, labels = "x", cex = 2.5, pos = 4, xpd = TRUE)
 text(0, 1.03, labels = "y", cex = 2.5, pos = 3, xpd = TRUE)
 
 dev.off()
-
-## To Do: PDF Probabilities
